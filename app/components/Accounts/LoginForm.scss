@@ -1,0 +1,70 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+
+  justify-content: space-between;
+  margin: 0;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+
+  .dashboard-container {
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    border-color: #60a5fa;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    justify-content: right;
+    height: 100vh;
+    padding-top: 25%;
+    padding-right: 3%;
+  }
+
+  .dashboard-login-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .horizontail-logo-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .horizontal-logo-image-container {
+    display: grid;
+    place-items: center;
+    padding-top: 250px;
+  }
+
+  .image-background {
+    background-image: linear-gradient(to bottom right, #25d4ff, #7c4eed);
+    background-size: cover;
+    background-position: center top;
+    min-height: calc(100vh - 1px);
+  }
+
+  .athlete-platform-text {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 30px;
+    padding-right: 30px;
+  }
+
+  .athlete-protect-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}

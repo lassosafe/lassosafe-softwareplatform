@@ -1,0 +1,85 @@
+.concern-questions-container {
+  padding: 20px;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  margin: 30px;
+  margin-top: 5rem;
+
+  .emotional-safety-quiz {
+    font-weight: bold;
+  }
+
+  .question-and-help-text {
+    display: flex;
+  }
+
+  .question {
+    font-weight: bold;
+    max-width: 65rem;
+  }
+
+  .next-page-button {
+    background-color: #4099ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .evaluation-title {
+    font-weight: bold;
+    font-size: 1.55rem;
+  }
+
+  .concern-title {
+    margin-bottom: 20px;
+    color: red;
+  }
+
+  .response-options {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.evaluation-header {
+  position: fixed;
+  top: 0;
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  position: fixed;
+  z-index: 1000;
+  margin-bottom: 50px;
+}
+
+.header-logo {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 150px;
+}
+
+.info-logo-concern {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.tool-tip-box {
+  background-color: white;
+  color: black;
+  border-radius: 0.5rem;
+  border-color: black;
+  box-shadow: 5px 5px 10px gray;
+  max-width: 50%;
+  height: fit-content;
+  opacity: 1;
+  border: 0.1rem solid black;
+  padding: 0;
+  z-index: 1028;
+}

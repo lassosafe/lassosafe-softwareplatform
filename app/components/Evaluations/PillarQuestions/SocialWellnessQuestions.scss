@@ -1,0 +1,72 @@
+.social-wellness-questions-container {
+  margin: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 100px;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  padding: 20px;
+
+  .response-options {
+    margin-bottom: 40px;
+  }
+
+  .question {
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+  .question-and-help-text {
+    display: flex;
+  }
+
+  .next-page-button {
+    background-color: #4099ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .evaluation-title {
+    font-weight: bold;
+    font-size: 1.55rem;
+  }
+
+  .evaluation-title-2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #4099ff;
+    margin-bottom: 25px;
+  }
+
+  .info-tool-tip {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    width: 50%;
+    opacity: 100;
+  }
+}
+
+.evaluation-header {
+  position: fixed;
+  top: 0;
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  position: fixed;
+  z-index: 1000;
+  margin-bottom: 50px;
+}
+
+.header-logo {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 150px;
+}

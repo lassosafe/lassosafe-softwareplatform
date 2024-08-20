@@ -1,0 +1,76 @@
+.wellness-evaluation-intro-container {
+  padding: 20px;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  margin: 30px;
+  margin-top: 75px;
+
+  .athlete-helpline {
+    color: #4099ff;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .adjacent-selectors {
+    display: flex;
+  }
+
+  .selector {
+    margin: 20px;
+    width: 30%;
+  }
+
+  .start-evaluation-container {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+  }
+
+  .start-evaluation-button {
+    background-color: #4099ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .thank-you {
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .description {
+    margin-top: 20px;
+    font-size: 1.25rem;
+  }
+
+  .under-18-text {
+    margin-left: 20px;
+    font-style: italic;
+  }
+}
+
+.evaluation-header {
+  position: fixed;
+  top: 0;
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  position: fixed;
+  z-index: 1000;
+  margin-bottom: 50px;
+}
+
+.header-logo {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 150px;
+}

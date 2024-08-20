@@ -1,0 +1,51 @@
+.methodology-container {
+  padding-left: 20rem;
+  padding-top: 6rem;
+  background-color: #f6f7fb;
+  padding-bottom: 6rem;
+
+  .methodology-title {
+    font-weight: bold;
+    font-size: 1.75rem;
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 90%;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    background-color: white;
+  }
+
+  .methodology-text {
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 90%;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    background-color: white;
+    padding-bottom: 2rem;
+  }
+
+  .methodology-text-header {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding-bottom: 0.55rem;
+    padding-top: 1rem;
+  }
+
+  .methodology-motto {
+    font-weight: bold;
+    color: #4099ff;
+    font-size: 1.5rem;
+    font-style: italic;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .methodology-header-small {
+    font-weight: bold;
+    padding-top: 1.5rem;
+  }
+}
+
+.center-components {
+  display: flex;
+}

@@ -1,0 +1,47 @@
+.instructions-container {
+  padding-left: 18rem;
+  padding-top: 6rem;
+  background-color: #f6f7fb;
+  padding-bottom: 6rem;
+
+  .instructions-title {
+    font-weight: bold;
+    font-size: 1.75rem;
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 90%;
+    padding: 1.5rem;
+    padding-left: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+  }
+
+  .instructions-text {
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 90%;
+    padding: 1.5rem;
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .question {
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+
+  .list-header {
+    margin-top: 1rem;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+    margin-left: 2rem;
+  }
+}

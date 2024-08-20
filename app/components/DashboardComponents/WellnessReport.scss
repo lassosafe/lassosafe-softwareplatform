@@ -1,0 +1,84 @@
+.temp-results {
+  color: red;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.title-elements {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-title {
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.category-text {
+  padding-right: 0.5rem;
+}
+
+.reporting-dashboard-title {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-legend {
+  display: flex;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  margin-left: 30%;
+  margin-top: 1%;
+  width: fit-content;
+
+  .grade-text {
+    font-size: 0.85rem;
+  }
+
+  .gradeA {
+    display: flex;
+    padding: 1rem;
+
+    .gradeAColor {
+      height: 1rem;
+      width: 1rem;
+      background-color: #2ed8b6;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+    }
+  }
+  .gradeC {
+    display: flex;
+    padding: 1rem;
+
+    .gradeCColor {
+      height: 1rem;
+      width: 1rem;
+      background-color: #ffc107;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+    }
+  }
+  .gradeD {
+    display: flex;
+    padding: 1rem;
+
+    .gradeDColor {
+      height: 1rem;
+      width: 1rem;
+      background-color: #ee4b2b;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+    }
+  }
+}
+
+.info-logo-category {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: 0.1rem;
+  margin-top: 0.2rem;
+}

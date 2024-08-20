@@ -1,0 +1,134 @@
+.new-evaluation-container {
+  margin-left: 300px;
+  margin-top: 5rem;
+  padding-bottom: 200px;
+
+  .evaluation-choices-dropdown {
+    width: 100px;
+  }
+
+  .new-evaluation-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 50rem;
+    padding: 1rem;
+    padding-left: 30px;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .new-evaluation-body {
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 50rem;
+    padding: 20px;
+    padding-left: 30px;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 30px;
+  }
+
+  .add-emails-text-box {
+    border: 1px solid black;
+    outline: 1px solid black;
+  }
+
+  .create-evaluation-button {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: #4099ff;
+  }
+
+  .evaluation-title {
+    border: 1px solid black;
+    outline: 1px solid black;
+    margin-bottom: 20px;
+  }
+
+  .evaluation-header {
+    font-weight: bold;
+  }
+
+  .add-email-instructions {
+    font-size: 0.85rem;
+    padding-top: 10px;
+  }
+
+  .form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .evaluation-category-selector {
+    margin-bottom: 20px;
+  }
+
+  .expiration-date-selector {
+    margin-bottom: 20px;
+  }
+
+  .new-eval-url {
+    font-size: 1rem;
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 90%;
+    padding: 20px;
+    padding-left: 30px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .new-evaluation-button {
+    background-color: #4099ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .copy-icon {
+    color: #4099ff;
+    margin-right: 10px;
+  }
+
+  .email-template-title {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .copy-instructions {
+    margin-bottom: 10px;
+  }
+
+  .evaluation-created-container {
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 90%;
+    padding: 20px;
+    padding-left: 30px;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 30px;
+
+    .evaluation-created-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  .date-picker {
+    width: 20rem;
+  }
+}

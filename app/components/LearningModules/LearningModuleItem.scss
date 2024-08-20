@@ -1,0 +1,30 @@
+.learning-module-item-container {
+  border-bottom: 0.1rem solid lightgray;
+  margin-bottom: 1rem;
+
+  .learning-module-item-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #4099ff;
+  }
+
+  .learning-module-item-description {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .purchase-button-container {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .purchase-button {
+    border: 0.1rem solid #4099ff;
+    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #4099ff;
+    color: white;
+    border-radius: 0.5rem;
+  }
+}

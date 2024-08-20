@@ -1,0 +1,16 @@
+.dashboard-footer {
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  width: 100%;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  height: 3.5rem;
+  text-align: center;
+  display: table;
+  z-index: 1000;
+}
+
+.dashboard-footer-text {
+  display: table-cell;
+  vertical-align: middle;
+}

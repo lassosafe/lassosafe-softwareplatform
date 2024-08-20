@@ -1,0 +1,57 @@
+.learning-modules-container {
+  padding-left: 17rem;
+  padding-top: 6rem;
+  background-color: #f6f7fb;
+  display: flex;
+
+  .learning-modules-title {
+    font-weight: bold;
+    font-size: 2rem;
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 95%;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    background-color: white;
+  }
+
+  .categories {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .learning-modules-card {
+    box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+    width: 95%;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: white;
+    display: flex;
+  }
+
+  .navigation-bar-page-learning-module {
+    padding: 0.75rem;
+    width: 10rem;
+  }
+
+  .learning-module-component {
+    background-color: white;
+    padding: 1.5rem;
+    padding-top: 3.5rem;
+  }
+
+  .navigation-bar-list {
+    :hover {
+      color: #4099ff;
+    }
+  }
+}
+
+.learning-modules-category-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  margin-top: 0.1rem;
+  border-bottom: 0.1rem solid lightgray;
+}

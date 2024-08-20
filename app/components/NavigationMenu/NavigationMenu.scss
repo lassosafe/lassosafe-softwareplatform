@@ -1,0 +1,41 @@
+.navigation-bar {
+  height: 225rem;
+  background-color: white;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease;
+  padding-top: 3.5rem;
+  position: fixed;
+  box-shadow: 2px 0 2.94px 0.06px rgba(4, 26, 55, 0.16);
+  color: gray;
+  display: block;
+  margin-top: 1.5rem;
+  position: absolute;
+  top: 0;
+  transition: all 0.05s ease-in-out;
+  width: 14rem;
+}
+
+.navigation-bar-header {
+  font-weight: bold;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.navigation-bar-page {
+  padding-left: 1.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  :hover {
+    color: #4099ff;
+  }
+}
+
+.navigation-bar-home {
+  padding-left: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  :hover {
+    color: #4099ff;
+  }
+}

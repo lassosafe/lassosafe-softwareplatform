@@ -1,0 +1,68 @@
+.abuse-questions-container {
+  padding: 20px;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  margin: 30px;
+  margin-top: 5rem;
+
+  .emotional-safety-quiz {
+    font-weight: bold;
+  }
+
+  .question-and-help-text {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .question {
+    font-weight: bold;
+  }
+
+  .next-page-button {
+    background-color: #4099ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .evaluation-title {
+    font-weight: bold;
+    font-size: 1.55rem;
+  }
+
+  .abuse-title {
+    margin-bottom: 20px;
+    color: red;
+  }
+
+  .response-options-multi-checkbox {
+    display: grid;
+    align-items: center;
+  }
+
+  .multi-checkbox-responses {
+  }
+}
+
+.evaluation-header {
+  position: fixed;
+  top: 0;
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  position: fixed;
+  z-index: 1000;
+  margin-bottom: 50px;
+}
+
+.header-logo {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 150px;
+}

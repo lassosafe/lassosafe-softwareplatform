@@ -1,0 +1,92 @@
+.dashboard {
+  //overflow-y: auto;
+
+  .dashboard-objects {
+    .temp-results {
+      color: red;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .category-title {
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .category-text {
+    padding-right: 0.5rem;
+  }
+
+  .tool-tip-box {
+    background-color: white;
+    color: black;
+    border-radius: 0.5rem;
+    border-color: black;
+    box-shadow: 5px 5px 10px gray;
+    max-width: 50%;
+    height: fit-content;
+    opacity: 1;
+    border: 0.1rem solid black;
+    padding: 0;
+    z-index: 1028;
+  }
+
+  .tool-tip-box-title {
+    color: #ff5370 !important;
+    background-color: #f7f7f7;
+    font-size: 1rem;
+    padding: 1rem;
+    padding-left: 1.1rem;
+    border-bottom: 0.1rem solid lightgray;
+  }
+
+  .tool-tip-box-description {
+    font-weight: 400;
+    padding: 1.25rem;
+  }
+}
+
+.home-page-components {
+  margin-top: 5.5rem;
+  margin-left: 16.5rem;
+  margin-right: 5rem;
+}
+
+.quick-go-to {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.quick-button {
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  color: white;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  width: 15rem;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  margin-left: 3rem;
+}
+
+.welcome-text {
+  color: #4099ff;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-sub-text {
+  display: flex;
+  justify-content: center;
+  color: gray;
+}
