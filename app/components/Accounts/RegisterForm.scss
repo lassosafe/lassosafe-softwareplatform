@@ -1,0 +1,71 @@
+.register-form-container {
+  .thank-you-payment {
+    text-align: center;
+  }
+
+  .register-form-input {
+    display: block;
+    margin: auto;
+    padding-left: 0.5rem;
+  }
+
+  .register-form-input-disabled {
+    display: block;
+    margin: auto;
+    padding-left: 0.5rem;
+    color: gray;
+  }
+
+  .instructions-bottom {
+    margin-bottom: 1.5rem;
+  }
+
+  .create-account-button {
+    background-color: #4099ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  .input-label {
+    margin-left: 0.75rem;
+    font-weight: bold;
+  }
+
+  .password-view-button {
+    border: 0.1rem solid black;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 0.25rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
+    margin-left: 0.75rem;
+  }
+}
+
+.evaluation-header {
+  position: fixed;
+  top: 0;
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 11%;
+  position: fixed;
+  z-index: 1000;
+}
+
+.header-logo {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  width: 10rem;
+}

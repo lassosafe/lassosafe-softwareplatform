@@ -113,7 +113,7 @@ const getStrategicSuggestions = (scores: number[], attributeId: number) => {
         learningModule.strategic_suggestions &&
         learningModule.strategic_suggestions.includes(attributeName)
     );
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
       if (i < ss.length) {
         strategicSuggestions.push(ss[i]);
       }
@@ -578,7 +578,7 @@ export default function DashboardGraphCard({
                                     target="_blank"
                                     className="strategic-suggestions-button"
                                   >
-                                    {ss.sku}
+                                    {ss.credit_title}
                                   </a>
                                 </div>
                               );
@@ -630,7 +630,7 @@ export default function DashboardGraphCard({
                                     target="_blank"
                                     className="strategic-suggestions-button"
                                   >
-                                    {ss.sku}
+                                    {ss.credit_title}
                                   </a>
                                 </div>
                               );
@@ -692,7 +692,7 @@ export default function DashboardGraphCard({
                                     target="_blank"
                                     className="strategic-suggestions-button"
                                   >
-                                    {ss.sku}
+                                    {ss.credit_title}
                                   </a>
                                 </div>
                               );
@@ -744,7 +744,7 @@ export default function DashboardGraphCard({
                                     target="_blank"
                                     className="strategic-suggestions-button"
                                   >
-                                    {ss.sku}
+                                    {ss.credit_title}
                                   </a>
                                 </div>
                               );
@@ -805,7 +805,7 @@ export default function DashboardGraphCard({
                                     target="_blank"
                                     className="strategic-suggestions-button"
                                   >
-                                    {ss.sku}
+                                    {ss.credit_title}
                                   </a>
                                 </div>
                               );
@@ -856,7 +856,7 @@ export default function DashboardGraphCard({
                                     target="_blank"
                                     className="strategic-suggestions-button"
                                   >
-                                    {ss.sku}
+                                    {ss.credit_title}
                                   </a>
                                 </div>
                               );

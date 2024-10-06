@@ -1,0 +1,110 @@
+.read-more {
+  text-decoration: underline;
+  color: blue;
+}
+
+.subscription-page-elements {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rem;
+}
+
+.platform-description-text {
+  border: 0.1rem solid black;
+  padding: 1.5rem;
+  margin-left: 3rem;
+  width: 50%;
+  margin-top: 2rem;
+}
+
+.list-title {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
+.swp-register {
+  color: navy;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 7rem;
+}
+
+.join-movement {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.subscription-plan-selection {
+  margin-right: 5rem;
+  margin-left: 5rem;
+  width: 50%;
+}
+
+.evaluation-header {
+  position: fixed;
+  top: 0;
+  background: linear-gradient(90deg, #4099ff, #6e7ff3);
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 7%;
+  position: fixed;
+  z-index: 1000;
+}
+
+.header-logo {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  width: 15rem;
+}
+
+.purchase-button {
+  background-color: #4099ff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.example-swp-dashboard {
+  margin-top: 0.1rem;
+}
+
+.pricing {
+  margin-top: 2.5rem;
+  .pricing-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  .first-price {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .second-price {
+    margin-top: 0.5rem;
+  }
+
+  .and {
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 7rem;
+  }
+
+  .payment-instructions {
+    font-style: italic;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+}

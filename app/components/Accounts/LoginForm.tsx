@@ -59,11 +59,13 @@ export default function LoginForm() {
         <h1 className="dashboard-login-title">Dashboard Login</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <input
+            className="login-input"
             onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="Email"
           />
           <input
+            className="login-input"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
@@ -76,6 +78,24 @@ export default function LoginForm() {
               {error}
             </div>
           )}
+          <p className="no-account">
+            <b>Don't have an account?</b> Click{" "}
+            <a href="/pages/subscription" className="subscription-link">
+              here
+            </a>{" "}
+            to purchase a subscription.
+          </p>
+          <p>
+            <b>Want to learn more?</b> Click{" "}
+            <a
+              href="https://lassosafe.com"
+              target="_blank"
+              className="subscription-link"
+            >
+              here
+            </a>{" "}
+            to learn more about Lasso Safe.
+          </p>
 
           {/* <Link className="text-sm mt-3 text-right" href={"/register"}>
             Don't have an account? <span className="underline">Register</span>

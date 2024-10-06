@@ -169,7 +169,7 @@ export default function ReportingDashboard() {
                     />
                   </div>
 
-                  {!isExpired && displayedEvaluation && (
+                  {/* {!isExpired && displayedEvaluation && (
                     <div className="temp-results">
                       Below are temporary results as the evaluation campaign is
                       not yet complete. Please check back on{" "}
@@ -178,7 +178,7 @@ export default function ReportingDashboard() {
                       ).toLocaleDateString()}{" "}
                       for complete results.
                     </div>
-                  )}
+                  )} */}
                   <div className="title-elements">
                     <div className="reporting-dashboard-title">
                       <p>
