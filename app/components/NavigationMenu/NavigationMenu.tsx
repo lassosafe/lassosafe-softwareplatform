@@ -73,12 +73,13 @@ export default function NavigationMenu() {
             <p>Learning Modules</p>
           </div>
         </li>
-        {/* <li
-          className="navigation-bar-page"
+        <li
+          className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
+          onClick={() => (window.location.href = "/pages/accountInformation")}
         >
-          <p>Settings</p>
-        </li> */}
+          <p>Account Settings</p>
+        </li>
         <li
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}

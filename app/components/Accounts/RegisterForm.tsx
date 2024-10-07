@@ -15,6 +15,7 @@ export default function RegisterForm() {
   const [name, setName] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [stripeSubscriptionId, setStripeSubscriptionId] = useState<string>("");
   const [error, setError] = useState<string>();
   const [passwordButtonText, setPasswordButtonText] =
     useState<string>("View Password");
@@ -37,9 +38,11 @@ export default function RegisterForm() {
           stripeSessionId,
         }),
       });
-      const { customerEmail, customerName } = await response.json();
+      const { customerEmail, customerName, stripeSubscriptionId } =
+        await response.json();
       setName(customerName);
       setEmail(customerEmail);
+      setStripeSubscriptionId(stripeSubscriptionId);
     };
     getStripePaymentInfo();
   }, []);
@@ -55,20 +58,20 @@ export default function RegisterForm() {
     }
 
     try {
-      const responseUserExists = await fetch("../api/userExists", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      // const responseUserExists = await fetch("../api/userExists", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ email }),
+      // });
 
-      const { user } = await responseUserExists.json();
+      // const { user } = await responseUserExists.json();
 
-      if (user) {
-        setError("User already exists.");
-        return;
-      }
+      // if (user) {
+      //   setError("User already exists.");
+      //   return;
+      // }
 
       const response = await fetch("../api/register", {
         method: "POST",
@@ -80,6 +83,7 @@ export default function RegisterForm() {
           name,
           email,
           password,
+          stripeSubscriptionId,
         }),
       });
       if (response.ok) {

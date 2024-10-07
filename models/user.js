@@ -14,6 +14,22 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    stripeSubscriptionId: {
+      type: String,
+      required: true,
+    },
+    accountCreationDate: {
+      type: Date,
+      required: true,
+    },
+    hasCanceled: {
+      type: Boolean,
+      required: true,
+    },
+    accountExpirationDate: {
+      type: Date,
+      required: true,
+    },
   },
   { timestamps: true }
 );

@@ -16,7 +16,11 @@ export async function POST(req) {
     console.log(session);
     const customerEmail = session.customer_details.email;
     const customerName = session.customer_details.name;
-    return NextResponse.json({ customerEmail, customerName }, { status: 200 });
+    const stripeSubscriptionId = session.subscription;
+    return NextResponse.json(
+      { customerEmail, customerName, stripeSubscriptionId },
+      { status: 200 }
+    );
     //res.status(200).json({ sessionId: session.id });
   } catch (err) {
     return NextResponse.json({ error: err.message }, { status: 500 });

@@ -8,26 +8,8 @@ import exampleswpdashboard from "../../../public/images/example-swp-dashboard.pn
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 
 import "./Subscription.scss";
-import { SelectInput } from "../Inputs/SelectInput";
 import { TextInput } from "../Inputs/SingleLineTextInput";
-
-const subscriptionPlanOptions = [
-  {
-    value: "1",
-    optionLabel: "small",
-    priceId: "price_1Q6IYDDtt4SMJazLkoBQrEbk",
-  },
-  {
-    value: "2",
-    optionLabel: "medium",
-    priceId: "price_1Q6IYDDtt4SMJazLkoBQrEbk",
-  },
-  {
-    value: "3",
-    optionLabel: "large",
-    priceId: "price_1Q6IYDDtt4SMJazLkoBQrEbk",
-  },
-];
+import Footer from "../Footer/Footer";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
@@ -51,11 +33,6 @@ export default function SubscriptionForm() {
       process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
     );
 
-    // const subscriptionPlan = formData.subscriptionPlan;
-    // const subscriptionPlanId = subscriptionPlanOptions.find(
-    //   (s) => s.value === subscriptionPlan
-    // )?.priceId;
-
     const stripe = await stripePromise;
     if (!stripe) {
       return;
@@ -66,7 +43,6 @@ export default function SubscriptionForm() {
     const response = await fetch("/api/checkoutSession", {
       method: "POST",
       body: JSON.stringify({
-        priceId: "price_1Q6IYDDtt4SMJazLkoBQrEbk",
         numParticipants: parseInt(numParticipants),
       }),
     });
@@ -79,63 +55,7 @@ export default function SubscriptionForm() {
     if (result.error) {
       console.error(result.error.message);
       alert(result.error.message);
-      //setLoading(false);
     }
-    //event.preventDefault();
-    // const f = formData;
-    // const stripe = await stripePromise;
-    // const elements = useElements();
-    // if (!stripe && !elements) {
-    //   return;
-    // }
-
-    // const { error } = await stripe.confirmPayment({
-    //   elements,
-    //   confirmParams: {
-    //     return_url: "http://localhost:3000",
-    //   },
-    // });
-
-    // const cardElement = elements.getElement(CardElement);
-
-    // await stripe
-    //   .createPaymentMethod({
-    //     type: "card",
-    //     card: cardElement,
-    //   })
-    //   .then(async (result) => {
-    //     if (result.error) {
-    //       console.error("Error creating payment method:", result.error);
-    //       return;
-    //     } else {
-    //       const response = await fetch("/api/create-subscription", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({
-    //           priceId,
-    //           paymentMethodId: result.paymentMethod.id,
-    //         }),
-    //       });
-    //     }
-    //   });
-
-    // const { error, paymentMethod } = await stripe.createPaymentMethod({
-    //   type: "card",
-    //   card: cardElement,
-    // });
-
-    // if (error) {
-    //   console.error("Error creating payment method:", error);
-    //   return;
-    // } else {
-    //   const response = await fetch("/api/create-subscription", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ priceId, paymentMethodId: paymentMethod.id }),
-    //   });
-
-    //   // Handle response
-    // }
   };
 
   return (
@@ -220,13 +140,6 @@ export default function SubscriptionForm() {
               received.
             </p>
           </div>
-          {/* <button
-            type="submit"
-            className="purchase-button"
-            onSubmit={handleSubmitSubscription()}
-          > */}
-          {/* Click Here to Purchase Membership
-          </button> */}
 
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitSubscription)}>
@@ -256,6 +169,7 @@ export default function SubscriptionForm() {
           ></Image>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

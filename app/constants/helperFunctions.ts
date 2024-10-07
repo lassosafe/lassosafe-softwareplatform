@@ -24,3 +24,76 @@ export const adjustColor = (hexColor: string, magnitude: number) => {
     return hexColor;
   }
 };
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const ordinalNumbers = [
+  "1st",
+  "2nd",
+  "3rd",
+  "4th",
+  "5th",
+  "6th",
+  "7th",
+  "8th",
+  "9th",
+  "10th",
+  "11th",
+  "12th",
+  "13th",
+  "14th",
+  "15th",
+  "16th",
+  "17th",
+  "18th",
+  "19th",
+  "20th",
+  "21st",
+  "22nd",
+  "23rd",
+  "24th",
+  "25th",
+  "26th",
+  "27th",
+  "28th",
+  "29th",
+  "30th",
+  "31st",
+];
+
+export const dateToMonthAndDay = (date: Date) => {
+  const d = new Date(date);
+  const month = months[d.getMonth()];
+  const day = ordinalNumbers[d.getDay() - 1];
+  return month + " " + day;
+};
+
+export const currentOrFutureYear = (date: Date) => {
+  const d = new Date(date);
+  const dateMonth = d.getMonth();
+  const dateDay = d.getDay();
+  const today = new Date(Date.now());
+  const currentMonth = today.getMonth();
+  const currentDay = today.getDay();
+  const currentYear = today.getFullYear();
+  if (
+    currentMonth > dateMonth ||
+    (currentMonth === dateMonth && currentDay > dateDay)
+  ) {
+    return currentYear + 1;
+  }
+  return currentYear;
+};
