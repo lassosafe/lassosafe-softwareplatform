@@ -31,8 +31,8 @@ export async function POST(req) {
       mode: "subscription",
       payment_method_types: ["card"],
       line_items: [recurringPlatformFee, firstYearPlatformFee, participantFee],
-      success_url: `http://localhost:3000/pages/register?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/pages/paymentFailed`,
+      success_url: `${process.env.NEXTAUTH_URL}/pages/register?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXTAUTH_URL}/pages/paymentFailed`,
     });
     return NextResponse.json({ sessionId: session.id }, { status: 200 });
     //res.status(200).json({ sessionId: session.id });
