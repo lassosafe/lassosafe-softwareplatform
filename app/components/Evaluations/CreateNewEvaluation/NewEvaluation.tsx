@@ -74,10 +74,9 @@ export default function NewEvaluation() {
     const { newEvaluationDbEntry } = await newEvaluation.json();
     const evaluationId = newEvaluationDbEntry._id;
 
+    const domain = process.env.NEXT_PUBLIC_AUTH_URL;
     setNewEvaluationURL(
-      `${
-        process.env.NEXTAUTH_URL
-      }/pages/evalIntro?evalId=${evaluationId}&cids=${categoryIds.toString()}`
+      `${domain}/pages/evalIntro?evalId=${evaluationId}&cids=${categoryIds.toString()}`
     );
 
     // const emailData = {
