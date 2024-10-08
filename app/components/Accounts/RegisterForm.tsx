@@ -10,12 +10,15 @@ import Image from "next/image";
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 
 import "./RegisterForm.scss";
+import Footer from "../Footer/Footer";
 
 export default function RegisterForm() {
   const [name, setName] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [stripeSubscriptionId, setStripeSubscriptionId] = useState<string>("");
+  const [numberParticipants, setNumberParticipants] = useState<number>(0);
+
   const [error, setError] = useState<string>();
   const [passwordButtonText, setPasswordButtonText] =
     useState<string>("View Password");
@@ -38,11 +41,16 @@ export default function RegisterForm() {
           stripeSessionId,
         }),
       });
-      const { customerEmail, customerName, stripeSubscriptionId } =
-        await response.json();
+      const {
+        customerEmail,
+        customerName,
+        stripeSubscriptionId,
+        numberParticipants,
+      } = await response.json();
       setName(customerName);
       setEmail(customerEmail);
       setStripeSubscriptionId(stripeSubscriptionId);
+      setNumberParticipants(numberParticipants);
     };
     getStripePaymentInfo();
   }, []);
@@ -84,6 +92,7 @@ export default function RegisterForm() {
           email,
           password,
           stripeSubscriptionId,
+          numberParticipants,
         }),
       });
       if (response.ok) {
@@ -175,6 +184,7 @@ export default function RegisterForm() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

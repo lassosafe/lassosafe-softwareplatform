@@ -13,6 +13,7 @@ import {
 } from "@/app/constants/wellnessEvaluationIntroOptions";
 import horizontallogowhite from "../../../../public/images/logo-horizontal-white.png";
 import Image from "next/image";
+import Footer from "../../Footer/Footer";
 
 import "./WellnessEvaluationIntro.scss";
 import { separateStrings } from "@/app/constants/helperFunctions";
@@ -160,6 +161,7 @@ export default function WellnessEvaluationIntro() {
           </form>
         </FormProvider>
       </div>
+      <Footer />
     </>
   );
 }

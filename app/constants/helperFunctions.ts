@@ -77,7 +77,7 @@ const ordinalNumbers = [
 export const dateToMonthAndDay = (date: Date) => {
   const d = new Date(date);
   const month = months[d.getMonth()];
-  const day = ordinalNumbers[d.getDay() - 1];
+  const day = ordinalNumbers[d.getDate() - 1];
   return month + " " + day;
 };
 
@@ -91,7 +91,7 @@ export const currentOrFutureYear = (date: Date) => {
   const currentYear = today.getFullYear();
   if (
     currentMonth > dateMonth ||
-    (currentMonth === dateMonth && currentDay > dateDay)
+    (currentMonth === dateMonth && currentDay >= dateDay)
   ) {
     return currentYear + 1;
   }

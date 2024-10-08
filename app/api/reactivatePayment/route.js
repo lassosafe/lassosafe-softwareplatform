@@ -10,21 +10,20 @@ export async function POST(req) {
   try {
     //console.log(cancelledSubscription);
     await connectMongoDB();
-    const { stripeSubscriptionId, email, accountExpirationDate } =
-      await req.json();
+    const { stripeSubscriptionId, email } = await req.json();
     console.log(email);
     console.log(stripeSubscriptionId);
-    console.log(accountExpirationDate);
-    console.log(typeof accountExpirationDate);
+    //console.log(accountExpirationDate);
+    //console.log(typeof accountExpirationDate);
 
-    const accountExpirationDateFormatted = new Date(accountExpirationDate);
-    console.log(accountExpirationDateFormatted);
-    console.log(typeof accountExpirationDateFormatted);
+    // const accountExpirationDateFormatted = new Date(accountExpirationDate);
+    // console.log(accountExpirationDateFormatted);
+    // console.log(typeof accountExpirationDateFormatted);
 
     const subscription = await stripe.subscriptions.update(
       stripeSubscriptionId,
       {
-        cancel_at_period_end: true,
+        cancel_at_period_end: false,
       }
     );
 
@@ -34,8 +33,7 @@ export async function POST(req) {
       },
       {
         $set: {
-          hasCanceled: true,
-          accountExpirationDate: accountExpirationDateFormatted,
+          hasCanceled: false,
         },
       }
     );

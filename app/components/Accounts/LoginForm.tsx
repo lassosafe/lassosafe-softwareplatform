@@ -27,6 +27,26 @@ export default function LoginForm() {
       });
       if (response?.error) {
         setError("invalid credentials");
+        return;
+      }
+      const userInfo = await fetch("../api/getBillingInfo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      const { correspondingUser } = await userInfo.json();
+      const today = new Date(Date.now());
+      const accountExpirationDateFormatted = new Date(
+        correspondingUser.accountExpirationDate
+      );
+      if (
+        correspondingUser.hasCanceled === true &&
+        accountExpirationDateFormatted < today
+      ) {
+        setError("This account has an expired membership.");
+        return;
       }
 
       router.replace("/pages/dashboard");
@@ -96,10 +116,17 @@ export default function LoginForm() {
             </a>{" "}
             to learn more about Lasso Safe.
           </p>
-
-          {/* <Link className="text-sm mt-3 text-right" href={"/register"}>
-            Don't have an account? <span className="underline">Register</span>
-          </Link> */}
+          <p>
+            <b>Forgot Password?</b> Click{" "}
+            <a
+              href="https://lassosafe.com"
+              target="_blank"
+              className="subscription-link"
+            >
+              here
+            </a>{" "}
+            .
+          </p>
         </form>
       </div>
     </div>

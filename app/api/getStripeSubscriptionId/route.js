@@ -1,13 +1,13 @@
 import { connectMongoDB } from "../../../lib/mongodb";
 import { NextResponse } from "next/server";
-import User from "../../../models/user";
+import Users from "../../../models/users";
 
 export async function POST(req) {
   try {
     await connectMongoDB();
     const { email } = await req.json();
     console.log(email);
-    const correspondingUser = await User.findOne({ email });
+    const correspondingUser = await Users.findOne({ email });
     return NextResponse.json({
       correspondingUser,
     });

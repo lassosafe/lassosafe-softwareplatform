@@ -2,6 +2,7 @@ import horizontallogowhite from "../../../../public/images/logo-horizontal-white
 import Image from "next/image";
 
 import "./EvaluationCompleted.scss";
+import Footer from "../../Footer/Footer";
 
 export default function EvaluationCompleted() {
   return (
@@ -16,6 +17,11 @@ export default function EvaluationCompleted() {
       </header>
       <div className="evaluation-completed-container">
         <h2 className="title">The evaluation is complete!</h2>
+        <p>
+          Please use this confirmation code if needed to confirm you have
+          completed the evaluation:{" "}
+          <b>{Math.floor(10000000 + Math.random() * 90000000)}</b>
+        </p>
         <p className="thank-you-text">
           Thank you for your participation in the Lasso Safe Athlete Wellness
           Evaluation. Your feedback will pave the way for positive changes in
@@ -40,6 +46,7 @@ export default function EvaluationCompleted() {
           Finish
         </a> */}
       </div>
+      <Footer />
     </>
   );
 }

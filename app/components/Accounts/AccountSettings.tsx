@@ -28,6 +28,7 @@ export default function AccountSettings() {
   const [accountCreationDate, setAccountCreationDate] = useState<Date>(
     new Date()
   );
+  const [numberParticipants, setNumberParticipants] = useState<number>(0);
 
   const formMethods = useForm<EditNameFormProps>();
   const {
@@ -49,8 +50,10 @@ export default function AccountSettings() {
       });
       const { correspondingUser } = await res.json();
       if (correspondingUser) {
-        const { hasCanceled, accountCreationDate } = correspondingUser;
+        const { hasCanceled, accountCreationDate, numberParticipants } =
+          correspondingUser;
         setAccountCreationDate(accountCreationDate);
+        setNumberParticipants(numberParticipants);
         if (hasCanceled) {
           setShowBillingOrExpirationDate("expired");
         } else {
@@ -88,6 +91,8 @@ export default function AccountSettings() {
         accountExpirationDate: expirationDate,
       }),
     });
+    setShowBillingOrExpirationDate("expired");
+    setShowCancelScreen(false);
   };
 
   const onEditName = async (formData: EditNameFormProps) => {
@@ -105,6 +110,30 @@ export default function AccountSettings() {
       });
       const res2 = await res.json();
     }
+  };
+
+  const reactivatePayment = async () => {
+    const res = await fetch("../api/getStripeSubscriptionId", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: session?.user?.email }),
+    });
+    const { correspondingUser } = await res.json();
+    const resReactivate = await fetch("../api/reactivatePayment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        stripeSubscriptionId: correspondingUser.stripeSubscriptionId,
+        email: session?.user?.email,
+        //accountExpirationDate: expirationDate,
+      }),
+    });
+    setShowBillingOrExpirationDate("billing");
+    setShowCancelScreen(false);
   };
 
   return (
@@ -126,14 +155,26 @@ export default function AccountSettings() {
               </p>
             )}
             {showBillingOrExpirationDate === "expired" && (
-              <p className="account-update-cancel">
-                Your membership has been canceled and will expire on:{" "}
-                <b>
-                  {dateToMonthAndDay(accountCreationDate) +
-                    ", " +
-                    currentOrFutureYear(accountCreationDate)}
-                </b>
-              </p>
+              <div>
+                <p className="account-update-cancel">
+                  Your membership has been canceled and will expire on:{" "}
+                  <b>
+                    {dateToMonthAndDay(accountCreationDate) +
+                      ", " +
+                      currentOrFutureYear(accountCreationDate)}
+                  </b>
+                </p>
+                <p>
+                  You may reactivate the membership any time before the
+                  expiration date.
+                </p>
+                <button
+                  className="reactivate-button"
+                  onClick={reactivatePayment}
+                >
+                  Reactivate Membership
+                </button>
+              </div>
             )}
             <FormProvider {...formMethods}>
               <form onSubmit={handleSubmit(onEditName)}>
@@ -153,11 +194,33 @@ export default function AccountSettings() {
                   value={session?.user?.email}
                   disabled
                 />
+
+                <p></p>
                 <div className="form-footer">
                   <button type="submit" className="save-changes-button">
                     Save Changes
                   </button>
                 </div>
+              </form>
+            </FormProvider>
+            <FormProvider {...formMethods}>
+              <form onSubmit={handleSubmit(onEditName)}>
+                <TextInput
+                  className="user-email"
+                  inputName="numParticipants"
+                  label="Number of Participants"
+                  value={numberParticipants}
+                  disabled
+                />
+                {/* <button>
+                  Click to add more participants to your membership
+                </button>
+                <p>You will be increasin<p/>
+                <div className="form-footer">
+                  <button type="submit" className="save-changes-button">
+                    Save Changes
+                  </button>
+                </div> */}
               </form>
             </FormProvider>
 
@@ -175,7 +238,11 @@ export default function AccountSettings() {
                       <b>Are you sure you want to cancel this subscription?</b>
                     </p>
                     <p className="cancel-description">
-                      You will no longer have access to the Sports Wellness
+                      On{" "}
+                      {dateToMonthAndDay(accountCreationDate) +
+                        ", " +
+                        currentOrFutureYear(accountCreationDate)}
+                      , you will no longer have access to the Sports Wellness
                       Platform Dashboard or be able to create and send
                       evaluations to your participants.
                     </p>

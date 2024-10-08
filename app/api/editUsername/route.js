@@ -1,15 +1,15 @@
 import { connectMongoDB } from "../../../lib/mongodb";
 import { NextResponse } from "next/server";
-import User from "../../../models/user";
+import Users from "../../../models/users";
 
 export async function POST(req) {
   try {
     await connectMongoDB();
     const { email, newName } = await req.json();
-    const user = await User.findOne({ email }).select("_id");
+    const user = await Users.findOne({ email }).select("_id");
     console.log(email);
 
-    await User.updateOne(
+    await Users.updateOne(
       {
         email: email,
       },

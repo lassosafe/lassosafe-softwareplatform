@@ -17,8 +17,20 @@ export async function POST(req) {
     const customerEmail = session.customer_details.email;
     const customerName = session.customer_details.name;
     const stripeSubscriptionId = session.subscription;
+
+    const subscription = await stripe.subscriptions.retrieve(
+      stripeSubscriptionId
+    );
+
+    console.log("items");
+    console.log(subscription.items.data);
+    const numberParticipants = subscription.items.data.find(
+      (item) => item.price.id === "price_1Q72rLDtt4SMJazLTqY5nCjb"
+    ).quantity;
+    console.log(numberParticipants);
+
     return NextResponse.json(
-      { customerEmail, customerName, stripeSubscriptionId },
+      { customerEmail, customerName, stripeSubscriptionId, numberParticipants },
       { status: 200 }
     );
     //res.status(200).json({ sessionId: session.id });

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB } from "../../../lib/mongodb";
 import Evaluation from "../../../models/evaluation";
-import User from "../../../models/user";
+import Users from "../../../models/users";
 
 export async function POST(req) {
   try {
@@ -15,7 +15,7 @@ export async function POST(req) {
     console.log(evaluationTitle);
     console.log(categoryIds);
 
-    const user = await User.findOne({ email: creatorEmail }).exec();
+    const user = await Users.findOne({ email: creatorEmail }).exec();
     const userId = user._id.toString();
 
     console.log(user);

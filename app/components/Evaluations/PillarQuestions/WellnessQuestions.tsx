@@ -21,6 +21,7 @@ import {
 import { useEffect, useState } from "react";
 
 import "./EmotionalWellnessQuestions.scss";
+import Footer from "../../Footer/Footer";
 
 // type WellnessQuestionsProps = {
 //   onSubmit: (formData: unknown) => void;
@@ -336,6 +337,7 @@ export default function WellnessQuestions() {
           </form>
         </FormProvider>
       </div>
+      <Footer />
     </>
   );
 }
