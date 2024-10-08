@@ -75,7 +75,9 @@ export default function NewEvaluation() {
     const evaluationId = newEvaluationDbEntry._id;
 
     setNewEvaluationURL(
-      `https://lassosafe-dashboard.vercel.app/pages/evalIntro?evalId=${evaluationId}&cids=${categoryIds.toString()}`
+      `${
+        process.env.NEXTAUTH_URL
+      }/pages/evalIntro?evalId=${evaluationId}&cids=${categoryIds.toString()}`
     );
 
     // const emailData = {
