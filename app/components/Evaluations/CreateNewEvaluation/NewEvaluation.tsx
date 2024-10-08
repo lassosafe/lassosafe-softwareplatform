@@ -112,7 +112,6 @@ export default function NewEvaluation() {
                 <div className="add-emails-box">
                   <FormProvider {...formMethods}>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      <p className="evaluation-header"> Evaluation Title:</p>
                       <TextInput
                         className="evaluation-title"
                         inputName="evaluationTitle"
@@ -122,9 +121,6 @@ export default function NewEvaluation() {
                         }}
                       />
                       <div className="evaluation-category-selector">
-                        <p className="evaluation-header">
-                          Select Evaluation Pillars:
-                        </p>
                         <MultiCheckboxInput
                           inputName="categoryIds"
                           label="Select one, two, or all three categories to include in this evaluation."
