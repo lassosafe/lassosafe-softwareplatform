@@ -71,6 +71,11 @@
 
   .expiration-date-selector {
     margin-bottom: 20px;
+
+    .enter-date-instructions {
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
   }
 
   .new-eval-url {

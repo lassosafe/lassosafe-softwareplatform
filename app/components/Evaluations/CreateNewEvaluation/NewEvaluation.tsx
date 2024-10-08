@@ -136,8 +136,9 @@ export default function NewEvaluation() {
                         />
                       </div>
                       <div className="expiration-date-selector">
-                        <p className="evaluation-header">
-                          Select Evaluation Completion Date:
+                        <p className="enter-date-instructions">
+                          Enter date you'd like all evaluations to be completed
+                          by:
                         </p>
                         <div className="expiration-date-dropdown">
                           <LocalizationProvider dateAdapter={AdapterDayjs}>
