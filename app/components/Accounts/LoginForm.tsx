@@ -124,7 +124,7 @@ export default function LoginForm() {
               className="subscription-link"
             >
               here
-            </a>{" "}
+            </a>
             .
           </p>
         </form>
