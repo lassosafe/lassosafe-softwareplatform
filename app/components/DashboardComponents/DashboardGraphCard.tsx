@@ -364,19 +364,19 @@ export default function DashboardGraphCard({
                   <div className="pillar-row">
                     <div className="pillar-title">
                       <p className="pillar-text">Mental/Emotional</p>
-                      <Image
+                      {/* <Image
                         id="info-logo-mental"
                         src={infologo}
                         alt="infologo"
                         className="info-logo-dashboard-card"
-                      ></Image>
-                      <Tooltip
+                      ></Image> */}
+                      {/* <Tooltip
                         anchorSelect="#info-logo-mental"
                         className="tool-tip-box"
                       >
                         <h2 className="tool-tip-box-title">TBD</h2>
                         <p className="tool-tip-box-description">TBD</p>
-                      </Tooltip>
+                      </Tooltip> */}
                     </div>
 
                     <div
@@ -415,12 +415,12 @@ export default function DashboardGraphCard({
                   <div className="pillar-row">
                     <div className="pillar-title">
                       <p className="pillar-text">Physical</p>
-                      <Image
+                      {/* <Image
                         id="info-logo-physical"
                         src={infologo}
                         alt="infologo"
                         className="info-logo-dashboard-card"
-                      ></Image>
+                      ></Image> */}
                       {/* <Tooltip anchorSelect="#info-logo-physical" className="tool-tip-box">
             <h2 className="tool-tip-box-title">TBD</h2>
             <p className="tool-tip-box-description">TBD</p>
@@ -460,12 +460,12 @@ export default function DashboardGraphCard({
                   <div className="pillar-row">
                     <div className="pillar-title">
                       <p className="pillar-text">Social</p>
-                      <Image
+                      {/* <Image
                         id="info-logo-social"
                         src={infologo}
                         alt="infologo"
                         className="info-logo-dashboard-card"
-                      ></Image>
+                      ></Image> */}
                       {/* <Tooltip anchorSelect="#info-logo-social" className="tool-tip-box">
             <h2 className="tool-tip-box-title">TBD</h2>
             <p className="tool-tip-box-description">TBD</p>
