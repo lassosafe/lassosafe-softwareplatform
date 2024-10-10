@@ -34,6 +34,8 @@ export default function ReportingDashboard() {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const [finalScore, setFinalScore] = useState<string>("N/A");
+
   //let userEvaluations: Evaluation[] = [];
   //let userEvaluationOptions: SelectOption<string>[] = [];
   console.log("user evaluation options: ", userEvaluationOptions);
@@ -41,6 +43,22 @@ export default function ReportingDashboard() {
   //console.log("evaluations", evaluations);
   // console.log("evaluationsOptions", evaluationOptions);
   // console.log("displayed evaluation", displayedEvaluation);
+
+  const calculateFinalGrade = () => {
+    if (finalScore === "N/A" || finalScore === "NaN") return "N/A";
+    else if (parseFloat(finalScore) <= 0.25) return "D";
+    else if (parseFloat(finalScore) <= 0.5) return "C";
+    else if (parseFloat(finalScore) <= 0.75) return "B";
+    else return "A";
+  };
+
+  const calculateFinalGradeColor = () => {
+    if (calculateFinalGrade() === "N/A") return "white";
+    else if (calculateFinalGrade() === "D") return "#ee4b2b";
+    else if (calculateFinalGrade() === "C") return "#ffc107";
+    else if (calculateFinalGrade() === "A" || calculateFinalGrade() === "B")
+      return "#2ed8b6";
+  };
 
   const getEvaluations = useCallback(async (userId: string) => {
     console.log("here");
@@ -128,6 +146,7 @@ export default function ReportingDashboard() {
         } else {
           setIsExpired(false);
         }
+        await calculateFinalScore(firstEvaluation);
       }
     };
     getEvaluationsFunction();
@@ -139,6 +158,42 @@ export default function ReportingDashboard() {
       (e) => e._id === selected.id
     );
     if (newDisplayedEvaluation) setDisplayedEvaluation(newDisplayedEvaluation);
+    calculateFinalScore(newDisplayedEvaluation);
+  };
+
+  const calculateFinalScore = async (evaluation: Evaluation) => {
+    if (evaluation) {
+      const categories = evaluation.categoryIds;
+      const evaluationId = evaluation._id;
+      let finalScoreTotal = 0.0;
+      for (let i = 0; i < categories.length; i++) {
+        const categoryId = parseInt(categories[i]);
+        const getEvalScores = await fetch(
+          "../api/getEvaluationScoreByCategory",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              evaluationId,
+              categoryId,
+            }),
+          }
+        );
+        const { evaluationScores } = await getEvalScores.json();
+        const { categoryScores } = evaluationScores;
+        const avgCategoryScore =
+          categoryScores.reduce((acc, num) => acc + num, 0) /
+          categoryScores.length;
+        finalScoreTotal += avgCategoryScore;
+        console.log(finalScoreTotal.toFixed(2));
+      }
+      console.log("outside loop", finalScoreTotal);
+      const finalScore2 = (finalScoreTotal / categories.length).toFixed(2);
+      console.log("outside loop2", finalScore2);
+      setFinalScore(finalScore2);
+    }
   };
 
   return (
@@ -205,6 +260,23 @@ export default function ReportingDashboard() {
                         </p>
                       </div>
                     </div>
+                  </div>
+                  <div>
+                    <b>Overall Wellness Score: </b>{" "}
+                    {parseFloat(finalScore) * 100}
+                    /100 ={" "}
+                    <span
+                      style={{
+                        backgroundColor: calculateFinalGradeColor(),
+                        paddingTop: "0.5rem",
+                        paddingBottom: "0.5rem",
+                        paddingLeft: "1rem",
+                        paddingRight: "1rem",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <b>Grade {calculateFinalGrade()}</b>
+                    </span>
                   </div>
                   <div className="dashboard-card-container">
                     {displayedEvaluation &&

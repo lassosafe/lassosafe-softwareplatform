@@ -186,6 +186,7 @@ export async function POST(req) {
       socialAttribute1Scores,
       socialAttribute2Scores,
     };
+    console.log(evaluationScores);
 
     return NextResponse.json({ evaluationScores });
   } catch (error) {
