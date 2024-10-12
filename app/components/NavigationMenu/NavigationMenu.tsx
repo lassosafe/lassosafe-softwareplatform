@@ -62,6 +62,13 @@ export default function NavigationMenu() {
         >
           <p>New Evaluation</p>
         </li>
+        {/* <li
+          className="navigation-bar-page"
+          style={{ display: navBarOpen ? "inline-block" : "none" }}
+          onClick={() => (window.location.href = "/pages/evaluationsList")}
+        >
+          <p>My Evaluations List</p>
+        </li> */}
         <li
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}

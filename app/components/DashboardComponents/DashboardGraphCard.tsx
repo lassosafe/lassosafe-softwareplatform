@@ -560,30 +560,35 @@ export default function DashboardGraphCard({
                               };
                             })}
                           />
-                          <div className="strategic-suggestions">
-                            <p className="strategic-suggestions-label">
-                              Strategic Suggestions:{" "}
-                            </p>
-                            {getStrategicSuggestions(
-                              mentalEmotionalAttribute1Scores,
-                              1 + 2 * (categoryId - 1)
-                            ).map((ss) => {
-                              return (
-                                <div
-                                  key={ss.sku}
-                                  className="strategic-suggestions-item"
-                                >
-                                  <a
-                                    href={`https://lassosafe.com/product/${ss.sku}/`}
-                                    target="_blank"
-                                    className="strategic-suggestions-button"
+                          {getStrategicSuggestions(
+                            mentalEmotionalAttribute1Scores,
+                            1 + 2 * (categoryId - 1)
+                          ).length > 0 && (
+                            <div className="strategic-suggestions">
+                              <p className="strategic-suggestions-label">
+                                Strategic Suggestions:{" "}
+                              </p>
+                              {getStrategicSuggestions(
+                                mentalEmotionalAttribute1Scores,
+                                1 + 2 * (categoryId - 1)
+                              ).map((ss) => {
+                                return (
+                                  <div
+                                    key={ss.sku}
+                                    className="strategic-suggestions-item"
                                   >
-                                    {ss.credit_title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
+                                    <a
+                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      target="_blank"
+                                      className="strategic-suggestions-button"
+                                    >
+                                      {ss.credit_title}
+                                    </a>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                       {mentalEmotionalAttribute2Scores.length > 0 && (
@@ -612,30 +617,35 @@ export default function DashboardGraphCard({
                               };
                             })}
                           />
-                          <div className="strategic-suggestions">
-                            <p className="strategic-suggestions-label">
-                              Strategic Suggestions:{" "}
-                            </p>
-                            {getStrategicSuggestions(
-                              mentalEmotionalAttribute2Scores,
-                              2 + 2 * (categoryId - 1)
-                            ).map((ss) => {
-                              return (
-                                <div
-                                  key={ss.sku}
-                                  className="strategic-suggestions-item"
-                                >
-                                  <a
-                                    href={`https://lassosafe.com/product/${ss.sku}/`}
-                                    target="_blank"
-                                    className="strategic-suggestions-button"
+                          {getStrategicSuggestions(
+                            mentalEmotionalAttribute2Scores,
+                            2 + 2 * (categoryId - 1)
+                          ).length > 0 && (
+                            <div className="strategic-suggestions">
+                              <p className="strategic-suggestions-label">
+                                Strategic Suggestions:{" "}
+                              </p>
+                              {getStrategicSuggestions(
+                                mentalEmotionalAttribute2Scores,
+                                2 + 2 * (categoryId - 1)
+                              ).map((ss) => {
+                                return (
+                                  <div
+                                    key={ss.sku}
+                                    className="strategic-suggestions-item"
                                   >
-                                    {ss.credit_title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
+                                    <a
+                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      target="_blank"
+                                      className="strategic-suggestions-button"
+                                    >
+                                      {ss.credit_title}
+                                    </a>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -674,30 +684,35 @@ export default function DashboardGraphCard({
                               };
                             })}
                           />
-                          <div className="strategic-suggestions">
-                            <p className="strategic-suggestions-label">
-                              Strategic Suggestions:{" "}
-                            </p>
-                            {getStrategicSuggestions(
-                              physicalAttribute1Scores,
-                              3 + 2 * (categoryId - 1)
-                            ).map((ss) => {
-                              return (
-                                <div
-                                  key={ss.sku}
-                                  className="strategic-suggestions-item"
-                                >
-                                  <a
-                                    href={`https://lassosafe.com/product/${ss.sku}/`}
-                                    target="_blank"
-                                    className="strategic-suggestions-button"
+                          {getStrategicSuggestions(
+                            physicalAttribute1Scores,
+                            3 + 2 * (categoryId - 1)
+                          ).length > 0 && (
+                            <div className="strategic-suggestions">
+                              <p className="strategic-suggestions-label">
+                                Strategic Suggestions:{" "}
+                              </p>
+                              {getStrategicSuggestions(
+                                physicalAttribute1Scores,
+                                3 + 2 * (categoryId - 1)
+                              ).map((ss) => {
+                                return (
+                                  <div
+                                    key={ss.sku}
+                                    className="strategic-suggestions-item"
                                   >
-                                    {ss.credit_title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
+                                    <a
+                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      target="_blank"
+                                      className="strategic-suggestions-button"
+                                    >
+                                      {ss.credit_title}
+                                    </a>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                       {physicalAttribute2Scores.length > 0 && (
@@ -726,30 +741,35 @@ export default function DashboardGraphCard({
                               };
                             })}
                           />
-                          <div className="strategic-suggestions">
-                            <p className="strategic-suggestions-label">
-                              Strategic Suggestions:{" "}
-                            </p>
-                            {getStrategicSuggestions(
-                              physicalAttribute2Scores,
-                              4 + 2 * (categoryId - 1)
-                            ).map((ss) => {
-                              return (
-                                <div
-                                  key={ss.sku}
-                                  className="strategic-suggestions-item"
-                                >
-                                  <a
-                                    href={`https://lassosafe.com/product/${ss.sku}/`}
-                                    target="_blank"
-                                    className="strategic-suggestions-button"
+                          {getStrategicSuggestions(
+                            physicalAttribute2Scores,
+                            4 + 2 * (categoryId - 1)
+                          ).length > 0 && (
+                            <div className="strategic-suggestions">
+                              <p className="strategic-suggestions-label">
+                                Strategic Suggestions:{" "}
+                              </p>
+                              {getStrategicSuggestions(
+                                physicalAttribute2Scores,
+                                4 + 2 * (categoryId - 1)
+                              ).map((ss) => {
+                                return (
+                                  <div
+                                    key={ss.sku}
+                                    className="strategic-suggestions-item"
                                   >
-                                    {ss.credit_title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
+                                    <a
+                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      target="_blank"
+                                      className="strategic-suggestions-button"
+                                    >
+                                      {ss.credit_title}
+                                    </a>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -787,30 +807,35 @@ export default function DashboardGraphCard({
                               };
                             })}
                           />
-                          <div className="strategic-suggestions">
-                            <p className="strategic-suggestions-label">
-                              Strategic Suggestions:{" "}
-                            </p>
-                            {getStrategicSuggestions(
-                              socialAttribute1Scores,
-                              5 + 2 * (categoryId - 1)
-                            ).map((ss) => {
-                              return (
-                                <div
-                                  key={ss.sku}
-                                  className="strategic-suggestions-item"
-                                >
-                                  <a
-                                    href={`https://lassosafe.com/product/${ss.sku}/`}
-                                    target="_blank"
-                                    className="strategic-suggestions-button"
+                          {getStrategicSuggestions(
+                            socialAttribute1Scores,
+                            5 + 2 * (categoryId - 1)
+                          ).length > 0 && (
+                            <div className="strategic-suggestions">
+                              <p className="strategic-suggestions-label">
+                                Strategic Suggestions:{" "}
+                              </p>
+                              {getStrategicSuggestions(
+                                socialAttribute1Scores,
+                                5 + 2 * (categoryId - 1)
+                              ).map((ss) => {
+                                return (
+                                  <div
+                                    key={ss.sku}
+                                    className="strategic-suggestions-item"
                                   >
-                                    {ss.credit_title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
+                                    <a
+                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      target="_blank"
+                                      className="strategic-suggestions-button"
+                                    >
+                                      {ss.credit_title}
+                                    </a>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                       {socialAttribute2Scores.length > 0 && (
@@ -838,30 +863,35 @@ export default function DashboardGraphCard({
                               };
                             })}
                           />
-                          <div className="strategic-suggestions">
-                            <p className="strategic-suggestions-label">
-                              Strategic Suggestions:{" "}
-                            </p>
-                            {getStrategicSuggestions(
-                              socialAttribute2Scores,
-                              6 + 2 * (categoryId - 1)
-                            ).map((ss) => {
-                              return (
-                                <div
-                                  key={ss.sku}
-                                  className="strategic-suggestions-item"
-                                >
-                                  <a
-                                    href={`https://lassosafe.com/product/${ss.sku}/`}
-                                    target="_blank"
-                                    className="strategic-suggestions-button"
+                          {getStrategicSuggestions(
+                            socialAttribute2Scores,
+                            6 + 2 * (categoryId - 1)
+                          ).length > 0 && (
+                            <div className="strategic-suggestions">
+                              <p className="strategic-suggestions-label">
+                                Strategic Suggestions:{" "}
+                              </p>
+                              {getStrategicSuggestions(
+                                socialAttribute2Scores,
+                                6 + 2 * (categoryId - 1)
+                              ).map((ss) => {
+                                return (
+                                  <div
+                                    key={ss.sku}
+                                    className="strategic-suggestions-item"
                                   >
-                                    {ss.credit_title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
+                                    <a
+                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      target="_blank"
+                                      className="strategic-suggestions-button"
+                                    >
+                                      {ss.credit_title}
+                                    </a>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
