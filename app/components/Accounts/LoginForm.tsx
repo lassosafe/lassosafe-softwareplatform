@@ -119,9 +119,12 @@ export default function LoginForm() {
           <p>
             <b>Forgot Password?</b> Click{" "}
             <a
-              href="https://lassosafe.com"
+              onClick={() =>
+                (window.location.href = "/pages/requestResetPassword")
+              }
               target="_blank"
               className="subscription-link"
+              style={{ cursor: "pointer" }}
             >
               here
             </a>
