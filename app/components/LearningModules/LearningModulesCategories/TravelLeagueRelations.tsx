@@ -21,6 +21,7 @@ export default function TravelLeageRelations() {
             implementationTime={module.implementation_hours || "N/A"}
             impactValueScore={module.impact_value || "N/A"}
             companyValueScore={module.company_value || "N/A"}
+            resourcePartners={module.resource_partners}
             purchaseLink={`https://lassosafe.com/product/${module.sku}/`}
           />
         );

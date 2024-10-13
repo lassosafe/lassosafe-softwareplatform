@@ -12,6 +12,20 @@ export default function SafetyInformationPlan() {
       <p className="learning-modules-category-title">
         Safety Information Plan Learning Modules
       </p>
+      <p style={{ fontWeight: "bold" }}>Resource Partners:</p>
+      <div style={{ marginBottom: "2rem" }}>
+        <a
+          href="https://assets-global.website-files.com/63ed5a01637c0a8457bc74cf/655290101ec99aa1e59910bb_090123_Expert%20Playbook.pdf"
+          target="_blank"
+          style={{
+            textDecoration: "underline",
+            marginBottom: "100",
+            color: "#0000EE",
+          }}
+        >
+          Player's Health Expert Playbook on Athlete Safety and Risk Management
+        </a>
+      </div>
       {learningModulesListFiltered.map((module) => {
         return (
           <LearningModuleItem
@@ -22,6 +36,7 @@ export default function SafetyInformationPlan() {
             impactValueScore={module.impact_value || "N/A"}
             companyValueScore={module.company_value || "N/A"}
             purchaseLink={`https://lassosafe.com/product/${module.sku}/`}
+            resourcePartners={module.resource_partners}
           />
         );
       })}

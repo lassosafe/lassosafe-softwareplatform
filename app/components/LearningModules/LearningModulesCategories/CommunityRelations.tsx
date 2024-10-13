@@ -22,6 +22,7 @@ export default function CommunityRelations() {
             impactValueScore={module.impact_value || "N/A"}
             companyValueScore={module.company_value || "N/A"}
             purchaseLink={`https://lassosafe.com/product/${module.sku}/`}
+            resourcePartners={module.resource_partners}
           />
         );
       })}

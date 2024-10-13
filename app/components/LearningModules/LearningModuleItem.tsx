@@ -8,6 +8,7 @@ type LearningModuleItemProps = {
   companyValueScore: string;
   purchaseLink: string;
   attributes?: string;
+  resourcePartners?: string;
 };
 
 export default function LearningModuleItem({
@@ -17,6 +18,7 @@ export default function LearningModuleItem({
   impactValueScore,
   companyValueScore,
   purchaseLink,
+  resourcePartners,
 }: LearningModuleItemProps) {
   return (
     <div className="learning-module-item-container">
@@ -31,6 +33,19 @@ export default function LearningModuleItem({
       <div>
         <b>Company Value Score:</b> {companyValueScore}{" "}
       </div>
+      {resourcePartners && (
+        <div>
+          <b>Resource Partner: </b>
+          <a
+            href={resourcePartners}
+            target="_blank"
+            style={{ textDecoration: "underline", color: "#0000EE" }}
+          >
+            {" "}
+            {resourcePartners}
+          </a>
+        </div>
+      )}
       <div className="purchase-button-container">
         <a className="purchase-button" href={purchaseLink} target="_blank">
           Purchase Learning Module
