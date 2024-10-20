@@ -45,7 +45,7 @@ export default function EvaluationEmailTemplate({
 }
 
 const begin_evaluation_button = {
-  backgroundColor: "#4099ff",
+  backgroundColor: "navy",
   color: "white",
   borderRadius: "5px",
   fontWeight: "bold",
