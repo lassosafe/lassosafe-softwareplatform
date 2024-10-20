@@ -578,7 +578,11 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      // onClick={() =>
+                                      //   (window.location.href =
+                                      //     "/pages/learningModules")
+                                      // }
+                                      href={`/pages/learningModules?sku=${ss.sku}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >

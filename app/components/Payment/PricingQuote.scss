@@ -1,0 +1,30 @@
+.pricing {
+  margin-top: 1rem;
+}
+
+.pricing-quote {
+  margin-right: 10%;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+  width: fit-content;
+
+  .quote-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .pricing-item {
+    margin-top: 1rem;
+  }
+
+  .plus {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .total {
+    border-top: 2px solid black;
+    padding-top: 1rem;
+  }
+}

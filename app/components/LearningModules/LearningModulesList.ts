@@ -17,7 +17,7 @@ export const learningModulesList: LearningModulesList[] = [
     sku: "ATSU-1",
     credit_title: "Abuse reporting platform",
     credit_abstract:
-      "Everyone deserves safe sports. The abuse reporting platform establishes consistent diagnostic criteria and demensional measurements. Universally-agreed upon terms and language makes communication precise and efficient for processing. From reporter to the safeguarding agent and assgned authorities, everyone can use this platform to make sport safer. ",
+      "Everyone deserves safe sports. The abuse reporting platform establishes consistent diagnostic criteria and dimensional measurements. Universally-agreed upon terms and language makes communication precise and efficient for processing. From reporter to the safeguarding agent and assgned authorities, everyone can use this platform to make sport safer. ",
     implementation_hours: "N/A",
     impact_value: "5",
     company_value: "5",

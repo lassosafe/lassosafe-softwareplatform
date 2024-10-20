@@ -20,10 +20,33 @@ import TravelLeagueRelations from "./LearningModulesCategories/TravelLeagueRelat
 import { DashboardHeader } from "../DashboardComponents/DashboardHeader";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Footer from "../Footer/Footer";
+import { useSearchParams } from "next/navigation";
+import LearningModuleItem from "./LearningModuleItem";
+import { learningModulesList } from "./LearningModulesList";
 
 export default function LearningModules() {
+  const searchParams = useSearchParams();
+  const sku = searchParams.get("sku");
+
   const [componentToShow, setComponentToShow] = useState<ReactNode>(
-    <AthleteSupport />
+    sku ? (
+      learningModulesList
+        .filter((module) => module.sku === sku)
+        .map((m) => (
+          <LearningModuleItem
+            key={m.sku}
+            title={m.credit_title}
+            description={m.credit_abstract || "N/A"}
+            implementationTime={m.implementation_hours || "N/A"}
+            impactValueScore={m.impact_value || "N/A"}
+            companyValueScore={m.company_value || "N/A"}
+            purchaseLink={`https://lassosafe.com/product/${m.sku}/`}
+            resourcePartners={m.resource_partners}
+          />
+        ))
+    ) : (
+      <AthleteSupport />
+    )
   );
   const [selectedTab, setSelectedTab] = useState();
 

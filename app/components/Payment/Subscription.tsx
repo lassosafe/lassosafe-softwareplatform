@@ -43,7 +43,7 @@ export default function SubscriptionForm() {
     const response = await fetch("/api/checkoutSession", {
       method: "POST",
       body: JSON.stringify({
-        numParticipants: parseInt(numParticipants),
+        numParticipants: parseInt(numParticipants.replace(/,/g, "")),
       }),
     });
     const data = await response.json();
@@ -152,7 +152,6 @@ export default function SubscriptionForm() {
                     Number.isInteger(parseInt(value)) && parseInt(value) > 0,
                 }}
               />
-
               <div className="form-footer">
                 <button type="submit" className="purchase-button">
                   Click Here to Purchase Membership
@@ -160,6 +159,14 @@ export default function SubscriptionForm() {
               </div>
             </form>
           </FormProvider>
+          <button
+            onClick={() => {
+              window.location.href = "/pages/pricingQuote";
+            }}
+            className="purchase-button"
+          >
+            Click Here to Get a Quote
+          </button>
           <p>Example Dashboard:</p>
           <Image
             src={exampleswpdashboard}

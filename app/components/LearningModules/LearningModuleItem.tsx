@@ -46,11 +46,11 @@ export default function LearningModuleItem({
           </a>
         </div>
       )}
-      <div className="purchase-button-container">
+      {/* <div className="purchase-button-container">
         <a className="purchase-button" href={purchaseLink} target="_blank">
           Purchase Learning Module
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }
