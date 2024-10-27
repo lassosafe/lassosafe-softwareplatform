@@ -83,9 +83,10 @@ export default function WellnessReport({ evaluation }: WellnessReportProps) {
                 >
                   <h2 className="tool-tip-box-title">Safety/Wellness Graph</h2>
                   <p className="tool-tip-box-description">
-                    Environmental interaction with athletes as it influences
-                    their ability to accept and manage their emotions and cope
-                    with challenges in sport.
+                    Safety and Wellness- an athlete&#39;s perception of their
+                    sense of protection from danger, risk or injury and their
+                    state of being in good health, especially as they actively
+                    pursue their athletic goals.
                   </p>
                 </Tooltip>
               </div>

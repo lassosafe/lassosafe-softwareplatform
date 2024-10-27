@@ -69,6 +69,17 @@
   }
 }
 
+.attribute-title {
+  display: flex;
+
+  .info-logo-dashboard-card {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.25rem;
+    margin-top: 0.25rem;
+  }
+}
+
 .attribute-section {
   //display: flex;
   margin-left: 4%;
@@ -77,6 +88,10 @@
 }
 
 .attribute {
+  margin-bottom: 1rem;
+}
+
+.attribute-title {
   margin-bottom: 1rem;
 }
 

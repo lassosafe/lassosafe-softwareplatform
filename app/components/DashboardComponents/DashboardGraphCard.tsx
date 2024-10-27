@@ -364,19 +364,29 @@ export default function DashboardGraphCard({
                   <div className="pillar-row">
                     <div className="pillar-title">
                       <p className="pillar-text">Mental/Emotional</p>
-                      {/* <Image
+                      <Image
                         id="info-logo-mental"
                         src={infologo}
                         alt="infologo"
                         className="info-logo-dashboard-card"
-                      ></Image> */}
-                      {/* <Tooltip
+                      ></Image>
+                      <Tooltip
                         anchorSelect="#info-logo-mental"
                         className="tool-tip-box"
                       >
-                        <h2 className="tool-tip-box-title">TBD</h2>
-                        <p className="tool-tip-box-description">TBD</p>
-                      </Tooltip> */}
+                        <h2 className="tool-tip-box-title">Mental/Emotional</h2>
+                        <p className="tool-tip-box-description">
+                          Mental - Your organization as a place in which
+                          athletes are and feel psychologically safe with access
+                          to basic mental health support.
+                        </p>
+                        <p className="tool-tip-box-description">
+                          Emotional-  Your organization’s environmental
+                          interaction with athletes as it influences their
+                          ability to accept and manage their emotions and cope
+                          with challenges in sport.
+                        </p>
+                      </Tooltip>
                     </div>
 
                     <div
@@ -407,24 +417,28 @@ export default function DashboardGraphCard({
                           }
                         )}
                       />
-                      {/* <Tooltip anchorSelect="#hs-bar" className="tool-tip-box">
-            Test
-          </Tooltip> */}
                     </div>
                   </div>
                   <div className="pillar-row">
                     <div className="pillar-title">
                       <p className="pillar-text">Physical</p>
-                      {/* <Image
+                      <Image
                         id="info-logo-physical"
                         src={infologo}
                         alt="infologo"
                         className="info-logo-dashboard-card"
-                      ></Image> */}
-                      {/* <Tooltip anchorSelect="#info-logo-physical" className="tool-tip-box">
-            <h2 className="tool-tip-box-title">TBD</h2>
-            <p className="tool-tip-box-description">TBD</p>
-          </Tooltip> */}
+                      ></Image>
+                      <Tooltip
+                        anchorSelect="#info-logo-physical"
+                        className="tool-tip-box"
+                      >
+                        <h2 className="tool-tip-box-title">Physical</h2>
+                        <p className="tool-tip-box-description">
+                          The factors in your organization&#39;s environment
+                          that contribute to the prioritization of athletes&#39;
+                          physical care.
+                        </p>
+                      </Tooltip>
                     </div>
                     <div
                       className="hs-bar"
@@ -460,16 +474,23 @@ export default function DashboardGraphCard({
                   <div className="pillar-row">
                     <div className="pillar-title">
                       <p className="pillar-text">Social</p>
-                      {/* <Image
+                      <Image
                         id="info-logo-social"
                         src={infologo}
                         alt="infologo"
                         className="info-logo-dashboard-card"
-                      ></Image> */}
-                      {/* <Tooltip anchorSelect="#info-logo-social" className="tool-tip-box">
-            <h2 className="tool-tip-box-title">TBD</h2>
-            <p className="tool-tip-box-description">TBD</p>
-          </Tooltip> */}
+                      ></Image>
+                      <Tooltip
+                        anchorSelect="#info-logo-social"
+                        className="tool-tip-box"
+                      >
+                        <h2 className="tool-tip-box-title">Social</h2>
+                        <p className="tool-tip-box-description">
+                          Your organization’s monitoring, protection and
+                          nurturing of athletes&#39; connection, sense of
+                          belonging and well-developed support system.
+                        </p>
+                      </Tooltip>
                     </div>
                     <div
                       className="hs-bar"
@@ -502,9 +523,6 @@ export default function DashboardGraphCard({
                           };
                         })}
                       />
-                      {/* <Tooltip anchorSelect="#hs-bar-social" className="tool-tip-box">
-            Test
-          </Tooltip> */}
                     </div>
                   </div>
                 </div>
@@ -524,9 +542,29 @@ export default function DashboardGraphCard({
               {showAttributeSection && (
                 <div className="attribute-section">
                   <div className="attribute">
-                    <p className="attribute-label">
-                      Mental & Emotional Attributes
-                    </p>
+                    <div className="attribute-title">
+                      <p className="attribute-title-text">
+                        <b>Attributes</b>
+                      </p>
+                      <Image
+                        id="info-logo-attribute"
+                        src={infologo}
+                        alt="infologo"
+                        className="info-logo-dashboard-card"
+                      ></Image>
+                      <Tooltip
+                        anchorSelect="#info-logo-attribute"
+                        className="tool-tip-box"
+                      >
+                        <h2 className="tool-tip-box-title">Attribute</h2>
+                        <p className="tool-tip-box-description">
+                          Attributes are the qualities scientifically regarded
+                          as a characteristic or inherent part of the wellness
+                          pillars.
+                        </p>
+                      </Tooltip>
+                    </div>
+                    <p className="attribute-label">Mental & Emotional</p>
                     <div
                       className="hs-bar"
                       style={{
@@ -655,7 +693,7 @@ export default function DashboardGraphCard({
                     </div>
                   </div>
                   <div className="attribute">
-                    <p className="attribute-label">Physical Attributes</p>
+                    <p className="attribute-label"> Physical </p>
                     <div
                       style={{
                         fontSize: "85%",
@@ -779,7 +817,7 @@ export default function DashboardGraphCard({
                     </div>
                   </div>
                   <div className="attribute">
-                    <p className="attribute-label">Social Attributes</p>
+                    <p className="attribute-label">Social </p>
                     <div
                       style={{
                         fontSize: "85%",

@@ -34,6 +34,10 @@ const usersSchema = new Schema(
       type: Number,
       required: true,
     },
+    isViewer: {
+      type: Boolean,
+      required: true,
+    },
   },
   { timestamps: true }
 );

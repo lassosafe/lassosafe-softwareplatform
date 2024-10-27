@@ -19,8 +19,7 @@ export default function EvaluationInstructions() {
               Your athletes&apos; experiences of their environment ebbs and
               flows by sport season, sport division, competition level, staff
               turnover, organizational reform and more. It&apos;s important to
-              learn from each athletic demographic within throughout their sport
-              year.
+              learn from each athletic demographic throughout their sport year.
             </p>
             <br />
             <p>

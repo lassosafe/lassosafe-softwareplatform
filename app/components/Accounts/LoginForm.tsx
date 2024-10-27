@@ -90,7 +90,7 @@ export default function LoginForm() {
             type="password"
             placeholder="Password"
           />
-          <button className="bg-blue-600 text-white font-bold cursor-pointer px-6 py-2">
+          <button className=" text-white font-bold cursor-pointer px-6 py-2 login-button">
             Log In
           </button>
           {error && (
@@ -104,6 +104,13 @@ export default function LoginForm() {
               here
             </a>{" "}
             to purchase a subscription.
+          </p>
+          <p className="no-account">
+            <b>Are you a viewer and don't have an account?</b> Click{" "}
+            <a href="/pages/subscription" className="subscription-link">
+              here
+            </a>{" "}
+            to purchase a viewer subscription.
           </p>
           <p>
             <b>Want to learn more?</b> Click{" "}

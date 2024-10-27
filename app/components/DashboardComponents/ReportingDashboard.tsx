@@ -297,13 +297,13 @@ export default function ReportingDashboard() {
                               className="tool-tip-box"
                             >
                               <h2 className="tool-tip-box-title">
-                                Safety/Wellness Graph
+                                Safety & Wellness
                               </h2>
                               <p className="tool-tip-box-description">
-                                Environmental interaction with athletes as it
-                                influences their ability to accept and manage
-                                their emotions and cope with challenges in
-                                sport.
+                                An athlete&#39;s perception of their sense of
+                                protection from danger, risk or injury and their
+                                state of being in good health, especially as
+                                they actively pursue their athletic goals.
                               </p>
                             </Tooltip>
                           </div>
@@ -331,12 +331,16 @@ export default function ReportingDashboard() {
                               className="tool-tip-box"
                             >
                               <h2 className="tool-tip-box-title">
-                                Development Graph
+                                Development
                               </h2>
                               <p className="tool-tip-box-description">
-                                A place in which athletes are and feel
-                                psychologically safe with access to basic mental
-                                health support.
+                                An athlete’s subjective experience as it
+                                pertains to their habitual development of
+                                athleticism over time to improve their health
+                                and fitness, enhance physical performance,
+                                reduce the relative risk of injury and develop
+                                their confidence and competence as an
+                                individual.
                               </p>
                             </Tooltip>
                           </div>
@@ -363,13 +367,11 @@ export default function ReportingDashboard() {
                               anchorSelect="#info-logo-culture"
                               className="tool-tip-box"
                             >
-                              <h2 className="tool-tip-box-title">
-                                Culture Graph
-                              </h2>
+                              <h2 className="tool-tip-box-title">Culture</h2>
                               <p className="tool-tip-box-description">
-                                Monitoring, protection and nurturing of
-                                athletes&apos; connection, sense of belonging
-                                and well-developed support system.
+                                How an athlete experiences shared attitudes,
+                                values, goals, and practices that characterizes
+                                your organization.
                               </p>
                             </Tooltip>
                           </div>
