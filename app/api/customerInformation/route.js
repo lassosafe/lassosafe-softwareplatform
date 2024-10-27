@@ -35,6 +35,7 @@ export async function POST(req) {
     );
     //res.status(200).json({ sessionId: session.id });
   } catch (err) {
+    console.log(err.message);
     return NextResponse.json({ error: err.message }, { status: 500 });
     //res.status(500).json({ error: err.message });
   }

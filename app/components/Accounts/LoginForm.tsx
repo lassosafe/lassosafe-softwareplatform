@@ -49,7 +49,9 @@ export default function LoginForm() {
         return;
       }
 
-      router.replace("/pages/dashboard");
+      correspondingUser.isViewer
+        ? router.replace("/pages/viewerDashboard")
+        : router.replace("/pages/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +109,7 @@ export default function LoginForm() {
           </p>
           <p className="no-account">
             <b>Are you a viewer and don't have an account?</b> Click{" "}
-            <a href="/pages/subscription" className="subscription-link">
+            <a href="/pages/viewerSubscription" className="subscription-link">
               here
             </a>{" "}
             to purchase a viewer subscription.

@@ -5,8 +5,14 @@ import bcrypt from "bcryptjs";
 
 export async function POST(req) {
   try {
-    const { name, email, password, stripeSubscriptionId, numberParticipants } =
-      await req.json();
+    const {
+      name,
+      email,
+      password,
+      stripeSubscriptionId,
+      numberParticipants,
+      isViewer,
+    } = await req.json();
     const hashedPassword = await bcrypt.hash(password, 10);
     const expirationDate = new Date();
     expirationDate.setFullYear(expirationDate.getFullYear() + 10);
@@ -21,6 +27,7 @@ export async function POST(req) {
       accountExpirationDate: expirationDate,
       password: hashedPassword,
       numberParticipants,
+      isViewer,
     });
     return NextResponse.json({ message: "User registered" }, { status: 201 });
   } catch (error) {

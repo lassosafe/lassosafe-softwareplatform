@@ -29,6 +29,8 @@ export default function RegisterForm() {
   const stripeSessionId = searchParams.get("session_id") || "";
   console.log(stripeSessionId);
 
+  const isViewer = searchParams.get("isViewer") || false;
+
   useEffect(() => {
     const getStripePaymentInfo = async () => {
       const response = await fetch("../api/customerInformation", {
@@ -93,6 +95,7 @@ export default function RegisterForm() {
           password,
           stripeSubscriptionId,
           numberParticipants,
+          isViewer,
         }),
       });
       if (response.ok) {
