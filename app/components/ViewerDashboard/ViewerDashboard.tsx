@@ -11,7 +11,6 @@ import LearningModules from "@/app/components/LearningModules/LearningModules";
 import { DashboardHeader } from "@/app/components/DashboardComponents/DashboardHeader";
 import { useSession } from "next-auth/react";
 import EvaluationInstructions from "../EvaluationInstructions/EvaluationInstructions";
-import { SelectOption } from "../Dropdown/SelectDropdown";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Footer from "../Footer/Footer";
 
@@ -67,8 +66,8 @@ export default function Dashboard() {
             <a className="quick-button" href="/pages/reportingDashboard">
               Reporting Dashboard
             </a>
-            <a className="quick-button" href="/pages/newEvaluation">
-              Create New Evaluation
+            <a className="quick-button" href="/pages/methodology">
+              Wellness Reports Methodology
             </a>
             <a className="quick-button" href="/pages/learningModules">
               Learning Modules
