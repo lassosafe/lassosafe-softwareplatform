@@ -1,5 +1,10 @@
 import ViewerSharing from "@/app/components/ViewerSharing/ViewerSharing";
+import { Suspense } from "react";
 
 export default function ViewerSharingPage() {
-  return <ViewerSharing />;
+  return (
+    <Suspense>
+      <ViewerSharing />
+    </Suspense>
+  );
 }

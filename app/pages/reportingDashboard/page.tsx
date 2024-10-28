@@ -1,5 +1,10 @@
 import ReportingDashboard from "@/app/components/DashboardComponents/ReportingDashboard";
+import { Suspense } from "react";
 
 export default function ReportingDashboardPage() {
-  return <ReportingDashboard />;
+  return (
+    <Suspense>
+      <ReportingDashboard />
+    </Suspense>
+  );
 }
