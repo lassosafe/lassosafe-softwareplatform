@@ -2,7 +2,6 @@
 
 import "../DashboardComponents/Dashboard.scss";
 
-import awardlogo from "../../../public/images/award.png";
 import Image from "next/image";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import ReportingDashboard from "@/app/components/DashboardComponents/ReportingDashboard";
