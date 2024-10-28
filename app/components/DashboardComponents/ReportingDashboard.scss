@@ -1,9 +1,17 @@
+.reporting-dashboard {
+  flex-grow: 1;
+}
+
+.center-components-reporting-dashboard {
+  flex-grow: 1;
+}
+
 .dashboard-objects {
   //display: flex;
-  margin-top: 5rem;
+  margin-top: 1rem;
   margin-left: 16rem;
   margin-right: 2rem;
-  width: 100%;
+  //width: 100%;
 
   .temp-results {
     color: red;
@@ -157,4 +165,11 @@
   border: 0.1rem solid black;
   padding: 0;
   z-index: 1028;
+}
+
+.clients-dropdown {
+  display: flex;
+  //margin-top: 0.5rem;
+  margin-top: 5rem;
+  margin-left: 16rem;
 }

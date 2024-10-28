@@ -3,12 +3,12 @@ import { useState } from "react";
 import "./NavigationMenu.scss";
 
 type NavigationMenuProps = {
-  isViewer?: boolean;
+  isViewer: boolean;
 };
 
 export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
   const [navBarOpen, setNavBarOpen] = useState<boolean>(true);
-  const [isViewerNav, setIsViewerNav] = useState<boolean>(isViewer ?? false);
+  //const [isViewerNav, setIsViewerNav] = useState<boolean>(isViewer ?? false);
   return (
     <nav className="navigation-bar">
       <ul className="navigation-bar-list">
@@ -22,7 +22,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = "/pages/reportingDashboard";
+            window.location.href = `/pages/reportingDashboard?isViewer=${isViewer}`;
           }}
         >
           <p>Reporting Dashboard</p>
@@ -31,7 +31,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = "/pages/methodology";
+            window.location.href = `/pages/methodology?isViewer=${isViewer}`;
           }}
         >
           <p>Wellness Reports Methodology</p>
@@ -57,7 +57,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
               className="navigation-bar-page"
               style={{ display: navBarOpen ? "inline-block" : "none" }}
               onClick={() =>
-                (window.location.href = "/pages/evaluationInstructions")
+                (window.location.href = `/pages/evaluationInstructions?isViewer=${isViewer}`)
               }
             >
               <p>Instructions</p>
@@ -65,41 +65,64 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
             <li
               className="navigation-bar-page"
               style={{ display: navBarOpen ? "inline-block" : "none" }}
-              onClick={() => (window.location.href = "/pages/newEvaluation")}
+              onClick={() =>
+                (window.location.href = `/pages/newEvaluation?isViewer=${isViewer}`)
+              }
             >
               <p>New Evaluation</p>
             </li>
+            <li
+              className="navigation-bar-page"
+              style={{ display: navBarOpen ? "inline-block" : "none" }}
+              onClick={() => (window.location.href = "/pages/evaluationsList")}
+            >
+              <p>My Evaluations List</p>
+            </li>
           </>
         )}
-        {/* <li
-          className="navigation-bar-page"
+        <li
+          className="navigation-bar-header"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
-          onClick={() => (window.location.href = "/pages/evaluationsList")}
         >
-          <p>My Evaluations List</p>
-        </li> */}
+          Learning
+        </li>
         <li
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = "/pages/learningModules";
+            window.location.href = `/pages/learningModules?isViewer=${isViewer}`;
           }}
         >
           <div style={{ display: "flex" }}>
             <p>Learning Modules</p>
           </div>
         </li>
+        {!isViewer && (
+          <li
+            className="navigation-bar-home"
+            style={{ display: navBarOpen ? "inline-block" : "none" }}
+            onClick={() =>
+              (window.location.href = `/pages/viewerSharing?isViewer=${isViewer}`)
+            }
+          >
+            <p>Viewer Sharing</p>
+          </li>
+        )}
         <li
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
-          onClick={() => (window.location.href = "/pages/accountInformation")}
+          onClick={() =>
+            (window.location.href = `/pages/accountInformation?isViewer=${isViewer}`)
+          }
         >
           <p>Account Settings</p>
         </li>
         <li
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
-          onClick={() => (window.location.href = "/pages/dashboard")}
+          onClick={() =>
+            (window.location.href = `/pages/dashboard?isViewer=${isViewer}`)
+          }
         >
           <p>Back to Home</p>
         </li>

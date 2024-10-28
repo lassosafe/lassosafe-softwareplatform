@@ -15,6 +15,7 @@ import EvaluationInstructions from "../EvaluationInstructions/EvaluationInstruct
 import { SelectOption } from "../Dropdown/SelectDropdown";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Footer from "../Footer/Footer";
+import { useSearchParams } from "next/navigation";
 
 export type Evaluation = {
   name: string;
@@ -49,13 +50,14 @@ export default function Dashboard() {
   console.log("session: ");
   console.log(session);
 
-  console.log(" in dashboard");
+  const searchParams = useSearchParams();
+  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
 
   return (
     <div className="dashboard">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu />
+        <NavigationMenu isViewer={isViewer} />
         <div className="home-page-components">
           <p className="welcome-text">Welcome to your LassoSafe Dashboard!</p>
           <p className="welcome-sub-text">

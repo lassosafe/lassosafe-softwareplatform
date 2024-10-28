@@ -1,15 +1,18 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 import { DashboardHeader } from "../DashboardComponents/DashboardHeader";
 import Footer from "../Footer/Footer";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import "./EvaluationInstructions.scss";
 
 export default function EvaluationInstructions() {
+  const searchParams = useSearchParams();
+  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
   return (
     <div className="instructions-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu />
+        <NavigationMenu isViewer={isViewer} />
         <div className="instructions-container">
           <div className="instructions-title">
             Athlete Experience Recognition Evaluation Instructions

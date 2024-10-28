@@ -1,8 +1,7 @@
 "use client";
 
-import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./AccountSettings.scss";
 import { TextInput } from "../Inputs/SingleLineTextInput";
@@ -13,6 +12,7 @@ import {
   currentOrFutureYear,
   dateToMonthAndDay,
 } from "@/app/constants/helperFunctions";
+import { useSearchParams } from "next/navigation";
 
 type EditNameFormProps = {
   name: string;
@@ -29,6 +29,10 @@ export default function AccountSettings() {
     new Date()
   );
   const [numberParticipants, setNumberParticipants] = useState<number>(0);
+  const [accountId, setAccountId] = useState<string>("");
+
+  const searchParams = useSearchParams();
+  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
 
   const formMethods = useForm<EditNameFormProps>();
   const {
@@ -50,10 +54,11 @@ export default function AccountSettings() {
       });
       const { correspondingUser } = await res.json();
       if (correspondingUser) {
-        const { hasCanceled, accountCreationDate, numberParticipants } =
+        const { hasCanceled, accountCreationDate, numberParticipants, _id } =
           correspondingUser;
         setAccountCreationDate(accountCreationDate);
         setNumberParticipants(numberParticipants);
+        setAccountId(_id);
         if (hasCanceled) {
           setShowBillingOrExpirationDate("expired");
         } else {
@@ -140,7 +145,7 @@ export default function AccountSettings() {
     <div>
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu />
+        <NavigationMenu isViewer={isViewer} />
         <div className="place-items-center h-screen account-settings-container">
           <div className="shadow-lg p-8 bg-zince-300/10 flex flex-col gap-2">
             <h2 className="account-settings">Account Settings</h2>
@@ -179,13 +184,11 @@ export default function AccountSettings() {
             <FormProvider {...formMethods}>
               <form onSubmit={handleSubmit(onEditName)}>
                 <TextInput
-                  inputName="name"
-                  label="Name (editable):"
-                  rules={{
-                    required: "The name must be edited to save changes.",
-                  }}
-                  placeholder={userName}
-                  //onChange={(e) => setUserName(e.target.value)}
+                  className="user-email"
+                  inputName="accountId"
+                  label="Account ID (cannot edit):"
+                  value={accountId}
+                  disabled
                 />
                 <TextInput
                   className="user-email"
@@ -193,6 +196,15 @@ export default function AccountSettings() {
                   label="Email (cannot edit):"
                   value={session?.user?.email}
                   disabled
+                />
+                <TextInput
+                  inputName="name"
+                  label="Name (editable):"
+                  rules={{
+                    required: "The name must be edited to save changes.",
+                  }}
+                  placeholder={userName}
+                  //onChange={(e) => setUserName(e.target.value)}
                 />
 
                 <p></p>

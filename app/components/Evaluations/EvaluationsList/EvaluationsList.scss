@@ -2,3 +2,26 @@
   margin-left: 17rem;
   margin-top: 6rem;
 }
+
+.evaluations-table {
+  border: 2px solid black;
+
+  border-collapse: separate; /* Ensure spacing is applied */
+  border-spacing: 30px; /* Adjust spacing as needed */
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.evaluations-table-header {
+  text-decoration: underline;
+}
+
+.evaluations-list-title {
+  font-weight: bold;
+  font-size: 2rem;
+  box-shadow: 0.05rem 0.05rem 0.25rem rgba(0, 0, 0, 0.15);
+  width: 95%;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  background-color: white;
+}

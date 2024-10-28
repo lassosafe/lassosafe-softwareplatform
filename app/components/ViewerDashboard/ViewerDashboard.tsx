@@ -1,6 +1,6 @@
 "use client";
 
-import "./Dashboard.scss";
+import "../DashboardComponents/Dashboard.scss";
 
 import awardlogo from "../../../public/images/award.png";
 import Image from "next/image";
@@ -55,7 +55,7 @@ export default function Dashboard() {
     <div className="dashboard">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu />
+        <NavigationMenu isViewer />
         <div className="home-page-components">
           <p className="welcome-text">
             Welcome to your LassoSafe Viewer Dashboard!

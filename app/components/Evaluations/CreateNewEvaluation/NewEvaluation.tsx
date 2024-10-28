@@ -17,6 +17,7 @@ import EvaluationEmailTemplate from "./EvaluationEmailTemplate";
 import { DashboardHeader } from "../../DashboardComponents/DashboardHeader";
 import NavigationMenu from "../../NavigationMenu/NavigationMenu";
 import Footer from "../../Footer/Footer";
+import { useSearchParams } from "next/navigation";
 
 type AddEmailsFormProps = {
   evaluationTitle: string;
@@ -26,6 +27,9 @@ type AddEmailsFormProps = {
 
 export default function NewEvaluation() {
   const { data: session } = useSession();
+  const searchParams = useSearchParams();
+  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+
   const [evaluationCreated, setEvaluationCreated] = useState<boolean>(false);
   const [newEvaluationURL, setNewEvaluationURL] = useState<string>("");
   const [evaluationTitle, setEvaluationTitle] = useState<string>("");
@@ -104,7 +108,7 @@ export default function NewEvaluation() {
     <div className="new-evaluation-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu />
+        <NavigationMenu isViewer={isViewer} />
         <div className="new-evaluation-container">
           {!evaluationCreated && (
             <>

@@ -1,16 +1,19 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { DashboardHeader } from "../DashboardComponents/DashboardHeader";
 import Footer from "../Footer/Footer";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import "./Methodology.scss";
 
 export default function Methodology() {
+  const searchParams = useSearchParams();
+  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
   return (
     <div className="methodology-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu />
+        <NavigationMenu isViewer={isViewer} />
         <div className="methodology-container">
           <div className="methodology-title">
             Athlete Experience Recognition Methodology

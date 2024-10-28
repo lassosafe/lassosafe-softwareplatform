@@ -97,3 +97,22 @@ export const currentOrFutureYear = (date: Date) => {
   }
   return currentYear;
 };
+
+export const calculateFinalGrade = (finalScore: string) => {
+  if (finalScore === "N/A" || finalScore === "NaN") return "N/A";
+  else if (parseFloat(finalScore) <= 0.25) return "D";
+  else if (parseFloat(finalScore) <= 0.5) return "C";
+  else if (parseFloat(finalScore) <= 0.75) return "B";
+  else return "A";
+};
+
+export const calculateFinalGradeColor = (finalScore: string) => {
+  if (calculateFinalGrade(finalScore) === "N/A") return "white";
+  else if (calculateFinalGrade(finalScore) === "D") return "#ee4b2b";
+  else if (calculateFinalGrade(finalScore) === "C") return "#ffc107";
+  else if (
+    calculateFinalGrade(finalScore) === "A" ||
+    calculateFinalGrade(finalScore) === "B"
+  )
+    return "#2ed8b6";
+};

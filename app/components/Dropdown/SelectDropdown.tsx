@@ -35,9 +35,6 @@ export function SelectDropdown<TValue>({
   const [selectedItem, setSelectedItem] = useState<SelectOption<TValue>>();
   const [open, setOpen] = useState<boolean>(false);
 
-  console.log("entering select dropdown");
-  console.log(options);
-
   const onOptionToggle = useCallback(
     (id: TValue) => {
       console.log("options onoptiontoggle: ", options);
@@ -59,15 +56,12 @@ export function SelectDropdown<TValue>({
   }, [initialValue, selectedItem, options]);
 
   useEffect(() => {
-    console.log("in use effect before logic", options);
     if (
       updatedValue &&
       JSON.stringify(updatedValue) !== JSON.stringify(selectedItem)
     ) {
       setSelectedItem(options.find((option) => option.id === updatedValue.id));
     }
-    console.log("in use effect select dropdown");
-    console.log(options);
   }, [updatedValue, selectedItem, options]);
 
   const checkboxItem = useCallback(
