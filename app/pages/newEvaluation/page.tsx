@@ -1,5 +1,10 @@
 import NewEvaluation from "@/app/components/Evaluations/CreateNewEvaluation/NewEvaluation";
+import { Suspense } from "react";
 
 export default function NewEvaluationPage() {
-  return <NewEvaluation />;
+  return (
+    <Suspense>
+      <NewEvaluation />
+    </Suspense>
+  );
 }

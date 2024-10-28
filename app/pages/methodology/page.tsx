@@ -1,5 +1,10 @@
 import Methodology from "@/app/components/Methodology/Methodology";
+import { Suspense } from "react";
 
 export default function MethodologyPage() {
-  return <Methodology />;
+  return (
+    <Suspense>
+      <Methodology />
+    </Suspense>
+  );
 }

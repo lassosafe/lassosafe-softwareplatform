@@ -1,5 +1,10 @@
 import AccountSettings from "@/app/components/Accounts/AccountSettings";
+import { Suspense } from "react";
 
 export default async function AccountInformation() {
-  return <AccountSettings />;
+  return (
+    <Suspense>
+      <AccountSettings />
+    </Suspense>
+  );
 }
