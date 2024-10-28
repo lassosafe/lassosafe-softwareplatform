@@ -9,6 +9,7 @@ import "./ViewerSharing.scss";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import { DashboardHeader } from "../DashboardComponents/DashboardHeader";
 import { useSearchParams } from "next/navigation";
+import { Loader } from "../Loader/Loader";
 
 type ViewerSharingFormProps = {
   viewerInfo: string;
@@ -55,6 +56,7 @@ export default function ViewerSharing() {
     useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [viewers, setViewers] = useState<Viewer[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const getViewers = async () => {
     const email = session?.user?.email;
@@ -75,6 +77,7 @@ export default function ViewerSharing() {
   useEffect(() => {
     if (!viewers) {
       getViewers();
+      setIsLoading(false);
     }
   }, [viewers, session, showInviteViewerList]);
 
@@ -149,75 +152,79 @@ export default function ViewerSharing() {
         <NavigationMenu isViewer={isViewer} />
         <div className="viewer-sharing-container">
           <h2 className="viewer-sharing-title">Viewer Sharing List</h2>
-          <div className="viewer-sharing-card ">
-            {viewers &&
-              (viewers.length > 0 ? (
-                <>
-                  <p>
-                    Below is the list of those who have viewing access to your
-                    results. Click below to add more viewers.
-                  </p>
-                  <div>
-                    <table className="viewers-table">
-                      <thead className="viewers-table-header">
-                        <th>Viewer Name</th>
-                        <th>Viewer Email</th>
-                        <th>Actions</th>
-                      </thead>
-                      <tbody>
-                        {viewers.map((viewer: Viewer) => {
-                          return (
-                            <ViewerItem
-                              key={viewer._id}
-                              id={viewer._id}
-                              name={viewer.name}
-                              email={viewer.email}
-                              onRemoveViewer={onRemoveViewer}
-                            />
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                </>
-              ) : (
-                <div>
-                  You are not sharing your results with any Sports Wellness
-                  Platform viewers. If you'd like to share, click the button
-                  below.
-                </div>
-              ))}
-            <div></div>
-            <button
-              className="purchase-button"
-              onClick={() => {
-                setShowInviteViewerList(true);
-              }}
-            >
-              Add Viewer
-            </button>
-            {showInviteViewerList && (
-              <div>
-                <FormProvider {...formMethods}>
-                  <form onSubmit={handleSubmit(handleSubmitAddViewer)}>
-                    <TextInput
-                      inputName="viewerInfo"
-                      label="Please enter the email or account ID of the viewer."
-                      rules={{
-                        required: "Please enter a value.",
-                      }}
-                    />
-                    <div className="error-message">{errorMessage}</div>
-                    <div className="form-footer">
-                      <button type="submit" className="purchase-button">
-                        Invite Viewer
-                      </button>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div className="viewer-sharing-card ">
+              {viewers &&
+                (viewers.length > 0 ? (
+                  <>
+                    <p>
+                      Below is the list of those who have viewing access to your
+                      results. Click below to add more viewers.
+                    </p>
+                    <div>
+                      <table className="viewers-table">
+                        <thead className="viewers-table-header">
+                          <th>Viewer Name</th>
+                          <th>Viewer Email</th>
+                          <th>Actions</th>
+                        </thead>
+                        <tbody>
+                          {viewers.map((viewer: Viewer) => {
+                            return (
+                              <ViewerItem
+                                key={viewer._id}
+                                id={viewer._id}
+                                name={viewer.name}
+                                email={viewer.email}
+                                onRemoveViewer={onRemoveViewer}
+                              />
+                            );
+                          })}
+                        </tbody>
+                      </table>
                     </div>
-                  </form>
-                </FormProvider>
-              </div>
-            )}
-          </div>
+                  </>
+                ) : (
+                  <div>
+                    You are not sharing your results with any Sports Wellness
+                    Platform viewers. If you'd like to share, click the button
+                    below.
+                  </div>
+                ))}
+              <div></div>
+              <button
+                className="purchase-button"
+                onClick={() => {
+                  setShowInviteViewerList(true);
+                }}
+              >
+                Add Viewer
+              </button>
+              {showInviteViewerList && (
+                <div>
+                  <FormProvider {...formMethods}>
+                    <form onSubmit={handleSubmit(handleSubmitAddViewer)}>
+                      <TextInput
+                        inputName="viewerInfo"
+                        label="Please enter the email or account ID of the viewer."
+                        rules={{
+                          required: "Please enter a value.",
+                        }}
+                      />
+                      <div className="error-message">{errorMessage}</div>
+                      <div className="form-footer">
+                        <button type="submit" className="purchase-button">
+                          Invite Viewer
+                        </button>
+                      </div>
+                    </form>
+                  </FormProvider>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
       <Footer />
