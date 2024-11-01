@@ -110,12 +110,12 @@ export default function ViewerSubscriptionForm() {
         ></Image>
       </header>
       <h2 className="swp-register">
-        Sports Wellness Platform Viewer - Register
+        Sports Wellness Platform Umbrella Organization - Register
       </h2>
       <div className="subscription-page-elements">
         <div className="platform-description-text">
           <h2 className="join-movement">Join the Movement!</h2>
-          <p>With the Sports Wellness Platform Viewer Membership, you get:</p>
+          <p>With the Sports Wellness Platform Umbrella Membership, you get:</p>
 
           <p className="list-title">Intuitive Overview Dashboard</p>
           <ul>
@@ -202,7 +202,7 @@ export default function ViewerSubscriptionForm() {
               />
               <div className="form-footer">
                 <button type="submit" className="purchase-button">
-                  Click Here to Purchase Viewer Membership
+                  Click Here to Purchase Umbrella Membership
                 </button>
               </div>
             </form>

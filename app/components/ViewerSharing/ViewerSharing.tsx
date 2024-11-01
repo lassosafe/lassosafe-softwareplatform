@@ -40,7 +40,7 @@ function ViewerItem({ name, email, id, onRemoveViewer }: ViewerItemProps) {
             onRemoveViewer(id);
           }}
         >
-          Remove Viewer
+          Remove Umbrella Member
         </button>
       </td>
     </tr>
@@ -166,8 +166,8 @@ export default function ViewerSharing() {
                     <div>
                       <table className="viewers-table">
                         <thead className="viewers-table-header">
-                          <th>Viewer Name</th>
-                          <th>Viewer Email</th>
+                          <th>Umbrella Name</th>
+                          <th>Umbrella Email</th>
                           <th>Actions</th>
                         </thead>
                         <tbody>
@@ -189,8 +189,11 @@ export default function ViewerSharing() {
                 ) : (
                   <div>
                     You are not sharing your results with any Sports Wellness
-                    Platform viewers. If you'd like to share, click the button
-                    below.
+                    Platform Umbrella members. If you'd like to share, click the
+                    button below. An Umbrella member is an organization who
+                    oversees sports organizations, such as insurers, brokers,
+                    investors, private equity, governing bodies, school
+                    districts, etc.
                   </div>
                 ))}
               <div></div>
@@ -200,7 +203,7 @@ export default function ViewerSharing() {
                   setShowInviteViewerList(true);
                 }}
               >
-                Add Viewer
+                Add Umbrella Member
               </button>
               {showInviteViewerList && (
                 <div>
@@ -216,7 +219,7 @@ export default function ViewerSharing() {
                       <div className="error-message">{errorMessage}</div>
                       <div className="form-footer">
                         <button type="submit" className="purchase-button">
-                          Invite Viewer
+                          Invite an Umbrella Member
                         </button>
                       </div>
                     </form>

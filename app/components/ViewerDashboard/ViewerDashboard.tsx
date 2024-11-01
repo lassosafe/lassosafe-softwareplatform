@@ -56,7 +56,7 @@ export default function Dashboard() {
         <NavigationMenu isViewer />
         <div className="home-page-components">
           <p className="welcome-text">
-            Welcome to your LassoSafe Viewer Dashboard!
+            Welcome to your LassoSafe SWP Umbrella Dashboard!
           </p>
           <p className="welcome-sub-text">
             Head to the tabs on the left or select one of the quick buttons
