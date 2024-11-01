@@ -222,16 +222,17 @@ export default function AccountSettings() {
                     </div>
                   </form>
                 </FormProvider>
-                <FormProvider {...formMethods}>
-                  <form onSubmit={handleSubmit(onEditName)}>
-                    <TextInput
-                      className="user-email"
-                      inputName="numParticipants"
-                      label="Number of Participants"
-                      value={numberParticipants}
-                      disabled
-                    />
-                    {/* <button>
+                {!isViewer && (
+                  <FormProvider {...formMethods}>
+                    <form onSubmit={handleSubmit(onEditName)}>
+                      <TextInput
+                        className="user-email"
+                        inputName="numParticipants"
+                        label="Number of Participants"
+                        value={numberParticipants}
+                        disabled
+                      />
+                      {/* <button>
                   Click to add more participants to your membership
                 </button>
                 <p>You will be increasin<p/>
@@ -240,8 +241,9 @@ export default function AccountSettings() {
                     Save Changes
                   </button>
                 </div> */}
-                  </form>
-                </FormProvider>
+                    </form>
+                  </FormProvider>
+                )}
 
                 {showBillingOrExpirationDate === "billing" && (
                   <>

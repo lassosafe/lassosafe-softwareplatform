@@ -151,7 +151,7 @@ export default function ViewerSharing() {
       <div className="center-components">
         <NavigationMenu isViewer={isViewer} />
         <div className="viewer-sharing-container">
-          <h2 className="viewer-sharing-title">Viewer Sharing List</h2>
+          <h2 className="viewer-sharing-title">Umbrella Member Sharing List</h2>
           {isLoading ? (
             <Loader />
           ) : (
@@ -161,7 +161,10 @@ export default function ViewerSharing() {
                   <>
                     <p>
                       Below is the list of those who have viewing access to your
-                      results. Click below to add more viewers.
+                      results. Click below to add more umbrella organizations.
+                      An Umbrella member is an organization who oversees sports
+                      organizations, such as insurers, brokers, investors,
+                      private equity, governing bodies, school districts, etc.
                     </p>
                     <div>
                       <table className="viewers-table">
