@@ -121,7 +121,9 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() =>
-            (window.location.href = `/pages/dashboard?isViewer=${isViewer}`)
+            (window.location.href = isViewer
+              ? `/pages/dashboard?isViewer=${isViewer}`
+              : `/pages/viewerDashboard?isViewer=${isViewer}`)
           }
         >
           <p>Back to Home</p>
