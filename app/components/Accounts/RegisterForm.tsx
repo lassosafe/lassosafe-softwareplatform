@@ -43,6 +43,7 @@ export default function RegisterForm() {
 
         body: JSON.stringify({
           stripeSessionId,
+          isViewer,
         }),
       });
       const {
