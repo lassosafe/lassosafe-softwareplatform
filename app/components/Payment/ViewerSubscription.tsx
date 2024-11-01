@@ -8,12 +8,9 @@ import exampleswpdashboard from "../../../public/images/example-swp-dashboard.pn
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 
 import "./Subscription.scss";
-import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
 import { SelectInput } from "../Inputs/SelectInput";
 import { RadioInput } from "../Inputs/RadioInput";
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const annualRevenueOptions = [
   {
@@ -163,9 +160,7 @@ export default function ViewerSubscriptionForm() {
             <p className="pricing-title">Pricing</p>
             <p className="second-price">Find Your Fees</p>
             <p className="second-price">
-              Use the drop-down list below to select your gross annual revenue -
-              this will indicate your subscription fee. Subscription fees are
-              shown and paid in USD.
+              Subscription fees are shown and paid in USD.
             </p>
             <ul>
               <li>
@@ -179,21 +174,23 @@ export default function ViewerSubscriptionForm() {
               </li>
             </ul>
             <p className="payment-instructions">
-              Upon registering, you will pay for the first-year dashboard
-              payment, and the response payments will be automatically billed
-              once sports wellness evaluations are sent and responses are
-              received.
+              Use the options below to select your gross annual revenue and
+              billing preference - this will indicate your subscription fee.
             </p>
           </div>
 
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitViewerSubscription)}>
-              <SelectInput
-                label="Annual Revenue"
-                inputName="annualRevenue"
-                options={annualRevenueOptions}
-                rules={{ required: "Please select a range of annual revenue." }}
-              />
+              <div className="selector">
+                <RadioInput
+                  label="Annual Revenue"
+                  inputName="annualRevenue"
+                  options={annualRevenueOptions}
+                  rules={{
+                    required: "Please select a range of annual revenue.",
+                  }}
+                />
+              </div>
               <RadioInput
                 label="Billing Frequency"
                 inputName={"paymentFrequency"}

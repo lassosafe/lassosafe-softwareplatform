@@ -114,7 +114,7 @@ export default function LoginForm() {
             <a href="/pages/viewerSubscription" className="subscription-link">
               here
             </a>{" "}
-            to purchase a viewer subscription.
+            to purchase a subscription.
           </p>
           <p>
             <b>Want to learn more?</b> Click{" "}

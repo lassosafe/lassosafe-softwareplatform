@@ -105,7 +105,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
               (window.location.href = `/pages/viewerSharing?isViewer=${isViewer}`)
             }
           >
-            <p>Viewer Sharing</p>
+            <p>Umbrella Sharing</p>
           </li>
         )}
         <li
