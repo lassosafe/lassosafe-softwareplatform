@@ -4,33 +4,38 @@ import { NextResponse } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const firstYearPlatformFee = {
-  price: "price_1Q72cwDtt4SMJazLJPKOOW6k",
-  quantity: 1,
-};
-
-const recurringPlatformFee = {
-  price: "price_1Q72fRDtt4SMJazL3LCYuT0K",
-  quantity: 1,
-};
-
-const participantFeePriceId = "price_1Q72rLDtt4SMJazLTqY5nCjb";
+const umbrellaMonthlyPriceId = "price_1QGAgGDtt4SMJazLHPSQnszD";
+const umbrellaAnnuallyPriceId = "price_1QGAepDtt4SMJazLKSOoqSNJ";
 
 export async function POST(req) {
-  const { numParticipants } = await req.json();
+  const { annualRevenueString, paymentFrequencyString } = await req.json();
 
-  const participantFee = {
-    price: participantFeePriceId,
-    quantity: numParticipants,
+  let priceId;
+  if (paymentFrequencyString.includes("monthly")) {
+    priceId = umbrellaMonthlyPriceId;
+  } else {
+    priceId = umbrellaAnnuallyPriceId;
+  }
+
+  let quantity;
+  if (annualRevenueString.includes("4.9M")) {
+    quantity = 1;
+  } else if (annualRevenueString.includes("499M")) {
+    quantity = 5000000;
+  } else {
+    quantity = 500000000;
+  }
+
+  const umbrellaFee = {
+    price: priceId,
+    quantity: quantity,
   };
-
-  console.log(numParticipants);
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       payment_method_types: ["card"],
-      line_items: [recurringPlatformFee, firstYearPlatformFee, participantFee],
+      line_items: [umbrellaFee],
       success_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/register?session_id={CHECKOUT_SESSION_ID}&isViewer=true`,
       cancel_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/paymentFailed`,
     });

@@ -10,11 +10,40 @@ import horizontallogowhite from "../../../public/images/logo-horizontal-white.pn
 import "./Subscription.scss";
 import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
+import { SelectInput } from "../Inputs/SelectInput";
+import { RadioInput } from "../Inputs/RadioInput";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
+const annualRevenueOptions = [
+  {
+    value: 1,
+    optionLabel: "$0 - $4.9M",
+  },
+  {
+    value: 2,
+    optionLabel: "$5M - $499M",
+  },
+  {
+    value: 3,
+    optionLabel: "$500M+",
+  },
+];
+
+const paymentFrequencyOptions = [
+  {
+    value: 1,
+    optionLabel: "Monthly",
+  },
+  {
+    value: 2,
+    optionLabel: "Annually",
+  },
+];
+
 type ViewerSubscriptionFormProps = {
-  numParticipants: string;
+  annualRevenue: string;
+  paymentFrequency: string;
 };
 
 export default function ViewerSubscriptionForm() {
@@ -40,12 +69,22 @@ export default function ViewerSubscriptionForm() {
       return;
     }
 
-    const { numParticipants } = formData;
+    const { paymentFrequency, annualRevenue } = formData;
+    console.log(paymentFrequency);
+    console.log(annualRevenue);
+
+    const paymentFrequencyString = paymentFrequencyOptions.find(
+      (option) => option.value === parseInt(paymentFrequency)
+    ).optionLabel;
+    const annualRevenueString = annualRevenueOptions.find(
+      (rev) => rev.value === parseInt(annualRevenue)
+    ).optionLabel;
 
     const response = await fetch("/api/viewerCheckoutSession", {
       method: "POST",
       body: JSON.stringify({
-        numParticipants: parseInt(numParticipants.replace(/,/g, "")),
+        paymentFrequencyString,
+        annualRevenueString,
       }),
     });
     const data = await response.json();
@@ -122,15 +161,21 @@ export default function ViewerSubscriptionForm() {
         <div className="subscription-plan-selection">
           <div className="pricing">
             <p className="pricing-title">Pricing</p>
-            <p className="second-price">2. SWP evaluation responses payment</p>
+            <p className="second-price">Find Your Fees</p>
+            <p className="second-price">
+              Use the drop-down list below to select your gross annual revenue -
+              this will indicate your subscription fee. Subscription fees are
+              shown and paid in USD.
+            </p>
             <ul>
               <li>
-                50,000 or less participants:{" "}
-                <b>$1500 or $0.20 per person per year</b>
+                $0 - $4.9M: <b>$459/month or $5,000/year</b>
               </li>
               <li>
-                50,001 or more participants:{" "}
-                <b>$0.10 per participant per year</b>
+                $5M - $499M: <b>$917/month or $10,000/year</b>
+              </li>
+              <li>
+                $500M+: <b>$1375/month or $15,000/year</b>
               </li>
             </ul>
             <p className="payment-instructions">
@@ -143,14 +188,17 @@ export default function ViewerSubscriptionForm() {
 
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitViewerSubscription)}>
-              <TextInput
-                inputName="numParticipants"
-                label="Please enter an estimated number of participants in your organization."
-                rules={{
-                  required: "Please enter a number.",
-                  validate: (value: string) =>
-                    Number.isInteger(parseInt(value)) && parseInt(value) > 0,
-                }}
+              <SelectInput
+                label="Annual Revenue"
+                inputName="annualRevenue"
+                options={annualRevenueOptions}
+                rules={{ required: "Please select a range of annual revenue." }}
+              />
+              <RadioInput
+                label="Billing Frequency"
+                inputName={"paymentFrequency"}
+                options={paymentFrequencyOptions}
+                rules={{ required: "Please select a payment type." }}
               />
               <div className="form-footer">
                 <button type="submit" className="purchase-button">
@@ -159,14 +207,14 @@ export default function ViewerSubscriptionForm() {
               </div>
             </form>
           </FormProvider>
-          <button
+          {/* <button
             onClick={() => {
               window.location.href = "/pages/pricingQuote";
             }}
             className="purchase-button"
           >
             Click Here to Get a Quote
-          </button>
+          </button> */}
           <p>Example Dashboard:</p>
           <Image
             src={exampleswpdashboard}
