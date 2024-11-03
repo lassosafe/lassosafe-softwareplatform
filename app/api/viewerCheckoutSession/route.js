@@ -12,9 +12,11 @@ const umbrellaMonthlyPriceId = "price_1QH5iDDtt4SMJazLalxYgrul";
 
 export async function POST(req) {
   const { annualRevenueString, paymentFrequencyString } = await req.json();
+  console.log(annualRevenueString);
+  console.log(paymentFrequencyString);
 
   let priceId;
-  if (paymentFrequencyString.includes("monthly")) {
+  if (paymentFrequencyString.includes("Monthly")) {
     priceId = umbrellaMonthlyPriceId;
   } else {
     priceId = umbrellaAnnuallyPriceId;
