@@ -4,8 +4,11 @@ import { NextResponse } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const umbrellaMonthlyPriceId = "price_1QGAgGDtt4SMJazLHPSQnszD";
-const umbrellaAnnuallyPriceId = "price_1QGAepDtt4SMJazLKSOoqSNJ";
+const umbrellaMonthlyPriceIdTest = "price_1QGAgGDtt4SMJazLHPSQnszD";
+const umbrellaAnnuallyPriceIdTest = "price_1QGAepDtt4SMJazLKSOoqSNJ";
+
+const umbrellaAnnuallyPriceId = "price_1QH5goDtt4SMJazLNdJzZj2B";
+const umbrellaMonthlyPriceId = "price_1QH5iDDtt4SMJazLalxYgrul";
 
 export async function POST(req) {
   const { annualRevenueString, paymentFrequencyString } = await req.json();
