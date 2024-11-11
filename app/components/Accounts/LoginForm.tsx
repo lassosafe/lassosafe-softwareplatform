@@ -101,20 +101,18 @@ export default function LoginForm() {
             </div>
           )}
           <p className="no-account">
-            <b>Are you a sports organization and don't have an account?</b>{" "}
-            Click{" "}
+            <b>Don't have an account?</b> Click{" "}
             <a href="/pages/subscription" className="subscription-link">
               here
             </a>{" "}
             to purchase a subscription.
           </p>
           <p>
-            <b>Are you an umbrella organization and don't have an account?</b>{" "}
-            Click{" "}
+            <b>Are you a viewer and don't have an account?</b> Click{" "}
             <a href="/pages/viewerSubscription" className="subscription-link">
               here
             </a>{" "}
-            to purchase a subscription.
+            to purchase a viewer subscription.
           </p>
           <p>
             <b>Want to learn more?</b> Click{" "}

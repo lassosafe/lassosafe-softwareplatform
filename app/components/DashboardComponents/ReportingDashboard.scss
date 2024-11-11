@@ -7,8 +7,11 @@
 }
 
 .dashboard-objects {
+  //display: flex;
   margin-top: 1rem;
+  margin-left: 16rem;
   margin-right: 2rem;
+  //width: 100%;
 
   .temp-results {
     color: red;
@@ -166,9 +169,7 @@
 
 .clients-dropdown {
   display: flex;
-}
-
-.reporting-dashboard-components {
+  //margin-top: 0.5rem;
   margin-top: 5rem;
   margin-left: 16rem;
 }

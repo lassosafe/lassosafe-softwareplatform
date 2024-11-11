@@ -9,7 +9,6 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { Evaluation } from "../../DashboardComponents/Dashboard";
-import { Loader } from "../../Loader/Loader";
 
 export default function EvaluationsList() {
   const searchParams = useSearchParams();
@@ -17,7 +16,6 @@ export default function EvaluationsList() {
   const { data: session } = useSession();
 
   const [evaluations, setEvaluations] = useState<Evaluation[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const buildEvaluationUrl = (evaluation: Evaluation) => {
     const domain = process.env.NEXT_PUBLIC_AUTH_URL;
@@ -53,7 +51,6 @@ export default function EvaluationsList() {
       if (evaluations) {
         setEvaluations(evaluations);
       }
-      setIsLoading(false);
     };
     if (session?.user) {
       getEvaluations(session?.user?.email);
@@ -67,36 +64,30 @@ export default function EvaluationsList() {
         <NavigationMenu isViewer={isViewer} />
         <div className="evaluations-list-container">
           <h2 className="evaluations-list-title">My Evaluations List</h2>
-          {isLoading ? (
-            <Loader />
+          {evaluations.length > 0 ? (
+            <table className="evaluations-table">
+              <thead className="evaluations-table-header">
+                <th>Evaluation Name</th>
+                <th>Evaluation Expiration Date</th>
+                <th>Evaluation URL</th>
+              </thead>
+              <tbody>
+                {evaluations.map((evaluation) => {
+                  return (
+                    <tr>
+                      <td>{evaluation.name}</td>
+                      <td>{toDateString(evaluation.expirationDate)}</td>
+                      <td>{buildEvaluationUrl(evaluation)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           ) : (
-            <>
-              {evaluations.length > 0 ? (
-                <table className="evaluations-table">
-                  <thead className="evaluations-table-header">
-                    <th>Evaluation Name</th>
-                    <th>Evaluation Expiration Date</th>
-                    <th>Evaluation URL</th>
-                  </thead>
-                  <tbody>
-                    {evaluations.map((evaluation) => {
-                      return (
-                        <tr>
-                          <td>{evaluation.name}</td>
-                          <td>{toDateString(evaluation.expirationDate)}</td>
-                          <td>{buildEvaluationUrl(evaluation)}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              ) : (
-                <p>
-                  You do not have any evaluations yet. Head to New Evaluations
-                  to create your first evaluation.
-                </p>
-              )}
-            </>
+            <p>
+              You do not have any evaluations yet. Head to New Evaluations to
+              create your first evaluation.
+            </p>
           )}
         </div>
       </div>

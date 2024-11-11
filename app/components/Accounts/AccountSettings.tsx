@@ -13,7 +13,6 @@ import {
   dateToMonthAndDay,
 } from "@/app/constants/helperFunctions";
 import { useSearchParams } from "next/navigation";
-import { Loader } from "../Loader/Loader";
 
 type EditNameFormProps = {
   name: string;
@@ -23,7 +22,6 @@ export default function AccountSettings() {
   const { data: session } = useSession();
 
   const [showCancelScreen, setShowCancelScreen] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [userName, setUserName] = useState<string>(session?.user?.name || "");
   const [showBillingOrExpirationDate, setShowBillingOrExpirationDate] =
     useState<string>("billing");
@@ -67,7 +65,6 @@ export default function AccountSettings() {
           setShowBillingOrExpirationDate("billing");
         }
       }
-      setIsLoading(false);
     };
     getBillingInfo();
   }, [session]);
@@ -152,87 +149,82 @@ export default function AccountSettings() {
         <div className="place-items-center h-screen account-settings-container">
           <div className="shadow-lg p-8 bg-zince-300/10 flex flex-col gap-2">
             <h2 className="account-settings">Account Settings</h2>
-            {isLoading ? (
-              <Loader />
-            ) : (
-              <>
-                {showBillingOrExpirationDate === "billing" && (
-                  <p className="account-update">
-                    Your membership will be automatically billed on:{" "}
-                    <b>
-                      {dateToMonthAndDay(accountCreationDate) +
-                        ", " +
-                        currentOrFutureYear(accountCreationDate)}
-                    </b>
-                  </p>
-                )}
-                {showBillingOrExpirationDate === "expired" && (
-                  <div>
-                    <p className="account-update-cancel">
-                      Your membership has been canceled and will expire on:{" "}
-                      <b>
-                        {dateToMonthAndDay(accountCreationDate) +
-                          ", " +
-                          currentOrFutureYear(accountCreationDate)}
-                      </b>
-                    </p>
-                    <p>
-                      You may reactivate the membership any time before the
-                      expiration date.
-                    </p>
-                    <button
-                      className="reactivate-button"
-                      onClick={reactivatePayment}
-                    >
-                      Reactivate Membership
-                    </button>
-                  </div>
-                )}
-                <FormProvider {...formMethods}>
-                  <form onSubmit={handleSubmit(onEditName)}>
-                    <TextInput
-                      className="user-email"
-                      inputName="accountId"
-                      label="Account ID (cannot edit):"
-                      value={accountId}
-                      disabled
-                    />
-                    <TextInput
-                      className="user-email"
-                      inputName="email"
-                      label="Email (cannot edit):"
-                      value={session?.user?.email}
-                      disabled
-                    />
-                    <TextInput
-                      inputName="name"
-                      label="Name (editable):"
-                      rules={{
-                        required: "The name must be edited to save changes.",
-                      }}
-                      placeholder={userName}
-                      //onChange={(e) => setUserName(e.target.value)}
-                    />
+            {showBillingOrExpirationDate === "billing" && (
+              <p className="account-update">
+                Your membership will be automatically billed on:{" "}
+                <b>
+                  {dateToMonthAndDay(accountCreationDate) +
+                    ", " +
+                    currentOrFutureYear(accountCreationDate)}
+                </b>
+              </p>
+            )}
+            {showBillingOrExpirationDate === "expired" && (
+              <div>
+                <p className="account-update-cancel">
+                  Your membership has been canceled and will expire on:{" "}
+                  <b>
+                    {dateToMonthAndDay(accountCreationDate) +
+                      ", " +
+                      currentOrFutureYear(accountCreationDate)}
+                  </b>
+                </p>
+                <p>
+                  You may reactivate the membership any time before the
+                  expiration date.
+                </p>
+                <button
+                  className="reactivate-button"
+                  onClick={reactivatePayment}
+                >
+                  Reactivate Membership
+                </button>
+              </div>
+            )}
+            <FormProvider {...formMethods}>
+              <form onSubmit={handleSubmit(onEditName)}>
+                <TextInput
+                  className="user-email"
+                  inputName="accountId"
+                  label="Account ID (cannot edit):"
+                  value={accountId}
+                  disabled
+                />
+                <TextInput
+                  className="user-email"
+                  inputName="email"
+                  label="Email (cannot edit):"
+                  value={session?.user?.email}
+                  disabled
+                />
+                <TextInput
+                  inputName="name"
+                  label="Name (editable):"
+                  rules={{
+                    required: "The name must be edited to save changes.",
+                  }}
+                  placeholder={userName}
+                  //onChange={(e) => setUserName(e.target.value)}
+                />
 
-                    <p></p>
-                    <div className="form-footer">
-                      <button type="submit" className="save-changes-button">
-                        Save Changes
-                      </button>
-                    </div>
-                  </form>
-                </FormProvider>
-                {!isViewer && (
-                  <FormProvider {...formMethods}>
-                    <form onSubmit={handleSubmit(onEditName)}>
-                      <TextInput
-                        className="user-email"
-                        inputName="numParticipants"
-                        label="Number of Participants"
-                        value={numberParticipants}
-                        disabled
-                      />
-                      {/* <button>
+                <p></p>
+                <div className="form-footer">
+                  <button type="submit" className="save-changes-button">
+                    Save Changes
+                  </button>
+                </div>
+              </form>
+            </FormProvider>
+            <FormProvider {...formMethods}>
+              <form onSubmit={handleSubmit(onEditName)}>
+                <TextInput
+                  className="user-email"
+                  inputName="numParticipants"
+                  label="Number of Participants"
+                  value={numberParticipants}
+                  disabled
+                />
+                {/* <button>
                   Click to add more participants to your membership
                 </button>
                 <p>You will be increasin<p/>
@@ -241,46 +233,41 @@ export default function AccountSettings() {
                     Save Changes
                   </button>
                 </div> */}
-                    </form>
-                  </FormProvider>
-                )}
+              </form>
+            </FormProvider>
 
-                {showBillingOrExpirationDate === "billing" && (
-                  <>
-                    <button
-                      onClick={() => setShowCancelScreen(true)}
-                      className="cancel-subscription-button text-white font-bold px-6 py-2 mt-3"
+            {showBillingOrExpirationDate === "billing" && (
+              <>
+                <button
+                  onClick={() => setShowCancelScreen(true)}
+                  className="cancel-subscription-button text-white font-bold px-6 py-2 mt-3"
+                >
+                  Cancel Subscription
+                </button>
+                {showCancelScreen && (
+                  <div className="cancel-screen">
+                    <p>
+                      <b>Are you sure you want to cancel this subscription?</b>
+                    </p>
+                    <p className="cancel-description">
+                      On{" "}
+                      {dateToMonthAndDay(accountCreationDate) +
+                        ", " +
+                        currentOrFutureYear(accountCreationDate)}
+                      , you will no longer have access to the Sports Wellness
+                      Platform Dashboard or be able to create and send
+                      evaluations to your participants.
+                    </p>
+                    <a className="yes-button" onClick={cancelSubscription}>
+                      Yes, I'd like to cancel.
+                    </a>
+                    <a
+                      className="no-button"
+                      onClick={() => setShowCancelScreen(false)}
                     >
-                      Cancel Subscription
-                    </button>
-                    {showCancelScreen && (
-                      <div className="cancel-screen">
-                        <p>
-                          <b>
-                            Are you sure you want to cancel this subscription?
-                          </b>
-                        </p>
-                        <p className="cancel-description">
-                          On{" "}
-                          {dateToMonthAndDay(accountCreationDate) +
-                            ", " +
-                            currentOrFutureYear(accountCreationDate)}
-                          , you will no longer have access to the Sports
-                          Wellness Platform Dashboard or be able to create and
-                          send evaluations to your participants.
-                        </p>
-                        <a className="yes-button" onClick={cancelSubscription}>
-                          Yes, I'd like to cancel.
-                        </a>
-                        <a
-                          className="no-button"
-                          onClick={() => setShowCancelScreen(false)}
-                        >
-                          No, keep my subscription.
-                        </a>
-                      </div>
-                    )}
-                  </>
+                      No, keep my subscription.
+                    </a>
+                  </div>
                 )}
               </>
             )}

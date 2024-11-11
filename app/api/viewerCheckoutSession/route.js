@@ -4,43 +4,33 @@ import { NextResponse } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const umbrellaMonthlyPriceIdTest = "price_1QGAgGDtt4SMJazLHPSQnszD";
-const umbrellaAnnuallyPriceIdTest = "price_1QGAepDtt4SMJazLKSOoqSNJ";
+const firstYearPlatformFee = {
+  price: "price_1Q72cwDtt4SMJazLJPKOOW6k",
+  quantity: 1,
+};
 
-const umbrellaAnnuallyPriceId = "price_1QH5goDtt4SMJazLNdJzZj2B";
-const umbrellaMonthlyPriceId = "price_1QH5iDDtt4SMJazLalxYgrul";
+const recurringPlatformFee = {
+  price: "price_1Q72fRDtt4SMJazL3LCYuT0K",
+  quantity: 1,
+};
+
+const participantFeePriceId = "price_1Q72rLDtt4SMJazLTqY5nCjb";
 
 export async function POST(req) {
-  const { annualRevenueString, paymentFrequencyString } = await req.json();
-  console.log(annualRevenueString);
-  console.log(paymentFrequencyString);
+  const { numParticipants } = await req.json();
 
-  let priceId;
-  if (paymentFrequencyString.includes("Monthly")) {
-    priceId = umbrellaMonthlyPriceId;
-  } else {
-    priceId = umbrellaAnnuallyPriceId;
-  }
-
-  let quantity;
-  if (annualRevenueString.includes("4.9M")) {
-    quantity = 1;
-  } else if (annualRevenueString.includes("499M")) {
-    quantity = 5000000;
-  } else {
-    quantity = 500000000;
-  }
-
-  const umbrellaFee = {
-    price: priceId,
-    quantity: quantity,
+  const participantFee = {
+    price: participantFeePriceId,
+    quantity: numParticipants,
   };
+
+  console.log(numParticipants);
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       payment_method_types: ["card"],
-      line_items: [umbrellaFee],
+      line_items: [recurringPlatformFee, firstYearPlatformFee, participantFee],
       success_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/register?session_id={CHECKOUT_SESSION_ID}&isViewer=true`,
       cancel_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/paymentFailed`,
     });

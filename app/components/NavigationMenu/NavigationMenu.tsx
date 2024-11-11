@@ -105,7 +105,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
               (window.location.href = `/pages/viewerSharing?isViewer=${isViewer}`)
             }
           >
-            <p>Umbrella Sharing</p>
+            <p>Viewer Sharing</p>
           </li>
         )}
         <li
@@ -121,9 +121,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() =>
-            (window.location.href = isViewer
-              ? `/pages/dashboard?isViewer=${isViewer}`
-              : `/pages/viewerDashboard?isViewer=${isViewer}`)
+            (window.location.href = `/pages/dashboard?isViewer=${isViewer}`)
           }
         >
           <p>Back to Home</p>

@@ -343,7 +343,8 @@ export function ReportingDashboardContents({
             <div className="no-evaluations">
               {isViewer
                 ? "No evaluation campaigns yet for this client"
-                : "You don't have any evaluation campaigns yet. Head to the New Evaluation page to create your first evaluation."}
+                : `You don&apos;t have any evaluation campaigns yet. Head to the New
+              Evaluation page to create your first evaluation.`}
             </div>
           )}
         </div>

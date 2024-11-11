@@ -4,29 +4,17 @@ import { NextResponse } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const firstYearPlatformFeeTest = {
+const firstYearPlatformFee = {
   price: "price_1Q72cwDtt4SMJazLJPKOOW6k",
   quantity: 1,
 };
 
-const firstYearPlatformFee = {
-  price: "price_1QH5jHDtt4SMJazLpBp1tnKn",
-  quantity: 1,
-};
-
-const recurringPlatformFeeTest = {
+const recurringPlatformFee = {
   price: "price_1Q72fRDtt4SMJazL3LCYuT0K",
   quantity: 1,
 };
 
-const recurringPlatformFee = {
-  price: "price_1QH5kGDtt4SMJazL8pgrGAms",
-  quantity: 1,
-};
-
-const participantFeePriceIdTest = "price_1Q72rLDtt4SMJazLTqY5nCjb";
-
-const participantFeePriceId = "price_1QH5mSDtt4SMJazLYNJf01gj";
+const participantFeePriceId = "price_1Q72rLDtt4SMJazLTqY5nCjb";
 
 export async function POST(req) {
   const { numParticipants } = await req.json();

@@ -2,6 +2,7 @@
 
 import "../DashboardComponents/Dashboard.scss";
 
+import awardlogo from "../../../public/images/award.png";
 import Image from "next/image";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import ReportingDashboard from "@/app/components/DashboardComponents/ReportingDashboard";
@@ -11,6 +12,7 @@ import LearningModules from "@/app/components/LearningModules/LearningModules";
 import { DashboardHeader } from "@/app/components/DashboardComponents/DashboardHeader";
 import { useSession } from "next-auth/react";
 import EvaluationInstructions from "../EvaluationInstructions/EvaluationInstructions";
+import { SelectOption } from "../Dropdown/SelectDropdown";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Footer from "../Footer/Footer";
 
@@ -56,7 +58,7 @@ export default function Dashboard() {
         <NavigationMenu isViewer />
         <div className="home-page-components">
           <p className="welcome-text">
-            Welcome to your LassoSafe SWP Umbrella Dashboard!
+            Welcome to your LassoSafe Viewer Dashboard!
           </p>
           <p className="welcome-sub-text">
             Head to the tabs on the left or select one of the quick buttons
@@ -66,8 +68,8 @@ export default function Dashboard() {
             <a className="quick-button" href="/pages/reportingDashboard">
               Reporting Dashboard
             </a>
-            <a className="quick-button" href="/pages/methodology">
-              Wellness Reports Methodology
+            <a className="quick-button" href="/pages/newEvaluation">
+              Create New Evaluation
             </a>
             <a className="quick-button" href="/pages/learningModules">
               Learning Modules

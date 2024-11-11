@@ -39,7 +39,7 @@ export default function ReportingDashboard() {
           };
         })
       );
-      if (clientsObj[0]) setSelectedClientId(clientsObj[0]._id);
+      setSelectedClientId(clientsObj[0]._id);
     }
   };
 
@@ -78,25 +78,14 @@ export default function ReportingDashboard() {
         <NavigationMenu isViewer={isViewer} />
         <div className="reporting-dashboard-components">
           {isViewer && clients && (
-            <>
-              {selectedClientId !== "" ? (
-                <div className="clients-dropdown">
-                  <SelectDropdown
-                    options={clients}
-                    onSelectedChange={onChangeDisplayedClient}
-                    title="Select Client to View"
-                    initialValue={clients[0]}
-                  />
-                </div>
-              ) : (
-                <p>
-                  You do not have anyone to view yet. Let your SWP members know
-                  that they need to share their results with you through their
-                  "Umbrella Sharing" page. To share, they need to enter your
-                  email or account id, which can be found in Account Settings.
-                </p>
-              )}
-            </>
+            <div className="clients-dropdown">
+              <SelectDropdown
+                options={clients}
+                onSelectedChange={onChangeDisplayedClient}
+                title="Select Client to View"
+                initialValue={clients[0]}
+              />
+            </div>
           )}
           {selectedClientId !== "" && (
             <ReportingDashboardContents
