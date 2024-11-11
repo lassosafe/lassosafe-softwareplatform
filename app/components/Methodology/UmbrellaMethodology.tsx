@@ -14,7 +14,7 @@ import Image from "next/image";
 
 import "./Methodology.scss";
 
-export default function Methodology() {
+export default function UmbrellaMethodology() {
   const searchParams = useSearchParams();
   const isViewer = searchParams.get("isViewer") === "true" ? true : false;
   return (
@@ -24,18 +24,20 @@ export default function Methodology() {
         <NavigationMenu isViewer={isViewer} />
         <div className="methodology-container">
           <div className="methodology-title">
-            Intelligence software for athlete experience recognition
+            Athlete Experience Recognition Methodology Umbrella Plan
           </div>
           <div className="methodology-text">
-            <h2>Intelligence software for athlete experience recognition</h2>
+            <h2 className="methodology-text-header">
+              Intelligence software for athlete experience recognition
+            </h2>
             <p>The Scientific Way to Audit Sport Safety Culture and Climate</p>
-            <p>
+            <p style={{ marginTop: "20px" }}>
               Sports Wellness Platform (SWP) Umbrella Plan uses medical science
               and machine learning to assess, classify and rate athlete
               experiences as they relate to risk assessment, mitigation and
               remediation.
             </p>
-            <p>
+            <p style={{ marginTop: "20px" }}>
               Use SWP to apply the science of mental, emotional, physical and
               social environments with your member organizations.
             </p>
@@ -45,7 +47,7 @@ export default function Methodology() {
               objectFit="contain"
               className="swp-science"
               style={{
-                width: "35%",
+                width: "50%",
                 marginTop: "20px",
               }}
             ></Image>
@@ -55,7 +57,7 @@ export default function Methodology() {
               objectFit="contain"
               className="swp-for-everyone"
               style={{
-                width: "35%",
+                width: "50%",
                 marginTop: "20px",
               }}
             ></Image>
