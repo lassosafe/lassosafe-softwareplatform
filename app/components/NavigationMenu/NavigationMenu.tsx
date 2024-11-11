@@ -31,7 +31,9 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = `/pages/methodology?isViewer=${isViewer}`;
+            window.location.href = isViewer
+              ? `/pages/umbrellaMethodology?isViewer=${isViewer}`
+              : `/pages/methodology?isViewer=${isViewer}`;
           }}
         >
           <p>Wellness Reports Methodology</p>
