@@ -74,6 +74,9 @@ export default function Dashboard() {
             <a className="quick-button" href="/pages/learningModules">
               Learning Modules
             </a>
+            <a className="quick-button" href="/pages/umbrellaSharing">
+              Umbrella Sharing
+            </a>
           </div>
         </div>
       </div>

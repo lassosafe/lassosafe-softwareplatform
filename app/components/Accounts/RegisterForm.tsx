@@ -11,6 +11,7 @@ import horizontallogowhite from "../../../public/images/logo-horizontal-white.pn
 
 import "./RegisterForm.scss";
 import Footer from "../Footer/Footer";
+import { Loader } from "../Loader/Loader";
 
 export default function RegisterForm() {
   const [name, setName] = useState<string>();
@@ -18,6 +19,7 @@ export default function RegisterForm() {
   const [password, setPassword] = useState<string>();
   const [stripeSubscriptionId, setStripeSubscriptionId] = useState<string>("");
   const [numberParticipants, setNumberParticipants] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const [error, setError] = useState<string>();
   const [passwordButtonText, setPasswordButtonText] =
@@ -41,6 +43,7 @@ export default function RegisterForm() {
 
         body: JSON.stringify({
           stripeSessionId,
+          isViewer,
         }),
       });
       const {
@@ -53,6 +56,7 @@ export default function RegisterForm() {
       setEmail(customerEmail);
       setStripeSubscriptionId(stripeSubscriptionId);
       setNumberParticipants(numberParticipants);
+      setIsLoading(false);
     };
     getStripePaymentInfo();
   }, []);
@@ -135,56 +139,63 @@ export default function RegisterForm() {
           <h1 className="text-xl font-bold my-4 thank-you-payment">
             Thank you for your payment!{" "}
           </h1>
-          <p className="instructions-top">
-            Please edit your profile name if needed, then
-          </p>
-          <p className="instructions-bottom">
-            enter a password and account creation will be complete.
-          </p>
-          <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-            <p className="input-label">Profile Name:</p>
-            <input
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Full Name"
-              value={name}
-              className="register-form-input"
-            />
-            <p className="input-label">Email</p>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              type="text"
-              placeholder="Email"
-              value={email}
-              className="register-form-input-disabled"
-              disabled
-            />
-            <p className="input-label">Password</p>
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              type={passwordInputType}
-              placeholder="Password"
-              className="register-form-input"
-            />
-            <button
-              className="password-view-button"
-              onClick={handleViewPasswordChange}
-            >
-              {passwordButtonText}
-            </button>
-            <button className="create-account-button">
-              Create Lasso Safe Account
-            </button>
-            {error && (
-              <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
-                {error}
-              </div>
-            )}
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <p className="instructions-top">
+                Please edit your profile name if needed, then
+              </p>
+              <p className="instructions-bottom">
+                enter a password and account creation will be complete.
+              </p>
+              <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+                <p className="input-label">Profile Name:</p>
+                <input
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  placeholder="Full Name"
+                  value={name}
+                  className="register-form-input"
+                />
+                <p className="input-label">Email</p>
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Email"
+                  value={email}
+                  className="register-form-input-disabled"
+                  disabled
+                />
+                <p className="input-label">Password</p>
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  type={passwordInputType}
+                  placeholder="Password"
+                  className="register-form-input"
+                />
+                <button
+                  className="password-view-button"
+                  onClick={handleViewPasswordChange}
+                >
+                  {passwordButtonText}
+                </button>
+                <button className="create-account-button">
+                  Create Lasso Safe Account
+                </button>
+                {error && (
+                  <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
+                    {error}
+                  </div>
+                )}
 
-            <Link className="text-sm mt-3 text-right" href={"/"}>
-              Already have an account? <span className="underline">Login</span>
-            </Link>
-          </form>
+                <Link className="text-sm mt-3 text-right" href={"/"}>
+                  Already have an account?{" "}
+                  <span className="underline">Login</span>
+                </Link>
+              </form>
+            </>
+          )}
         </div>
       </div>
       <Footer />

@@ -15,14 +15,16 @@ export default function PaymentFailed() {
           className="header-logo"
         ></Image>
       </header>
-      <p>We are sorry but, your payment did not go through.</p>
-      <p>
-        Please contact{" "}
-        <a className="email-contact" href="mailto: pminix@lassosafe.com">
-          pminix@lassosafe.com
-        </a>{" "}
-        for assistance.
-      </p>
+      <div style={{ marginTop: "5rem", marginLeft: "2rem" }}>
+        <p>We are sorry but, your payment did not go through successfully.</p>
+        <p>
+          Please contact{" "}
+          <a className="email-contact" href="mailto: pminix@lassosafe.com">
+            pminix@lassosafe.com
+          </a>{" "}
+          for assistance.
+        </p>
+      </div>
       <Footer />
     </div>
   );
