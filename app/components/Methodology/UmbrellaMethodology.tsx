@@ -6,9 +6,11 @@ import Footer from "../Footer/Footer";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import swpscore from "../../../public/images/swpscore.png";
 import swpmodel from "../../../public/images/swpmodel.png";
-import swpprocess from "../../../public/images/swpprocess.png";
+import swpScoreUmbrella from "../../../public/images/swpScoreUmbrella.png";
 import swpScience from "../../../public/images/swpScience.png";
 import swpForEveryone from "../../../public/images/swpForEveryone.png";
+import keyfeatures from "../../../public/images/keyfeatures.png";
+import companyprocess from "../../../public/images/companyprocess.png";
 
 import Image from "next/image";
 
@@ -76,91 +78,7 @@ export default function UmbrellaMethodology() {
               for sports participants, athletes, partner leagues, underserved
               populations, and your local community.
             </p>
-            <h2
-              style={{
-                marginTop: "20px",
-                marginBottom: "5px",
-                fontWeight: "bold",
-                fontSize: "1.25rem",
-              }}
-            >
-              SWP Process
-            </h2>
-            <Image
-              src={swpprocess}
-              alt="swpprocess"
-              objectFit="contain"
-              className="swp-process"
-              style={{
-                width: "55%",
-                marginTop: "20px",
-              }}
-            ></Image>
-            <p style={{ marginTop: "20px" }}>
-              <span style={{ color: "#ff8c00" }}>
-                Athlete experience recognition campaign.
-              </span>{" "}
-              Send out the link via your organization’s CRM to a select group of
-              athletes or your full membership. You will receive the final
-              report on the last day of your campaign cycle.
-            </p>
-            <p style={{ marginTop: "20px" }}>
-              <span style={{ color: "green" }}>
-                Identify highest priority trend.
-              </span>{" "}
-              Use your athletes’ feedback to improve their experiences and raise
-              your SWP score. To do this, bring your safeguarding team together
-              to select which trends your organization would like to improve
-              upon. Don’t know where to start? Use your SWP score as a guide.{" "}
-            </p>
-            <p style={{ marginTop: "20px" }}>
-              <span style={{ color: "#1b8dff" }}>
-                Select strategic suggestions.
-              </span>{" "}
-              Consult with your safeguarding team to make an action and response
-              plan. SWP’s strategic suggestions can help point you in the right
-              direction.
-            </p>
-            <p style={{ marginTop: "20px" }}>
-              <span style={{ color: "purple" }}>
-                Implement suggestions or ask a resource partner for help.
-              </span>{" "}
-              Once your plan is set, let your athletes know that their feedback
-              is making a difference and get your action team going! Need help?
-              Check out the resources partners listed with your selected
-              strategic suggestion. They’re quality is vetted for your success!
-            </p>
 
-            <p style={{ marginTop: "20px" }}>
-              <span style={{ color: "#ff8c00" }}>
-                Athlete experience recognition campaign.
-              </span>{" "}
-              Repeat a campaign to measure your action plan’s impact.{" "}
-            </p>
-            <p>
-              Your score isn’t improving: it may be a sign that your efforts are
-              not impacting athletes’ experiences and its time to reassess your
-              action plan.{" "}
-            </p>
-            <p>
-              Your score IS improving: You’re doing great. Keep up the good work
-              and select your next priority for growth!{" "}
-            </p>
-            <p
-              style={{
-                color: "teal",
-                fontStyle: "italic",
-                fontWeight: "bold",
-                marginTop: "20px",
-              }}
-            >
-              A professional approach to Safeguarding is Good Business
-            </p>
-            <p style={{ color: "teal", fontStyle: "italic" }}>
-              Continue your SWP Process to build a sports business that
-              habitually improves your athletes’ experiences and is ahead of the
-              curve on safeguarding and performance!
-            </p>
             <h2 className="methodology-text-header">
               Defining Environmental Wellness in Sport
             </h2>
@@ -191,7 +109,108 @@ export default function UmbrellaMethodology() {
               everyone to thrive amidst sports&apos; inevitable personal and
               professional challenges.
             </p>
-
+            <h2 className="methodology-text-header">SWP Score</h2>
+            <Image
+              src={swpScoreUmbrella}
+              alt="swpScoreUmbrella"
+              objectFit="contain"
+              className="swp-score-umbrella"
+              style={{
+                width: "35%",
+                marginTop: "20px",
+              }}
+            ></Image>
+            <Image
+              src={swpscore}
+              alt="swpscore"
+              objectFit="contain"
+              className="swp-score"
+              style={{
+                width: "35%",
+                marginTop: "20px",
+              }}
+            ></Image>
+            <p
+              style={{
+                width: "fit-content",
+                marginBottom: "20px",
+                marginTop: "20px",
+              }}
+            >
+              <span
+                style={{
+                  backgroundColor: "lightgreen",
+                  padding: "10px",
+                }}
+              >
+                A
+              </span>{" "}
+              = Congratulations, your clients are excelling in environmental
+              wellness!
+            </p>
+            <p
+              style={{
+                width: "fit-content",
+                marginBottom: "20px",
+                marginTop: "20px",
+              }}
+            >
+              <span
+                style={{
+                  backgroundColor: "lightgreen",
+                  padding: "10px",
+                }}
+              >
+                B
+              </span>{" "}
+              = Your clients are on a good path. Let&apos;s take a look at some
+              opportunities for growth!
+            </p>
+            <p
+              style={{
+                width: "fit-content",
+                marginBottom: "20px",
+                marginTop: "20px",
+              }}
+            >
+              <span
+                style={{
+                  backgroundColor: "gold",
+                  padding: "10px",
+                  paddingBottom: "5px",
+                }}
+              >
+                C
+              </span>{" "}
+              = Some of your client&apos;s athletes are asking for help in
+              certain areas of their sporting experience. Bring your
+              safeguarding team together and review their detailed report to
+              identify gaps and areas of risk.
+            </p>
+            <p
+              style={{
+                width: "fit-content",
+                marginBottom: "20px",
+                marginTop: "20px",
+              }}
+            >
+              <span
+                style={{
+                  backgroundColor: "red",
+                  padding: "10px",
+                  paddingBottom: "5px",
+                }}
+              >
+                D
+              </span>{" "}
+              = Aspects of your client&apos;s environment are being perceived as
+              harmful by some of their athletes. This could indicate gaps in
+              their safeguarding and failure to effectively provide protection
+              for their people. A low SWP Score is correlated to escalation of
+              risk and claims. This is an opportunity to work together and raise
+              their SWP Score for the improvement of athlete safety and
+              wellbeing.
+            </p>
             <h2 className="methodology-text-header">
               Sport Wellness Platform Model
             </h2>
@@ -203,6 +222,30 @@ export default function UmbrellaMethodology() {
               their foundational attributes as they pertain to athlete
               safety/wellness, development and culture.
             </p>
+            <h2 className="methodology-text-header">
+              How To Use The SWP Score and Intelligence Report
+            </h2>
+            <Image
+              src={keyfeatures}
+              alt="keyfeatures"
+              objectFit="contain"
+              className="key-features"
+              style={{
+                width: "35%",
+                marginTop: "20px",
+              }}
+            ></Image>
+            <Image
+              src={companyprocess}
+              alt="companyprocess"
+              objectFit="contain"
+              className="company-proceess"
+              style={{
+                width: "35%",
+                marginTop: "20px",
+              }}
+            ></Image>
+
             <Image
               src={swpmodel}
               alt="swpmodel"
@@ -298,99 +341,6 @@ export default function UmbrellaMethodology() {
               Foundational attributes of wellness pillars are individually
               presented for a thorough understanding of your athletes&apos;
               response.
-            </p>
-            <h2 className="methodology-text-header">SWP Score</h2>
-            <p>
-              Your SWP Score communicates your athletes’ collective feedback by
-              grade and number.{" "}
-            </p>
-            <Image
-              src={swpscore}
-              alt="swpscore"
-              objectFit="contain"
-              className="swp-score"
-              style={{
-                width: "50%",
-              }}
-            ></Image>
-            <p
-              style={{
-                width: "fit-content",
-                marginBottom: "20px",
-                marginTop: "20px",
-              }}
-            >
-              <span
-                style={{
-                  backgroundColor: "lightgreen",
-                  padding: "10px",
-                }}
-              >
-                A
-              </span>{" "}
-              = Congratulations, you&apos;re doing great!
-            </p>
-            <p
-              style={{
-                width: "fit-content",
-                marginBottom: "20px",
-                marginTop: "20px",
-              }}
-            >
-              <span
-                style={{
-                  backgroundColor: "lightgreen",
-                  padding: "10px",
-                }}
-              >
-                B
-              </span>{" "}
-              = You&apos;re on a good path. Let&apos;s take a look at some
-              opportunities for growth!
-            </p>
-            <p
-              style={{
-                width: "fit-content",
-                marginBottom: "20px",
-                marginTop: "20px",
-              }}
-            >
-              <span
-                style={{
-                  backgroundColor: "gold",
-                  padding: "10px",
-                  paddingBottom: "5px",
-                }}
-              >
-                C
-              </span>{" "}
-              = Some of your athletes are asking for help in certain areas of
-              their sporting experience. Bring your safeguarding team together
-              and check out your strategic suggestions for next steps.
-            </p>
-            <p
-              style={{
-                width: "fit-content",
-                marginBottom: "20px",
-                marginTop: "20px",
-              }}
-            >
-              <span
-                style={{
-                  backgroundColor: "red",
-                  padding: "10px",
-                  paddingBottom: "5px",
-                }}
-              >
-                D
-              </span>{" "}
-              = You’re not alone here. Let’s come together and get your score
-              up! Aspects of your environment are being perceived as harmful by
-              some of your athletes. Consider reminding your athletes of your
-              organization’s abuse reporting platform to learn more from them
-              and be sure to take strategic, timely steps toward remedy. The key
-              is to work together to improve your athletes’ experiences and your
-              score!
             </p>
 
             <h2 className="methodology-text-header">Learning Modules</h2>
