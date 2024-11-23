@@ -125,7 +125,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           onClick={() =>
             (window.location.href = isViewer
               ? `/pages/dashboard?isViewer=${isViewer}`
-              : `/pages/viewerDashboard?isViewer=${isViewer}`)
+              : `/pages/umbrellaDashboard?isViewer=${isViewer}`)
           }
         >
           <p>Back to Home</p>
