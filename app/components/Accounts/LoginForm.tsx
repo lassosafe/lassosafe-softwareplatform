@@ -50,7 +50,7 @@ export default function LoginForm() {
       }
 
       correspondingUser.isViewer
-        ? router.replace("/pages/viewerDashboard?isViewer=true")
+        ? router.replace("/pages/umbrellaDashboard?isViewer=true")
         : router.replace("/pages/dashboard");
     } catch (error) {
       console.log(error);
