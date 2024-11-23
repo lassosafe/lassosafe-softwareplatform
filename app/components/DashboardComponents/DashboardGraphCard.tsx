@@ -679,7 +679,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -746,7 +746,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -803,7 +803,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -869,7 +869,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -925,7 +925,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`https://lassosafe.com/product/${ss.sku}/`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
