@@ -269,6 +269,7 @@ export function ReportingDashboardContents({
                       <DashboardGraphCard
                         evaluationId={displayedEvaluation._id}
                         categoryId={Category.SAFETY_AND_WELLNESS}
+                        isViewer={isViewer}
                       />
                     </>
                   )}
@@ -303,6 +304,7 @@ export function ReportingDashboardContents({
                       <DashboardGraphCard
                         evaluationId={displayedEvaluation._id}
                         categoryId={Category.DEVELOPMENT}
+                        isViewer={isViewer}
                       />
                     </>
                   )}
@@ -334,6 +336,7 @@ export function ReportingDashboardContents({
                       <DashboardGraphCard
                         evaluationId={displayedEvaluation._id}
                         categoryId={Category.CULTURE}
+                        isViewer={isViewer}
                       />
                     </>
                   )}

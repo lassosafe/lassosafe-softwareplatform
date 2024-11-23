@@ -126,6 +126,7 @@ const getStrategicSuggestions = (scores: number[], attributeId: number) => {
 type DashboardGraphCardProps = {
   evaluationId: string;
   categoryId: number;
+  isViewer: boolean;
 };
 
 const getEvaluationScores = async (
@@ -154,6 +155,7 @@ const getEvaluationScores = async (
 export default function DashboardGraphCard({
   evaluationId,
   categoryId,
+  isViewer,
 }: DashboardGraphCardProps) {
   const [categoryScores, setCategoryScores] = useState<number[]>([]);
   const [mentalEmotionalScores, setMentalEmotionalScores] = useState<number[]>(
@@ -620,7 +622,7 @@ export default function DashboardGraphCard({
                                       //   (window.location.href =
                                       //     "/pages/learningModules")
                                       // }
-                                      href={`/pages/learningModules?sku=${ss.sku}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >

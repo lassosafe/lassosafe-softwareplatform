@@ -93,6 +93,7 @@ export default function WellnessReport({ evaluation }: WellnessReportProps) {
               <DashboardGraphCard
                 evaluationId={evaluation._id}
                 categoryId={Category.SAFETY_AND_WELLNESS}
+                isViewer={isViewer}
               />
             </>
           )}
@@ -121,6 +122,7 @@ export default function WellnessReport({ evaluation }: WellnessReportProps) {
               <DashboardGraphCard
                 evaluationId={evaluation._id}
                 categoryId={Category.DEVELOPMENT}
+                isViewer={isViewer}
               />
             </>
           )}
@@ -150,6 +152,7 @@ export default function WellnessReport({ evaluation }: WellnessReportProps) {
               <DashboardGraphCard
                 evaluationId={evaluation._id}
                 categoryId={Category.CULTURE}
+                isViewer={isViewer}
               />
             </>
           )}
