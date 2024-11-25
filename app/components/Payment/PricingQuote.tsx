@@ -11,18 +11,31 @@ import "./Subscription.scss";
 import "./PricingQuote.scss";
 import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
+import { RadioInput } from "../Inputs/RadioInput";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 type PricingQuoteProps = {
   numParticipants: string;
+  paymentFrequency: string;
 };
 
-const calculatePricePerParticipant = (numParticipants: string) => {
+const calculatePricePerParticipant = (
+  numParticipants: string,
+  paymentFrequencyString: string
+) => {
   const numParticipantsInt = parseInt(numParticipants);
   if (numParticipantsInt <= 50000) {
+    if (paymentFrequencyString === "Monthly") {
+      return "1.37";
+    }
     return "1.25";
   } else if (numParticipantsInt <= 200000) {
+    if (paymentFrequencyString === "Monthly") {
+      return "1.21";
+    }
+    return "1.10";
+  } else if (paymentFrequencyString === "Monthly") {
     return "1.10";
   } else return "1.00";
 };
@@ -36,6 +49,17 @@ export default function PricingQuote() {
     return parseFloat(numParticipants) * parseFloat(pricePerParticipant);
   };
 
+  const paymentFrequencyOptions = [
+    {
+      value: 1,
+      optionLabel: "Monthly",
+    },
+    {
+      value: 2,
+      optionLabel: "Annually",
+    },
+  ];
+
   const formMethods = useForm<PricingQuoteProps>();
   const {
     handleSubmit,
@@ -45,10 +69,16 @@ export default function PricingQuote() {
   } = formMethods;
 
   const handleSubmitPricingQuote = async (formData: PricingQuoteProps) => {
-    const { numParticipants } = formData;
+    const { numParticipants, paymentFrequency } = formData;
     const numPartcipantsFormatted = numParticipants.replace(/,/g, "");
+    const paymentFrequencyString = paymentFrequencyOptions.find(
+      (option) => option.value === parseInt(paymentFrequency)
+    ).optionLabel;
     setPricePerParticipant(
-      calculatePricePerParticipant(numPartcipantsFormatted)
+      calculatePricePerParticipant(
+        numPartcipantsFormatted,
+        paymentFrequencyString
+      )
     );
     setNumParticipants(numPartcipantsFormatted);
     setShowQuote(true);
@@ -91,6 +121,12 @@ export default function PricingQuote() {
 
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitPricingQuote)}>
+              <RadioInput
+                label="Billing Frequency"
+                inputName={"paymentFrequency"}
+                options={paymentFrequencyOptions}
+                rules={{ required: "Please select a payment type." }}
+              />
               <TextInput
                 inputName="numParticipants"
                 label="Please enter an estimated number of participants in your organization."

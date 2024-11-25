@@ -140,17 +140,22 @@ export default function SubscriptionForm() {
             <p className="second-price">2. SWP evaluation responses payment</p>
             <ul>
               <li>
-                50,000 or less participants:{" "}
+                50,000 or less participants: <br />
                 <b>$1.25 per participant per year</b>
+                <br />
                 <b>$1.37 per participant per month</b>
               </li>
               <li>
-                50,001 - 200,000: <b>$1.10 per participant per year</b>
+                50,001 - 200,000:
+                <br />
+                <b>$1.10 per participant per year</b>
+                <br />
                 <b>$1.21 per participant per month</b>
               </li>
               <li>
-                200,001 or more participants:{" "}
+                200,001 or more participants: <br />
                 <b>$1.00 per participant per year</b>
+                <br />
                 <b>$1.10 per participant per month</b>
               </li>
             </ul>
