@@ -10,11 +10,13 @@ import horizontallogowhite from "../../../public/images/logo-horizontal-white.pn
 import "./Subscription.scss";
 import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
+import { RadioInput } from "../Inputs/RadioInput";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 type SubscriptionFormProps = {
   numParticipants: string;
+  paymentFrequency: string;
 };
 
 export default function SubscriptionForm() {
@@ -38,12 +40,17 @@ export default function SubscriptionForm() {
       return;
     }
 
-    const { numParticipants } = formData;
+    const { numParticipants, paymentFrequency } = formData;
+
+    const paymentFrequencyString = paymentFrequencyOptions.find(
+      (option) => option.value === parseInt(paymentFrequency)
+    ).optionLabel;
 
     const response = await fetch("/api/checkoutSession", {
       method: "POST",
       body: JSON.stringify({
         numParticipants: parseInt(numParticipants.replace(/,/g, "")),
+        paymentFrequencyString,
       }),
     });
     const data = await response.json();
@@ -57,6 +64,17 @@ export default function SubscriptionForm() {
       alert(result.error.message);
     }
   };
+
+  const paymentFrequencyOptions = [
+    {
+      value: 1,
+      optionLabel: "Monthly",
+    },
+    {
+      value: 2,
+      optionLabel: "Annually",
+    },
+  ];
 
   return (
     <div>
@@ -124,13 +142,16 @@ export default function SubscriptionForm() {
               <li>
                 50,000 or less participants:{" "}
                 <b>$1.25 per participant per year</b>
+                <b>$1.37 per participant per month</b>
               </li>
               <li>
                 50,001 - 200,000: <b>$1.10 per participant per year</b>
+                <b>$1.21 per participant per month</b>
               </li>
               <li>
                 200,001 or more participants:{" "}
                 <b>$1.00 per participant per year</b>
+                <b>$1.10 per participant per month</b>
               </li>
             </ul>
             <p className="payment-instructions">
@@ -143,6 +164,12 @@ export default function SubscriptionForm() {
 
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitSubscription)}>
+              <RadioInput
+                label="Billing Frequency"
+                inputName={"paymentFrequency"}
+                options={paymentFrequencyOptions}
+                rules={{ required: "Please select a payment type." }}
+              />
               <TextInput
                 inputName="numParticipants"
                 label="Please enter an estimated number of participants in your organization."

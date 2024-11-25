@@ -26,10 +26,18 @@ const recurringPlatformFee = {
 
 const participantFeePriceIdTest = "price_1Q72rLDtt4SMJazLTqY5nCjb";
 
-const participantFeePriceId = "price_1QH5mSDtt4SMJazLYNJf01gj";
+const annualParticipantPriceId = "price_1QH5mSDtt4SMJazLYNJf01gj";
+const monthlyParticipantPriceId = "price_1QOxlADtt4SMJazLbODycAY0";
 
 export async function POST(req) {
-  const { numParticipants } = await req.json();
+  const { numParticipants, paymentFrequencyString } = await req.json();
+
+  let participantFeePriceId;
+  if (paymentFrequencyString.includes("Monthly")) {
+    participantFeePriceId = monthlyParticipantPriceId;
+  } else {
+    participantFeePriceId = annualParticipantPriceId;
+  }
 
   const participantFee = {
     price: participantFeePriceId,
