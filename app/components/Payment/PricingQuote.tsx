@@ -106,15 +106,23 @@ export default function PricingQuote() {
             <p className="second-price">2. SWP evaluation responses payment</p>
             <ul>
               <li>
-                50,000 or less participants:{" "}
-                <b>$1.25 per participant per year</b>
+                50,000 or less participants: <br />
+                <b>$1.25 per participant per year OR</b>
+                <br />
+                <b>$1.37 per participant per month OR</b>
               </li>
               <li>
-                50,001 - 200,000: <b>$1.10 per participant per year</b>
+                50,001 - 200,000:
+                <br />
+                <b>$1.10 per participant per year OR</b>
+                <br />
+                <b>$1.21 per participant per month OR</b>
               </li>
               <li>
-                200,001 or more participants:{" "}
-                <b>$1.00 per participant per year</b>
+                200,001 or more participants: <br />
+                <b>$1.00 per participant per year OR</b>
+                <br />
+                <b>$1.10 per participant per month OR</b>
               </li>
             </ul>
           </div>
