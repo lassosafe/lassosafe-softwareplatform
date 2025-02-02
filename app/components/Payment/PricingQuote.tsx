@@ -109,20 +109,20 @@ export default function PricingQuote() {
                 50,000 or less participants: <br />
                 <b>$1.25 per participant per year OR</b>
                 <br />
-                <b>$1.37 per participant per month OR</b>
+                <b>$1.37 per participant per month</b>
               </li>
               <li>
                 50,001 - 200,000:
                 <br />
                 <b>$1.10 per participant per year OR</b>
                 <br />
-                <b>$1.21 per participant per month OR</b>
+                <b>$1.21 per participant per month</b>
               </li>
               <li>
                 200,001 or more participants: <br />
                 <b>$1.00 per participant per year OR</b>
                 <br />
-                <b>$1.10 per participant per month OR</b>
+                <b>$1.10 per participant per month</b>
               </li>
             </ul>
           </div>
