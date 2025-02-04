@@ -134,43 +134,39 @@ export default function SubscriptionForm() {
           <div className="pricing">
             <p className="pricing-title">Pricing</p>
             <p className="first-price">
-              1. First-year dashboard payment: <b>$3500</b>
+              1. First-year dashboard payment: <b>$3500/year</b>
             </p>
             <p className="and">AND</p>
             <p className="second-price">2. SWP evaluation responses payment</p>
             <ul>
               <li>
                 50,000 or less participants: <br />
-                <b>$1.25 per participant per year OR</b>
+                
+                <b>$1.25 per participant/year OR</b>
                 <br />
-                <b>$1.37 per participant per month OR</b>
+                <b>$1.37 per participant/month</b>
               </li>
               <li>
-                50,001 - 200,000:
+                50,001 - 200,000 participants:
                 <br />
-                <b>$1.10 per participant per year OR</b>
+                <b>$1.10 per participant/year OR</b>
                 <br />
-                <b>$1.21 per participant per month OR</b>
+                <b>$1.21 per participant/month</b>
               </li>
               <li>
                 200,001 or more participants: <br />
-                <b>$1.00 per participant per year OR</b>
+                <b>$1.00 per participant/year OR</b>
                 <br />
-                <b>$1.10 per participant per month OR</b>
+                <b>$1.10 per participant/month</b>
               </li>
             </ul>
-            <p className="payment-instructions">
-              Upon registering, you will pay for the first-year dashboard
-              payment, and the response payments will be automatically billed
-              once sports wellness evaluations are sent and responses are
-              received.
-            </p>
+
           </div>
 
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitSubscription)}>
               <RadioInput
-                label="Billing Frequency"
+                label="Choose a Billing Frequency"
                 inputName={"paymentFrequency"}
                 options={paymentFrequencyOptions}
                 rules={{ required: "Please select a payment type." }}
@@ -180,8 +176,9 @@ export default function SubscriptionForm() {
                 label="Please enter an estimated number of participants in your organization."
                 rules={{
                   required: "Please enter a number.",
-                  validate: (value: string) =>
-                    Number.isInteger(parseInt(value)) && parseInt(value) > 0,
+                  validate: (value: string) => {
+                    if (!(Number.isInteger(parseInt(value)) && parseInt(value) > 0)) return "Please enter a number."
+                  }
                 }}
               />
               <div className="form-footer">

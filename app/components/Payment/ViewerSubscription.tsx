@@ -192,7 +192,7 @@ export default function ViewerSubscriptionForm() {
                 />
               </div>
               <RadioInput
-                label="Billing Frequency"
+                label="Choose a Billing Frequency"
                 inputName={"paymentFrequency"}
                 options={paymentFrequencyOptions}
                 rules={{ required: "Please select a payment type." }}

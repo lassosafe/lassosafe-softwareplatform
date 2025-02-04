@@ -100,7 +100,7 @@ export default function PricingQuote() {
           <div className="pricing">
             <p className="pricing-title">Pricing</p>
             <p className="first-price">
-              1. First-year dashboard payment: <b>$3500</b>
+              1. First-year dashboard payment: <b>$3500 per year</b>
             </p>
             <p className="and">AND</p>
             <p className="second-price">2. SWP evaluation responses payment</p>
@@ -130,7 +130,7 @@ export default function PricingQuote() {
           <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(handleSubmitPricingQuote)}>
               <RadioInput
-                label="Billing Frequency"
+                label="Choose a Billing Frequency"
                 inputName={"paymentFrequency"}
                 options={paymentFrequencyOptions}
                 rules={{ required: "Please select a payment type." }}
@@ -140,8 +140,9 @@ export default function PricingQuote() {
                 label="Please enter an estimated number of participants in your organization."
                 rules={{
                   required: "Please enter a number.",
-                  validate: (value: string) =>
-                    Number.isInteger(parseInt(value)) && parseInt(value) > 0,
+                  validate: (value: string) => {
+                    if (!(Number.isInteger(parseInt(value)) && parseInt(value) > 0)) return "Please enter a number."
+                  }
                 }}
               />
               <div className="form-footer">

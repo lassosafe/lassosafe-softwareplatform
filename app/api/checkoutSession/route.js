@@ -44,7 +44,8 @@ export async function POST(req) {
     quantity: numParticipants,
   };
 
-  console.log(numParticipants);
+  //console.log(numParticipants);
+  //console.log(participantFee);
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -57,6 +58,7 @@ export async function POST(req) {
     return NextResponse.json({ sessionId: session.id }, { status: 200 });
     //res.status(200).json({ sessionId: session.id });
   } catch (err) {
+    //console.log(err)
     return NextResponse.json({ error: err.message }, { status: 500 });
     //res.status(500).json({ error: err.message });
   }
