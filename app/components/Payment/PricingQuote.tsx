@@ -101,6 +101,9 @@ export default function PricingQuote() {
             <p className="pricing-title">Pricing</p>
             <p className="first-price">
               1. First-year dashboard payment: <b>$3500 per year</b>
+              <br />
+              <span className='first-year-instructions'> (split into one-time payment of $2000 and 
+              <br /> recurring payment of $1500/year or $125/month) </span>
             </p>
             <p className="and">AND</p>
             <p className="second-price">2. SWP evaluation responses payment</p>
