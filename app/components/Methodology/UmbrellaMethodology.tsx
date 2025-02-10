@@ -1,4 +1,7 @@
 "use client";
+/**
+ * Component for Methodology page for Umbrella account with description from Pam
+ */
 
 import { useSearchParams } from "next/navigation";
 import { DashboardHeader } from "../DashboardComponents/DashboardHeader";
@@ -18,12 +21,12 @@ import "./Methodology.scss";
 
 export default function UmbrellaMethodology() {
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
   return (
     <div className="methodology-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="methodology-container">
           <div className="methodology-title">
             Athlete Experience Recognition Methodology Umbrella Plan

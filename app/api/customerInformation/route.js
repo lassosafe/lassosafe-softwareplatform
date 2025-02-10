@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req) {
   //console.log(req.json());
-  const { stripeSessionId, isViewer } = await req.json();
+  const { stripeSessionId, isUmbrella } = await req.json();
   console.log("sessionid: ");
   console.log(stripeSessionId);
 
@@ -25,7 +25,7 @@ export async function POST(req) {
     console.log("items");
     console.log(subscription.items.data);
     let numberParticipants = 0;
-    if (!isViewer) {
+    if (!isUmbrella) {
       numberParticipants = subscription.items.data.find(
         (item) => item.price.id === "price_1Q72rLDtt4SMJazLTqY5nCjb"
       ).quantity;

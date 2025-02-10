@@ -1,4 +1,9 @@
 "use client";
+/**
+ * Component to show the correct evaluation results and 
+ * check if deadline has been met for evaluation 
+ */
+
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import infologo from "../../../public/images/infologo.png";
@@ -19,12 +24,12 @@ import "./ReportingDashboard.scss";
 
 type ReportingDashboardContentProps = {
   clientId?: string;
-  isViewer: boolean;
+  isUmbrella: boolean;
 };
 
 export function ReportingDashboardContents({
   clientId,
-  isViewer,
+  isUmbrella,
 }: ReportingDashboardContentProps) {
   const { data: session } = useSession();
 
@@ -269,7 +274,7 @@ export function ReportingDashboardContents({
                       <DashboardGraphCard
                         evaluationId={displayedEvaluation._id}
                         categoryId={Category.SAFETY_AND_WELLNESS}
-                        isViewer={isViewer}
+                        isUmbrella={isUmbrella}
                       />
                     </>
                   )}
@@ -304,7 +309,7 @@ export function ReportingDashboardContents({
                       <DashboardGraphCard
                         evaluationId={displayedEvaluation._id}
                         categoryId={Category.DEVELOPMENT}
-                        isViewer={isViewer}
+                        isUmbrella={isUmbrella}
                       />
                     </>
                   )}
@@ -336,7 +341,7 @@ export function ReportingDashboardContents({
                       <DashboardGraphCard
                         evaluationId={displayedEvaluation._id}
                         categoryId={Category.CULTURE}
-                        isViewer={isViewer}
+                        isUmbrella={isUmbrella}
                       />
                     </>
                   )}
@@ -344,7 +349,7 @@ export function ReportingDashboardContents({
             </div>
           ) : (
             <div className="no-evaluations">
-              {isViewer
+              {isUmbrella
                 ? "No evaluation campaigns yet for this client"
                 : "You don't have any evaluation campaigns yet. Head to the New Evaluation page to create your first evaluation."}
             </div>

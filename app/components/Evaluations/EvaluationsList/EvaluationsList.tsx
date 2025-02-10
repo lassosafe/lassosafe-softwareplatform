@@ -1,4 +1,8 @@
 "use client";
+/**
+ * Component to display list of evaluations so organization
+ * can keep track of what they've sent out and when each deadline is/was
+ */
 
 import NavigationMenu from "../../NavigationMenu/NavigationMenu";
 import Footer from "../../Footer/Footer";
@@ -13,7 +17,7 @@ import { Loader } from "../../Loader/Loader";
 
 export default function EvaluationsList() {
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
   const { data: session } = useSession();
 
   const [evaluations, setEvaluations] = useState<Evaluation[]>([]);
@@ -64,7 +68,7 @@ export default function EvaluationsList() {
     <div className="my-evaluations-list-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="evaluations-list-container">
           <h2 className="evaluations-list-title">My Evaluations List</h2>
           {isLoading ? (

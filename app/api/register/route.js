@@ -11,7 +11,7 @@ export async function POST(req) {
       password,
       stripeSubscriptionId,
       numberParticipants,
-      isViewer,
+      isUmbrella,
     } = await req.json();
     const hashedPassword = await bcrypt.hash(password, 10);
     const expirationDate = new Date();
@@ -27,7 +27,7 @@ export async function POST(req) {
       accountExpirationDate: expirationDate,
       password: hashedPassword,
       numberParticipants,
-      isViewer,
+      isUmbrella,
     });
     return NextResponse.json({ message: "User registered" }, { status: 201 });
   } catch (error) {

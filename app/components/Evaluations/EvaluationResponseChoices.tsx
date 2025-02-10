@@ -1,4 +1,8 @@
 "use client";
+/**
+ * shared reusable component for the response choices 
+ * shown under each evaluation question
+ */
 
 import { RadioInput } from "../Inputs/RadioInput";
 import { FormProvider, useForm } from "react-hook-form";

@@ -1,11 +1,10 @@
+/**
+ * helper functions for calculcations and writes to the db
+ */
 import { WellnessQuestion } from "../../constants/evaluationQuestions";
 import {
   Attribute,
-  Category,
-  MentalEmotionalAttribute,
-  PhysicalAttribute,
   Pillar,
-  SocialAttribute,
 } from "../../constants/tiers";
 
 export const calculateScore = (values: number[]) => {

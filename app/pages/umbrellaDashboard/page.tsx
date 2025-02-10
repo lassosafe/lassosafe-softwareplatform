@@ -1,5 +1,5 @@
-import ViewerDashboard from "@/app/components/ViewerDashboard/ViewerDashboard";
+import UmbrellaDashboard from "@/app/components/UmbrellaDashboard/UmbrellaDashboard";
 
-export default function ViewerDashboardPage() {
-  return <ViewerDashboard />;
+export default function UmbrellaDashboardPage() {
+  return <UmbrellaDashboard />;
 }

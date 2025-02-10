@@ -1,14 +1,17 @@
 "use client";
+/**
+ * Navigation component for home dashboard
+ * Only certain values show depending on if account is Umbrella or Organization
+ */
 import { useState } from "react";
 import "./NavigationMenu.scss";
 
 type NavigationMenuProps = {
-  isViewer: boolean;
+  isUmbrella: boolean;
 };
 
-export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
+export default function NavigationMenu({ isUmbrella }: NavigationMenuProps) {
   const [navBarOpen, setNavBarOpen] = useState<boolean>(true);
-  //const [isViewerNav, setIsViewerNav] = useState<boolean>(isViewer ?? false);
   return (
     <nav className="navigation-bar">
       <ul className="navigation-bar-list">
@@ -22,7 +25,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = `/pages/reportingDashboard?isViewer=${isViewer}`;
+            window.location.href = `/pages/reportingDashboard?isUmbrella=${isUmbrella}`;
           }}
         >
           <p>Reporting Dashboard</p>
@@ -31,9 +34,9 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = isViewer
-              ? `/pages/umbrellaMethodology?isViewer=${isViewer}`
-              : `/pages/methodology?isViewer=${isViewer}`;
+            window.location.href = isUmbrella
+              ? `/pages/umbrellaMethodology?isUmbrella=${isUmbrella}`
+              : `/pages/methodology?isUmbrella=${isUmbrella}`;
           }}
         >
           <p>Wellness Reports Methodology</p>
@@ -46,7 +49,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
     </li> */}
         <br />
         <br />
-        {!isViewer && (
+        {!isUmbrella && (
           <>
             <li
               className="navigation-bar-header"
@@ -59,7 +62,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
               className="navigation-bar-page"
               style={{ display: navBarOpen ? "inline-block" : "none" }}
               onClick={() =>
-                (window.location.href = `/pages/evaluationInstructions?isViewer=${isViewer}`)
+                (window.location.href = `/pages/evaluationInstructions?isUmbrella=${isUmbrella}`)
               }
             >
               <p>Instructions</p>
@@ -68,7 +71,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
               className="navigation-bar-page"
               style={{ display: navBarOpen ? "inline-block" : "none" }}
               onClick={() =>
-                (window.location.href = `/pages/newEvaluation?isViewer=${isViewer}`)
+                (window.location.href = `/pages/newEvaluation?isUmbrella=${isUmbrella}`)
               }
             >
               <p>New Evaluation</p>
@@ -92,19 +95,19 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-page"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() => {
-            window.location.href = `/pages/learningModules?isViewer=${isViewer}`;
+            window.location.href = `/pages/learningModules?isUmbrella=${isUmbrella}`;
           }}
         >
           <div style={{ display: "flex" }}>
             <p>Learning Modules</p>
           </div>
         </li>
-        {!isViewer && (
+        {!isUmbrella && (
           <li
             className="navigation-bar-home"
             style={{ display: navBarOpen ? "inline-block" : "none" }}
             onClick={() =>
-              (window.location.href = `/pages/umbrellaSharing?isViewer=${isViewer}`)
+              (window.location.href = `/pages/umbrellaSharing?isUmbrella=${isUmbrella}`)
             }
           >
             <p>Umbrella Sharing</p>
@@ -114,7 +117,7 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() =>
-            (window.location.href = `/pages/accountInformation?isViewer=${isViewer}`)
+            (window.location.href = `/pages/accountInformation?isUmbrella=${isUmbrella}`)
           }
         >
           <p>Account Settings</p>
@@ -123,9 +126,9 @@ export default function NavigationMenu({ isViewer }: NavigationMenuProps) {
           className="navigation-bar-home"
           style={{ display: navBarOpen ? "inline-block" : "none" }}
           onClick={() =>
-            (window.location.href = isViewer
-              ? `/pages/dashboard?isViewer=${isViewer}`
-              : `/pages/umbrellaDashboard?isViewer=${isViewer}`)
+            (window.location.href = isUmbrella
+              ? `/pages/dashboard?isUmbrella=${isUmbrella}`
+              : `/pages/umbrellaDashboard?isUmbrella=${isUmbrella}`)
           }
         >
           <p>Back to Home</p>

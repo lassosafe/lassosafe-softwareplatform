@@ -34,7 +34,7 @@ const usersSchema = new Schema(
       type: Number,
       required: true,
     },
-    isViewer: {
+    isUmbrella: {
       type: Boolean,
       required: true,
     },

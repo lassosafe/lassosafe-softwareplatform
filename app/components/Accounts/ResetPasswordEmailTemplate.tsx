@@ -1,5 +1,7 @@
-import Image from "next/image";
-import horizontallogo from "../../../public/images/logo-horizontal.png";
+/**
+ * Email template for resetting password to match up name and token 
+ * with who requested it
+ */
 
 import "./ResetPasswordEmailTemplate.scss";
 

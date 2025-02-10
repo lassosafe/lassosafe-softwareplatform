@@ -1,4 +1,7 @@
 "use client";
+/**
+ * Component directed to user when they open their password reset email
+ */
 
 import { useState } from "react";
 import Footer from "../Footer/Footer";

@@ -1,3 +1,7 @@
+/**
+ * Reusable component for each Learning Module that includes
+ * all the necessary fields to show the user
+ */
 import "./LearningModuleItem.scss";
 
 type LearningModuleItemProps = {

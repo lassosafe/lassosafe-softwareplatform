@@ -1,6 +1,8 @@
 "use client";
+/**
+ * Landing page on mysportswellness.com
+ */
 
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -49,8 +51,8 @@ export default function LoginForm() {
         return;
       }
 
-      correspondingUser.isViewer
-        ? router.replace("/pages/umbrellaDashboard?isViewer=true")
+      correspondingUser.isUmbrella
+        ? router.replace("/pages/umbrellaDashboard?isUmbrella=true")
         : router.replace("/pages/dashboard");
     } catch (error) {
       console.log(error);

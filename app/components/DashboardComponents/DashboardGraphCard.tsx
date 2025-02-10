@@ -1,3 +1,7 @@
+/**
+ * Component for each of the cards per category in the
+ * dashboard evaluation results
+ */
 import { PieChart, Pie, Cell, Label } from "recharts";
 import HSBar from "react-horizontal-stacked-bar-chart";
 import { useEffect, useState } from "react";
@@ -126,7 +130,7 @@ const getStrategicSuggestions = (scores: number[], attributeId: number) => {
 type DashboardGraphCardProps = {
   evaluationId: string;
   categoryId: number;
-  isViewer: boolean;
+  isUmbrella: boolean;
 };
 
 const getEvaluationScores = async (
@@ -155,7 +159,7 @@ const getEvaluationScores = async (
 export default function DashboardGraphCard({
   evaluationId,
   categoryId,
-  isViewer,
+  isUmbrella,
 }: DashboardGraphCardProps) {
   const [categoryScores, setCategoryScores] = useState<number[]>([]);
   const [mentalEmotionalScores, setMentalEmotionalScores] = useState<number[]>(
@@ -622,7 +626,7 @@ export default function DashboardGraphCard({
                                       //   (window.location.href =
                                       //     "/pages/learningModules")
                                       // }
-                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isUmbrella=${isUmbrella}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -679,7 +683,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isUmbrella=${isUmbrella}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -746,7 +750,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isUmbrella=${isUmbrella}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -803,7 +807,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isUmbrella=${isUmbrella}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -869,7 +873,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isUmbrella=${isUmbrella}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >
@@ -925,7 +929,7 @@ export default function DashboardGraphCard({
                                     className="strategic-suggestions-item"
                                   >
                                     <a
-                                      href={`/pages/learningModules?sku=${ss.sku}&isViewer=${isViewer}`}
+                                      href={`/pages/learningModules?sku=${ss.sku}&isUmbrella=${isUmbrella}`}
                                       target="_blank"
                                       className="strategic-suggestions-button"
                                     >

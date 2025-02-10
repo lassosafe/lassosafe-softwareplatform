@@ -1,34 +1,38 @@
 "use client";
+/**
+ * Component for an organization to share their data with
+ * their umbrella organization and see/edit who they are sharing with
+ */
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
 import { useSession } from "next-auth/react";
 
-import "./ViewerSharing.scss";
+import "./UmbrellaSharing.scss";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import { DashboardHeader } from "../DashboardComponents/DashboardHeader";
 import { useSearchParams } from "next/navigation";
 import { Loader } from "../Loader/Loader";
 
-type ViewerSharingFormProps = {
-  viewerInfo: string;
+type UmbrellaSharingFormProps = {
+  umbrellaInfo: string;
 };
 
-type Viewer = {
+type Umbrella = {
   _id: string;
   name: string;
   email: string;
 };
 
-type ViewerItemProps = {
+type UmbrellaItemProps = {
   name: string;
   email: string;
   id: string;
-  onRemoveViewer: (id: string) => void;
+  onRemoveUmbrella: (id: string) => void;
 };
 
-function ViewerItem({ name, email, id, onRemoveViewer }: ViewerItemProps) {
+function UmbrellaItem({ name, email, id, onRemoveUmbrella }: UmbrellaItemProps) {
   return (
     <tr>
       <td>{name}</td>
@@ -37,7 +41,7 @@ function ViewerItem({ name, email, id, onRemoveViewer }: ViewerItemProps) {
         <button
           className="remove-button"
           onClick={() => {
-            onRemoveViewer(id);
+            onRemoveUmbrella(id);
           }}
         >
           Remove Umbrella Member
@@ -47,41 +51,41 @@ function ViewerItem({ name, email, id, onRemoveViewer }: ViewerItemProps) {
   );
 }
 
-export default function ViewerSharing() {
+export default function UmbrellaSharing() {
   const { data: session } = useSession();
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
 
-  const [showInviteViewerList, setShowInviteViewerList] =
+  const [showInviteUmbrellaList, setShowInviteUmbrellaList] =
     useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [viewers, setViewers] = useState<Viewer[]>();
+  const [umbrellas, setUmbrellas] = useState<Umbrella[]>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const getViewers = async () => {
+  const getUmbrellas = async () => {
     const email = session?.user?.email;
     if (email) {
-      const result = await fetch("../../api/getViewers ", {
+      const result = await fetch("../../api/getUmbrellas ", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
       });
-      const { viewersObj } = await result.json();
-      console.log(viewersObj);
-      setViewers(viewersObj);
+      const { umbrellasObj } = await result.json();
+      console.log(umbrellasObj);
+      setUmbrellas(umbrellasObj);
     }
   };
 
   useEffect(() => {
-    if (!viewers) {
-      getViewers();
+    if (!umbrellas) {
+      getUmbrellas();
       setIsLoading(false);
     }
-  }, [viewers, session, showInviteViewerList]);
+  }, [umbrellas, session, showInviteUmbrellaList]);
 
-  const formMethods = useForm<ViewerSharingFormProps>();
+  const formMethods = useForm<UmbrellaSharingFormProps>();
   const {
     handleSubmit,
     setError,
@@ -89,58 +93,58 @@ export default function ViewerSharing() {
     reset,
   } = formMethods;
 
-  const handleSubmitAddViewer = async (formData: ViewerSharingFormProps) => {
-    const { viewerInfo } = formData;
-    const result = await fetch("../../api/getViewerExists ", {
+  const handleSubmitAddUmbrella = async (formData: UmbrellaSharingFormProps) => {
+    const { umbrellaInfo } = formData;
+    const result = await fetch("../../api/getUmbrellaExists ", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ viewerInfo }),
+      body: JSON.stringify({ umbrellaInfo }),
     });
-    const viewerExists = await result.json();
-    if (!viewerExists.user) {
+    const umbrellaExists = await result.json();
+    if (!umbrellaExists.user) {
       setErrorMessage(
-        "This viewer does not exist in the Sports Wellness Platform.  Check the information you entered or contact them  if they need to register for an account."
+        "This umbrella organization does not exist in the Sports Wellness Platform.  Check the information you entered or contact them  if they need to register for an account."
       );
     } else if (
-      viewers.find((viewer) => viewer.email === viewerExists.user.email)
+      umbrellas.find((umbrella) => umbrella.email === umbrellaExists.user.email)
     ) {
-      setErrorMessage("Your list already includes this viewer.");
+      setErrorMessage("Your list already includes this umbrella organization.");
     } else {
-      const result = await fetch("../../api/addViewer ", {
+      const result = await fetch("../../api/addUmbrella ", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          viewerId: viewerExists.user._id,
+          umbrellaId: umbrellaExists.user._id,
           clientEmail: session?.user?.email,
         }),
       });
       const res = await result.json();
       if (res) {
-        setShowInviteViewerList(false);
-        await getViewers();
+        setShowInviteUmbrellaList(false);
+        await getUmbrellas();
       }
     }
   };
 
-  const onRemoveViewer = async (id: string) => {
+  const onRemoveUmbrella = async (id: string) => {
     const clientEmail = session?.user?.email;
-    const viewerId = id;
-    if (clientEmail && viewerId) {
-      const result = await fetch("../../api/removeViewer ", {
+    const umbrellaId = id;
+    if (clientEmail && umbrellaId) {
+      const result = await fetch("../../api/removeUmbrella", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ clientEmail, viewerId }),
+        body: JSON.stringify({ clientEmail, umbrellaId }),
       });
       const res = await result.json();
       if (res.result.acknowledged) {
-        setShowInviteViewerList(false);
-        await getViewers();
+        setShowInviteUmbrellaList(false);
+        await getUmbrellas();
       }
     }
   };
@@ -149,15 +153,15 @@ export default function ViewerSharing() {
     <div>
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
-        <div className="viewer-sharing-container">
-          <h2 className="viewer-sharing-title">Umbrella Member Sharing List</h2>
+        <NavigationMenu isUmbrella={isUmbrella} />
+        <div className="umbrella-sharing-container">
+          <h2 className="umbrella-sharing-title">Umbrella Member Sharing List</h2>
           {isLoading ? (
             <Loader />
           ) : (
-            <div className="viewer-sharing-card ">
-              {viewers &&
-                (viewers.length > 0 ? (
+            <div className="umbrella-sharing-card ">
+              {umbrellas &&
+                (umbrellas.length > 0 ? (
                   <>
                     <p>
                       Below is the list of those who have viewing access to your
@@ -167,21 +171,21 @@ export default function ViewerSharing() {
                       private equity, governing bodies, school districts, etc.
                     </p>
                     <div>
-                      <table className="viewers-table">
-                        <thead className="viewers-table-header">
+                      <table className="umbrellas-table">
+                        <thead className="umbrellas-table-header">
                           <th>Umbrella Name</th>
                           <th>Umbrella Email</th>
                           <th>Actions</th>
                         </thead>
                         <tbody>
-                          {viewers.map((viewer: Viewer) => {
+                          {umbrellas.map((umbrella: Umbrella) => {
                             return (
-                              <ViewerItem
-                                key={viewer._id}
-                                id={viewer._id}
-                                name={viewer.name}
-                                email={viewer.email}
-                                onRemoveViewer={onRemoveViewer}
+                              <UmbrellaItem
+                                key={umbrella._id}
+                                id={umbrella._id}
+                                name={umbrella.name}
+                                email={umbrella.email}
+                                onRemoveUmbrella={onRemoveUmbrella}
                               />
                             );
                           })}
@@ -203,18 +207,18 @@ export default function ViewerSharing() {
               <button
                 className="purchase-button"
                 onClick={() => {
-                  setShowInviteViewerList(true);
+                  setShowInviteUmbrellaList(true);
                 }}
               >
                 Add Umbrella Member
               </button>
-              {showInviteViewerList && (
+              {showInviteUmbrellaList && (
                 <div>
                   <FormProvider {...formMethods}>
-                    <form onSubmit={handleSubmit(handleSubmitAddViewer)}>
+                    <form onSubmit={handleSubmit(handleSubmitAddUmbrella)}>
                       <TextInput
-                        inputName="viewerInfo"
-                        label="Please enter the email or account ID of the viewer."
+                        inputName="umbrellaInfo"
+                        label="Please enter the email or account ID of the umbrella organization."
                         rules={{
                           required: "Please enter a value.",
                         }}

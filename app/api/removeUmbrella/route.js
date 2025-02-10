@@ -1,23 +1,23 @@
 import { connectMongoDB } from "../../../lib/mongodb";
 import { NextResponse } from "next/server";
-import ViewerToClient from "../../../models/viewerToClient";
+import UmbrellaToClient from "../../../models/umbrellaToClient";
 import Users from "../../../models/users";
 import { ObjectId } from "mongodb";
 
 export async function POST(req) {
   try {
     await connectMongoDB();
-    const { clientEmail, viewerId } = await req.json();
+    const { clientEmail, umbrellaId } = await req.json();
     const user = await Users.findOne({ email: clientEmail });
-    console.log("vid:", viewerId);
+    console.log("vid:", umbrellaId);
     //console.log("email", email);
     //console.log("user", user);
     const clientId = user._id;
     console.log("clientid", clientId);
 
-    const result = await ViewerToClient.deleteOne({
+    const result = await UmbrellaToClient.deleteOne({
       clientId,
-      viewerId: new ObjectId(viewerId),
+      umbrellaId: new ObjectId(umbrellaId),
     });
     console.log(result);
     return NextResponse.json({ result });

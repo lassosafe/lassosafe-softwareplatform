@@ -1,4 +1,7 @@
 "use client";
+/**
+ * Component for creating a new evaluation
+ */
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -8,7 +11,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePickerElement } from "react-hook-form-mui/date-pickers";
 import { categoryOptions } from "@/app/constants/categoryOptions";
 import { MultiCheckboxInput } from "../../Inputs/MultiCheckboxInput";
-import { Button } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
@@ -28,7 +30,7 @@ type AddEmailsFormProps = {
 export default function NewEvaluation() {
   const { data: session } = useSession();
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
 
   const [evaluationCreated, setEvaluationCreated] = useState<boolean>(false);
   const [newEvaluationURL, setNewEvaluationURL] = useState<string>("");
@@ -108,7 +110,7 @@ export default function NewEvaluation() {
     <div className="new-evaluation-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="new-evaluation-container">
           {!evaluationCreated && (
             <>

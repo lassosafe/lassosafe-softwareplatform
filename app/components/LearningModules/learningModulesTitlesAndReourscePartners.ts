@@ -1,3 +1,7 @@
+/**
+ * constant to add resource partners to which
+ * learning modules they apply to
+ */
 export const learningModulesTitlesAndResourcePartners = [
   {
     credit_title: "Athlete Support (SKU: ATSU)",

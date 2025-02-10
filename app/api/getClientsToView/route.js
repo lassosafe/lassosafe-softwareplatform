@@ -1,6 +1,6 @@
 import { connectMongoDB } from "../../../lib/mongodb";
 import { NextResponse } from "next/server";
-import ViewerToClient from "../../../models/viewerToClient";
+import UmbrellaToClient from "../../../models/umbrellaToClient";
 import Users from "../../../models/users";
 import { ObjectId } from "mongodb";
 
@@ -9,21 +9,17 @@ export async function POST(req) {
     await connectMongoDB();
     const { email } = await req.json();
     const user = await Users.findOne({ email });
-    //console.log(viewerId);
     //console.log("email", email);
     //console.log("user", user);
-    const viewerId = user._id;
+    const umbrellaId = user._id;
     //console.log("clientid", clientId);
 
-    const clients = await ViewerToClient.find({
-      viewerId,
+    const clients = await UmbrellaToClient.find({
+      umbrellaId,
     });
-    //console.log(viewers);
     let clientsObj = [];
     for (let i = 0; i < clients.length; i++) {
-      //console.log("viewer", viewers[i]);
       const clientId = clients[i].clientId;
-      //console.log("vid:", viewerId);
       const c = await Users.findOne({ _id: new ObjectId(clientId) });
       //console.log("v: ", v);
       if (c) {

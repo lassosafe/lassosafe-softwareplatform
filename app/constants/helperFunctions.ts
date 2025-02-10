@@ -1,4 +1,3 @@
-import xlsx from "xlsx";
 
 export const separateStrings = (strings: string): string[] => {
   if (strings === "") return [];

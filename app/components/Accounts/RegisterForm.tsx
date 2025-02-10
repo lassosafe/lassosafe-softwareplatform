@@ -1,11 +1,12 @@
 "use client";
-
+/**
+ * Component to register for account, users are redirected to this page
+ * after Stripe payment
+ */
 import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import { loadStripe } from "@stripe/stripe-js";
-import Stripe from "stripe";
 import Image from "next/image";
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 
@@ -31,7 +32,7 @@ export default function RegisterForm() {
   const stripeSessionId = searchParams.get("session_id") || "";
   console.log(stripeSessionId);
 
-  const isViewer = searchParams.get("isViewer") || false;
+  const isUmbrella = searchParams.get("isUmbrella") || false;
 
   useEffect(() => {
     const getStripePaymentInfo = async () => {
@@ -43,7 +44,7 @@ export default function RegisterForm() {
 
         body: JSON.stringify({
           stripeSessionId,
-          isViewer,
+          isUmbrella,
         }),
       });
       const {
@@ -72,21 +73,6 @@ export default function RegisterForm() {
     }
 
     try {
-      // const responseUserExists = await fetch("../api/userExists", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ email }),
-      // });
-
-      // const { user } = await responseUserExists.json();
-
-      // if (user) {
-      //   setError("User already exists.");
-      //   return;
-      // }
-
       const response = await fetch("../api/register", {
         method: "POST",
         headers: {
@@ -99,7 +85,7 @@ export default function RegisterForm() {
           password,
           stripeSubscriptionId,
           numberParticipants,
-          isViewer,
+          isUmbrella,
         }),
       });
       if (response.ok) {

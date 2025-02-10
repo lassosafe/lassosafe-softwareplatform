@@ -1,5 +1,8 @@
 "use client";
-
+/*
+  Component for Account Settings page where user can see information about them,
+  cancel their account, make edits
+*/
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
@@ -34,7 +37,7 @@ export default function AccountSettings() {
   const [accountId, setAccountId] = useState<string>("");
 
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
 
   const formMethods = useForm<EditNameFormProps>();
   const {
@@ -148,7 +151,7 @@ export default function AccountSettings() {
     <div>
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="place-items-center h-screen account-settings-container">
           <div className="shadow-lg p-8 bg-zince-300/10 flex flex-col gap-2">
             <h2 className="account-settings">Account Settings</h2>
@@ -222,7 +225,7 @@ export default function AccountSettings() {
                     </div>
                   </form>
                 </FormProvider>
-                {!isViewer && (
+                {!isUmbrella && (
                   <FormProvider {...formMethods}>
                     <form onSubmit={handleSubmit(onEditName)}>
                       <TextInput

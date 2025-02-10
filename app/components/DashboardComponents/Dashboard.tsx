@@ -1,18 +1,12 @@
 "use client";
+/**
+ * Dashboard for the home page upon login
+ */
 
 import "./Dashboard.scss";
 
-import awardlogo from "../../../public/images/award.png";
-import Image from "next/image";
-import { ReactNode, useCallback, useEffect, useState } from "react";
-import ReportingDashboard from "@/app/components/DashboardComponents/ReportingDashboard";
-import Methodology from "@/app/components/Methodology/Methodology";
-import NewEvaluation from "@/app/components/Evaluations/CreateNewEvaluation/NewEvaluation";
-import LearningModules from "@/app/components/LearningModules/LearningModules";
 import { DashboardHeader } from "@/app/components/DashboardComponents/DashboardHeader";
 import { useSession } from "next-auth/react";
-import EvaluationInstructions from "../EvaluationInstructions/EvaluationInstructions";
-import { SelectOption } from "../Dropdown/SelectDropdown";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Footer from "../Footer/Footer";
 import { useSearchParams } from "next/navigation";
@@ -26,38 +20,19 @@ export type Evaluation = {
 };
 
 export default function Dashboard() {
-  // const [navBarOpen, setNavBarOpen] = useState<boolean>(true);
-
-  // let evaluationOptions: SelectOption<string>[] = [];
-  // let userEvaluations: Evaluation[] = [];
-  // const [selectedEvaluation, setSelectedEvaluation] = useState<Evaluation>({
-  //   name: "",
-  //   userId: "",
-  //   categoryIds: [],
-  //   expirationDate: new Date(),
-  //   _id: "",
-  // });
-
-  // const [componentToShow, setComponentToShow] = useState<ReactNode>(
-  //   <ReportingDashboard
-  //     selectedEvaluation={selectedEvaluation}
-  //     evaluationOptions={evaluationOptions}
-  //     onChangeDisplayedEvaluation={onChangeDisplayedEvaluation}
-  //   />
-  // );
 
   const { data: session } = useSession();
   console.log("session: ");
   console.log(session);
 
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
 
   return (
     <div className="dashboard">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="home-page-components">
           <p className="welcome-text">Welcome to your LassoSafe Dashboard!</p>
           <p className="welcome-sub-text">

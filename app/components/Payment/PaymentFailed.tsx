@@ -1,3 +1,7 @@
+/**
+ * Component user sees if their Stripe payment has failed
+ * upon registration
+ */
 import Image from "next/image";
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 import Footer from "../Footer/Footer";

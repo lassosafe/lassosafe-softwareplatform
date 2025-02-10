@@ -1,4 +1,7 @@
 "use client";
+/**
+ * Component to read about and subscribe as a regular organization
+ */
 
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
@@ -12,7 +15,6 @@ import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
 import { RadioInput } from "../Inputs/RadioInput";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 type SubscriptionFormProps = {
   numParticipants: string;

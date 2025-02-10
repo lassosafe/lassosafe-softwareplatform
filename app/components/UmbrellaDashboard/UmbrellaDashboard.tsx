@@ -1,16 +1,12 @@
 "use client";
+/**
+ * Component for Umbrella Dashboard home page
+ */
 
 import "../DashboardComponents/Dashboard.scss";
 
-import Image from "next/image";
-import { ReactNode, useCallback, useEffect, useState } from "react";
-import ReportingDashboard from "@/app/components/DashboardComponents/ReportingDashboard";
-import Methodology from "@/app/components/Methodology/Methodology";
-import NewEvaluation from "@/app/components/Evaluations/CreateNewEvaluation/NewEvaluation";
-import LearningModules from "@/app/components/LearningModules/LearningModules";
 import { DashboardHeader } from "@/app/components/DashboardComponents/DashboardHeader";
 import { useSession } from "next-auth/react";
-import EvaluationInstructions from "../EvaluationInstructions/EvaluationInstructions";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Footer from "../Footer/Footer";
 
@@ -53,7 +49,7 @@ export default function Dashboard() {
     <div className="dashboard">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer />
+        <NavigationMenu isUmbrella />
         <div className="home-page-components">
           <p className="welcome-text">
             Welcome to your LassoSafe SWP Umbrella Dashboard!

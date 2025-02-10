@@ -1,10 +1,10 @@
-import ViewerSharing from "@/app/components/ViewerSharing/ViewerSharing";
+import UmbrellaSharing from "@/app/components/UmbrellaSharing/UmbrellaSharing";
 import { Suspense } from "react";
 
-export default function ViewerSharingPage() {
+export default function UmbrellaSharingPage() {
   return (
     <Suspense>
-      <ViewerSharing />
+      <UmbrellaSharing />
     </Suspense>
   );
 }

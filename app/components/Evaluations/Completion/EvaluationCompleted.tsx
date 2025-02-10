@@ -1,3 +1,8 @@
+/**
+ * Final page a user sees when finishing the evaluation
+ * Includes a random "confirmation code" in case an organization
+ * is requiring proof that a user has completed the evaluation
+ */
 import horizontallogowhite from "../../../../public/images/logo-horizontal-white.png";
 import Image from "next/image";
 

@@ -1,10 +1,11 @@
+/**
+ * Shared component for Dashboard header used in all components
+ */
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 import { signOut } from "next-auth/react";
-import { useSession } from "next-auth/react";
 import "./DashboardHeader.scss";
-import { useSearchParams } from "next/navigation";
 
 export function DashboardHeader() {
   const userSignOut = () => {

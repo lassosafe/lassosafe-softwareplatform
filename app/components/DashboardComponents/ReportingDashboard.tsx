@@ -1,8 +1,10 @@
 "use client";
-
+/**
+ * Homepage for reporting dashboard that calls other dashboard subcomponents
+ */
 import "./Dashboard.scss";
 import "./ReportingDashboard.scss";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SelectDropdown, SelectOption } from "../Dropdown/SelectDropdown";
 import { useSession } from "next-auth/react";
 import { DashboardHeader } from "./DashboardHeader";
@@ -15,7 +17,7 @@ import { ReportingDashboardContents } from "./ReportingDashboardContents";
 export default function ReportingDashboard() {
   const { data: session } = useSession();
   const searchParams = useSearchParams();
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
   const [clients, setClients] = useState();
   const [selectedClientId, setSelectedClientId] = useState<string>("");
 
@@ -58,10 +60,10 @@ export default function ReportingDashboard() {
   };
 
   useEffect(() => {
-    console.log(" in use effect client and viewer");
-    if (isViewer && !clients) {
+    console.log(" in use effect client and umbrella");
+    if (isUmbrella && !clients) {
       getClients();
-    } else if (!isViewer) {
+    } else if (!isUmbrella) {
       getUser();
     }
   }, [clients, session]);
@@ -75,9 +77,9 @@ export default function ReportingDashboard() {
     <div className="reporting-dashboard-container">
       <DashboardHeader />
       <div className="center-components-reporting-dashboard">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="reporting-dashboard-components">
-          {isViewer && clients && (
+          {isUmbrella && clients && (
             <>
               {selectedClientId !== "" ? (
                 <div className="clients-dropdown">
@@ -101,7 +103,7 @@ export default function ReportingDashboard() {
           {selectedClientId !== "" && (
             <ReportingDashboardContents
               clientId={selectedClientId}
-              isViewer={isViewer}
+              isUmbrella={isUmbrella}
             />
           )}
         </div>

@@ -1,10 +1,12 @@
 "use client";
-
+/**
+ * Component to calculate a pricing quote for the user 
+ * if not ready to purchase subscription yet
+ */
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { FormProvider, useForm } from "react-hook-form";
 import Image from "next/image";
-import exampleswpdashboard from "../../../public/images/example-swp-dashboard.png";
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";
 
 import "./Subscription.scss";
@@ -13,7 +15,6 @@ import { TextInput } from "../Inputs/SingleLineTextInput";
 import Footer from "../Footer/Footer";
 import { RadioInput } from "../Inputs/RadioInput";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 type PricingQuoteProps = {
   numParticipants: string;

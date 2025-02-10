@@ -1,4 +1,7 @@
 "use client";
+/**
+ * Component to request a password reset
+ */
 import { useState } from "react";
 import Footer from "../Footer/Footer";
 import horizontallogowhite from "../../../public/images/logo-horizontal-white.png";

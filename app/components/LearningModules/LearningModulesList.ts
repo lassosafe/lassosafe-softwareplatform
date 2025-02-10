@@ -1,3 +1,7 @@
+/**
+ * constants for all learning modules
+ * and their field values
+ */
 export type LearningModulesList = {
   sku: string;
   credit_title: string;

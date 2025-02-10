@@ -1,4 +1,8 @@
 "use client";
+/**
+ * All learning modules and the side navigation to choose which 
+ * learning module category to view
+ */
 import "./LearningModules.scss";
 import { useState, ReactNode } from "react";
 import AthleteSupport from "./LearningModulesCategories/AthleteSupport";
@@ -27,7 +31,7 @@ import { learningModulesList } from "./LearningModulesList";
 export default function LearningModules() {
   const searchParams = useSearchParams();
   const sku = searchParams.get("sku");
-  const isViewer = searchParams.get("isViewer") === "true" ? true : false;
+  const isUmbrella = searchParams.get("isUmbrella") === "true" ? true : false;
 
   const [componentToShow, setComponentToShow] = useState<ReactNode>(
     sku ? (
@@ -55,7 +59,7 @@ export default function LearningModules() {
     <div className="learning-modules-page">
       <DashboardHeader />
       <div className="center-components">
-        <NavigationMenu isViewer={isViewer} />
+        <NavigationMenu isUmbrella={isUmbrella} />
         <div className="learning-modules-container">
           <div>
             <div className="learning-modules-title">Learning Modules</div>

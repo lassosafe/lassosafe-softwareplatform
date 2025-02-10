@@ -41,7 +41,7 @@ export async function POST(req) {
       mode: "subscription",
       payment_method_types: ["card"],
       line_items: [umbrellaFee],
-      success_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/register?session_id={CHECKOUT_SESSION_ID}&isViewer=true`,
+      success_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/register?session_id={CHECKOUT_SESSION_ID}&isUmbrella=true`,
       cancel_url: `${process.env.NEXT_PUBLIC_AUTH_URL}/pages/paymentFailed`,
     });
     return NextResponse.json({ sessionId: session.id }, { status: 200 });

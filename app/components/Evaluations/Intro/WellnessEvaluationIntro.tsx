@@ -1,10 +1,11 @@
 "use client";
+/**
+ * First page of evaluation with approprate description before starting 
+ */
 
 import { useSearchParams } from "next/navigation";
-import { RadioInput } from "../../Inputs/RadioInput";
 import { SelectInput } from "../../Inputs/SelectInput";
 import { FormProvider, useForm } from "react-hook-form";
-import Link from "next/link";
 import {
   ageRangeOptions,
   athleteLevelOptions,

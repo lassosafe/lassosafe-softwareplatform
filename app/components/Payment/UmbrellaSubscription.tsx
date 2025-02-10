@@ -1,4 +1,7 @@
 "use client";
+/**
+ * Component to read about and subscribe as an umbrella organization
+ */
 
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
@@ -9,7 +12,6 @@ import horizontallogowhite from "../../../public/images/logo-horizontal-white.pn
 
 import "./Subscription.scss";
 import Footer from "../Footer/Footer";
-import { SelectInput } from "../Inputs/SelectInput";
 import { RadioInput } from "../Inputs/RadioInput";
 
 const annualRevenueOptions = [
@@ -38,15 +40,15 @@ const paymentFrequencyOptions = [
   },
 ];
 
-type ViewerSubscriptionFormProps = {
+type UmbrellaSubscriptionFormProps = {
   annualRevenue: string;
   paymentFrequency: string;
 };
 
-export default function ViewerSubscriptionForm() {
+export default function UmbrellaSubscriptionForm() {
   const [priceId, setPriceId] = useState("");
 
-  const formMethods = useForm<ViewerSubscriptionFormProps>();
+  const formMethods = useForm<UmbrellaSubscriptionFormProps>();
   const {
     handleSubmit,
     setError,
@@ -54,8 +56,8 @@ export default function ViewerSubscriptionForm() {
     reset,
   } = formMethods;
 
-  const handleSubmitViewerSubscription = async (
-    formData: ViewerSubscriptionFormProps
+  const handleSubmitUmbrellaSubscription = async (
+    formData: UmbrellaSubscriptionFormProps
   ) => {
     const stripePromise = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
@@ -77,7 +79,7 @@ export default function ViewerSubscriptionForm() {
       (rev) => rev.value === parseInt(annualRevenue)
     ).optionLabel;
 
-    const response = await fetch("/api/viewerCheckoutSession", {
+    const response = await fetch("/api/umbrellaCheckoutSession", {
       method: "POST",
       body: JSON.stringify({
         paymentFrequencyString,
@@ -180,7 +182,7 @@ export default function ViewerSubscriptionForm() {
           </div>
 
           <FormProvider {...formMethods}>
-            <form onSubmit={handleSubmit(handleSubmitViewerSubscription)}>
+            <form onSubmit={handleSubmit(handleSubmitUmbrellaSubscription)}>
               <div className="selector">
                 <RadioInput
                   label="Annual Revenue"
